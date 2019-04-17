@@ -119,4 +119,12 @@ bool byte_queue_dequeue(byte_queue_t *ptObj, uint8_t *pchByte)
     return true;
 }
 
+mem_t byte_queue_buffer_get(byte_queue_t *ptObj)
+{
+    class_internal(ptObj, ptThis, byte_queue_t);
+    ASSERT(NULL != ptObj);
+    
+    return this.use_as__mem_t;
+}
+
 /* EOF */

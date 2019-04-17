@@ -1,4 +1,4 @@
---cpu Cortex-M3 --lto
+--cpu Cortex-M3
 ".\objects\platform.o"
 ".\objects\main.o"
 ".\objects\byte_queue.o"

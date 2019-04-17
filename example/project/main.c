@@ -35,10 +35,11 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-
 int main(void)
 {
     platform_init();
+    
+    BYTE_QUEUE.Init(NULL, NULL);
 
     printf("Hello PLOOC!\r\n");
     while(1);
