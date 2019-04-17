@@ -1,6 +1,8 @@
---cpu Cortex-M3 --lto
+--cpu Cortex-M3
 ".\objects\platform.o"
 ".\objects\main.o"
+".\objects\byte_queue.o"
+".\objects\enhanced_byte_queue.o"
 ".\objects\glcd_fonts.o"
 ".\objects\glcd_v2m-mps2.o"
 ".\objects\led_v2m-mps2.o"

@@ -49,16 +49,6 @@
 #   define target       (*ptTarget)
 #endif
 
-#ifndef declare_method
-#   define declare_method   declare_class
-#endif
-#ifndef def_method
-#   define def_method       def_class
-#endif
-#ifndef end_def_method
-#   define end_def_method   end_def_class
-#endif
-
 /*============================ MACROFIED FUNCTIONS ===========================*/
 
 //! @{

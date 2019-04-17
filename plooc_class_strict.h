@@ -52,6 +52,7 @@
 #   ifdef __OOC_DEBUG__
 #       define __def_class(__NAME, __PUBLIC ,...)                               \
     typedef struct __NAME __NAME;                                               \
+    typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
         __PUBLIC                                                                \
         __VA_ARGS__                                                             \
@@ -63,6 +64,7 @@
 #   else
 #       define __def_class(__NAME, __PUBLIC, ...)                               \
     typedef struct __NAME __NAME;                                               \
+    typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
         __PUBLIC                                                                \
         __VA_ARGS__                                                             \
@@ -79,16 +81,16 @@
 
 
 #   undef private_member
-#   define private_member(...)              PLOOC_ALIGN(sizeof(int)) __VA_ARGS__
+#   define private_member(...)              struct { __VA_ARGS__ };
 
 #   undef protected_member
-#   define protected_member(...)            PLOOC_ALIGN(sizeof(int)) __VA_ARGS__
+#   define protected_member(...)            struct { __VA_ARGS__ };
 
 #   undef public_member
-#   define public_member(...)               PLOOC_ALIGN(sizeof(int)) __VA_ARGS__
+#   define public_member(...)               struct { __VA_ARGS__ };
 
 #   undef  __class
-#   define __class(__NAME)                  struct __##__NAME
+#   define __class(__NAME)                  __##__NAME
 
 #   undef  class
 #   define class(__NAME)                    __class(__NAME)
