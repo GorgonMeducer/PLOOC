@@ -46,6 +46,10 @@ static enhanced_byte_queue_t s_tQueue;
 int main(void)
 {
     platform_init();
+    
+    
+    printf("Hello PLOOC!\r\n\r\n");
+    
     do {
         static uint8_t s_chQueueBuffer[QUEUE_BUFFER_SIZE];
         const enhanced_byte_queue_cfg_t tCFG = {
@@ -61,6 +65,11 @@ int main(void)
     ENHANCED_BYTE_QUEUE.Enqueue(&s_tQueue, 'O');
     ENHANCED_BYTE_QUEUE.Enqueue(&s_tQueue, 'O');
     ENHANCED_BYTE_QUEUE.Enqueue(&s_tQueue, 'C');
+    
+    ENHANCED_BYTE_QUEUE.use_as__i_byte_queue_t.Enqueue(&s_tQueue.use_as__byte_queue_t, '.');
+    ENHANCED_BYTE_QUEUE.use_as__i_byte_queue_t.Enqueue(&s_tQueue.use_as__byte_queue_t, '.');
+    ENHANCED_BYTE_QUEUE.use_as__i_byte_queue_t.Enqueue(&s_tQueue.use_as__byte_queue_t, '.');
+    
     //! you can dequeue
     do {
         uint_fast16_t n = ENHANCED_BYTE_QUEUE.Count(&s_tQueue);
@@ -73,14 +82,12 @@ int main(void)
         }
         printf("There are %d byte in the queue!\r\n", 
                 ENHANCED_BYTE_QUEUE.Count(&s_tQueue));
-        printf("Let's peek them all \r\n");
+        printf("Let's remove all peeked byte from queue... \r\n");
         ENHANCED_BYTE_QUEUE.Peek.GetAllPeeked(&s_tQueue);
         printf("There are %d byte in the queue!\r\n", 
                 ENHANCED_BYTE_QUEUE.Count(&s_tQueue));
     } while(0);
    
 
-
-    printf("Hello PLOOC!\r\n");
     while(1);
 }
