@@ -15,9 +15,9 @@ The Protected Low-overhead Object Oriented Programming with ANSI-C, a.k.a PLOOC 
 > NOTE: Almost ZERO OVERHEAD. The template fully utilises the ANSI-C enforce compilation rules to deliver desired OO feature with the necessary cost.
 
 ### Update Log
-- [04/17/2019] Upload PLOOC to github, version 4.01
--- Add method definition which support private method, protected method and public method
--- Add readme and example byte_queue
+- \[04/17/2019\] Upload PLOOC to github, version 4.01
+    - Add method definition which support private method, protected method and public method
+    - Add readme and example byte_queue
 
 
 ### License
@@ -74,13 +74,13 @@ More examples will be added later...
 
 ##### Example 1: byte_queue
 This example shows
-* How to define a class
--- How to add private member
--- How to add protected member
-* How to access class members
-* How to inherit from a base class
--- How to access protected members which are inherited from base
-* How to define user friendly interface
--- How to inherit a interface
+- How to define a class
+    - How to add private member
+    - How to add protected member
+- How to access class members
+- How to inherit from a base class
+    - How to access protected members which are inherited from base
+- How to define user friendly interface
+    - How to inherit a interface
 
 Author:  GorgonMeducer<embedded_zhuoran@hotmail.com>,  under Apache 2.0
