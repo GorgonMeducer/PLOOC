@@ -335,7 +335,7 @@
             <v6WtE>0</v6WtE>
             <v6Rtti>0</v6Rtti>
             <VariousControls>
-              <MiscControls>-Omax -fms-extensions -Wno-microsoft-anon-tag</MiscControls>
+              <MiscControls>-Omax -fms-extensions -Wno-microsoft-anon-tag -Wno-empty-body</MiscControls>
               <Define>_MSC_VER</Define>
               <Undefine></Undefine>
               <IncludePath>..\mdk;..\..\..\example;..\..\..\..\PLOOC</IncludePath>
@@ -431,6 +431,11 @@
               <FileName>byte_queue.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\byte_queue\byte_queue.h</FilePath>
+            </File>
+            <File>
+              <FileName>byte_queue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\byte_queue\byte_queue.c</FilePath>
             </File>
           </Files>
         </Group>

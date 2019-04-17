@@ -79,13 +79,13 @@
 
 
 #   undef private_member
-#   define private_member(...)              PLOOC_ALIGN(sizeof(int)) __VA_ARGS__
+#   define private_member(...)              struct { __VA_ARGS__ };
 
 #   undef protected_member
-#   define protected_member(...)            PLOOC_ALIGN(sizeof(int)) __VA_ARGS__
+#   define protected_member(...)            struct { __VA_ARGS__ };
 
 #   undef public_member
-#   define public_member(...)               PLOOC_ALIGN(sizeof(int)) __VA_ARGS__
+#   define public_member(...)               struct { __VA_ARGS__ };
 
 #   undef  __class
 #   define __class(__NAME)                  struct __##__NAME

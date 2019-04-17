@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\plooc_example.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\plooc_example.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6120001: Last Updated: Wed Apr 17 14:38:22 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6120001: Last Updated: Wed Apr 17 15:26:11 2019
 <BR><P>
 <H3>Maximum Stack Usage =        128 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -53,12 +53,12 @@ Function Pointers
  <LI><a href="#[21]">SPI_3_4_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[6]">SVC_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[9]">SysTick_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
- <LI><a href="#[2a]">SystemInit</a> from lto-llvm-55ed36.o(.text.SystemInit) referenced from startup_cmsdk_cm3.o(.text)
+ <LI><a href="#[2a]">SystemInit</a> from lto-llvm-827018.o(.text.SystemInit) referenced from startup_cmsdk_cm3.o(.text)
  <LI><a href="#[12]">TIMER0_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[13]">TIMER1_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[19]">TOUCHSCREEN_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
- <LI><a href="#[a]">UART0RX_Handler</a> from lto-llvm-55ed36.o(.text.UART0RX_Handler) referenced from startup_cmsdk_cm3.o(RESET)
- <LI><a href="#[b]">UART0TX_Handler</a> from lto-llvm-55ed36.o(.text.UART0TX_Handler) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[a]">UART0RX_Handler</a> from lto-llvm-827018.o(.text.UART0RX_Handler) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[b]">UART0TX_Handler</a> from lto-llvm-827018.o(.text.UART0TX_Handler) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[c]">UART1RX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[d]">UART1TX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[e]">UART2RX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
@@ -703,24 +703,24 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_SIGRTMEM
 </UL>
 
-<P><STRONG><a name="[2a]"></a>SystemInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, lto-llvm-55ed36.o(.text.SystemInit))
+<P><STRONG><a name="[2a]"></a>SystemInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, lto-llvm-827018.o(.text.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(.text)
 </UL>
-<P><STRONG><a name="[a]"></a>UART0RX_Handler</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, lto-llvm-55ed36.o(.text.UART0RX_Handler))
+<P><STRONG><a name="[a]"></a>UART0RX_Handler</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, lto-llvm-827018.o(.text.UART0RX_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
 </UL>
-<P><STRONG><a name="[b]"></a>UART0TX_Handler</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, lto-llvm-55ed36.o(.text.UART0TX_Handler))
+<P><STRONG><a name="[b]"></a>UART0TX_Handler</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, lto-llvm-827018.o(.text.UART0TX_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
 </UL>
-<P><STRONG><a name="[51]"></a>_sys_close</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, lto-llvm-55ed36.o(.text._sys_close))
+<P><STRONG><a name="[51]"></a>_sys_close</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, lto-llvm-827018.o(.text._sys_close))
 <BR><BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fclose_internal
 </UL>
 
-<P><STRONG><a name="[5a]"></a>_sys_istty</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, lto-llvm-55ed36.o(.text._sys_istty))
+<P><STRONG><a name="[5a]"></a>_sys_istty</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, lto-llvm-827018.o(.text._sys_istty))
 <BR><BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fseek
 </UL>
 
-<P><STRONG><a name="[4c]"></a>_sys_open</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, lto-llvm-55ed36.o(.text._sys_open))
+<P><STRONG><a name="[4c]"></a>_sys_open</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, lto-llvm-827018.o(.text._sys_open))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _sys_open
 </UL>
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
@@ -728,7 +728,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;freopen
 </UL>
 
-<P><STRONG><a name="[5e]"></a>_sys_write</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, lto-llvm-55ed36.o(.text._sys_write))
+<P><STRONG><a name="[5e]"></a>_sys_write</STRONG> (Thumb, 52 bytes, Stack size 16 bytes, lto-llvm-827018.o(.text._sys_write))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = _sys_write
 </UL>
 <BR>[Calls]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stdout_putchar
@@ -736,11 +736,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_writebuf
 </UL>
 
-<P><STRONG><a name="[42]"></a>fputc</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, lto-llvm-55ed36.o(.text.fputc))
+<P><STRONG><a name="[42]"></a>fputc</STRONG> (Thumb, 84 bytes, Stack size 0 bytes, lto-llvm-827018.o(.text.fputc))
 <BR><BR>[Called By]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;puts
 </UL>
 
-<P><STRONG><a name="[3b]"></a>main</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, lto-llvm-55ed36.o(.text.main))
+<P><STRONG><a name="[3b]"></a>main</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, lto-llvm-827018.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = main &rArr; puts
 </UL>
 <BR>[Calls]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;puts
@@ -751,7 +751,7 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[65]"></a>stdout_putchar</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, lto-llvm-55ed36.o(.text.stdout_putchar))
+<P><STRONG><a name="[65]"></a>stdout_putchar</STRONG> (Thumb, 80 bytes, Stack size 0 bytes, lto-llvm-827018.o(.text.stdout_putchar))
 <BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_write
 </UL>
 <P>

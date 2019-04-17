@@ -81,18 +81,18 @@ declare_method(i_byte_queue_t)
 
 def_method(i_byte_queue_t, /*!< no inherit or implement */
     public_member (
-        byte_queue_t *  (*Init)     (byte_queue_t *ptThis, byte_queue_cfg_t *ptCFG);
-        bool            (*Enqueue)  (byte_queue_t *ptThis, uint8_t chByte);
-        bool            (*Dequeue)  (byte_queue_t *ptThis, uint8_t *pchByte);
-        uint_fast16_t   (*Count)    (byte_queue_t *ptThis);
+        byte_queue_t *  (*Init)     (byte_queue_t *ptObj, byte_queue_cfg_t *ptCFG);
+        bool            (*Enqueue)  (byte_queue_t *ptObj, uint8_t chByte);
+        bool            (*Dequeue)  (byte_queue_t *ptObj, uint8_t *pchByte);
+        uint_fast16_t   (*Count)    (byte_queue_t *ptObj);
         struct {
-            void *      (*Get)      (byte_queue_t *ptThis);
-            void        (*Set)      (byte_queue_t *ptThis, void *pTarget);
+            void *      (*Get)      (byte_queue_t *ptObj);
+            void        (*Set)      (byte_queue_t *ptObj, void *pTarget);
         }Target;
     ),   /*! don't forget the comma here */
     protected_member(
         struct {
-            mem_t   (*Get)      (byte_queue_t *ptThis);
+            mem_t   (*Get)      (byte_queue_t *ptObj);
         }Buffer;
     )
 )
@@ -104,7 +104,13 @@ end_def_method(i_byte_queue_t) /*do not remove this for forward compatibility */
 extern const i_byte_queue_t BYTE_QUEUE;
 /*============================ PROTOTYPES ====================================*/
 
+extern
+byte_queue_t * byte_queue_init(byte_queue_t *ptObj, byte_queue_cfg_t *ptCFG);
 
+extern 
+bool byte_queue_enqueue(byte_queue_t *ptObj, uint8_t chByte);
 
+extern
+bool byte_queue_dequeue(byte_queue_t *ptObj, uint8_t *pchByte);
 #endif
 /* EOF */
