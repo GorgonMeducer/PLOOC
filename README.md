@@ -1,4 +1,4 @@
-## PLOOC (Protected Low-overhead Object Oriented Programming with ANSI-C)
+## PLOOC (Protected Low-overhead Object Oriented programming with ANSI-C)
 ### Introduction
 The Protected Low-overhead Object Oriented Programming with ANSI-C, a.k.a PLOOC ['plu:k] is an well-orignasied C macro templates with following features:
 
