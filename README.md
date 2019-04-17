@@ -82,5 +82,3 @@ This example shows
     - How to access protected members which are inherited from base
 - How to define user friendly interface
     - How to inherit a interface
-
-Author:  GorgonMeducer<embedded_zhuoran@hotmail.com>,  under Apache 2.0
