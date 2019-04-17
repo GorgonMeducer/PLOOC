@@ -1,7 +1,5 @@
 /*****************************************************************************
  *   Copyright(C)2009-2019 by GorgonMeducer<embedded_zhuoran@hotmail.com>    *
- *                       and  SimonQian<simonqian@simonqian.com>             *
- *         with support from  HenryLong                                      *
  *                                                                           *
  *  Licensed under the Apache License, Version 2.0 (the "License");          *
  *  you may not use this file except in compliance with the License.         *
@@ -36,17 +34,16 @@
           a. if the target processor is 8 bits, define it as uint8_t
           b. if the target processor is 16 bits, define it as uint16_t 
           c. if the target processor is 32 bits, define it as uint32_t
-          d. if the target processor is 64 bits, define it as either uint32_t or uint64_t
+          d. if the target processor is 64 bits, define it as either uint32_t or 
+             uint64_t
  */
-
-
-
 
 /*============================ MACROS ========================================*/
 #undef def_class
 #undef __def_class
 #undef end_def_class
 #undef __end_def_class
+
 /*============================ MACROFIED FUNCTIONS ===========================*/
 
 
@@ -82,13 +79,13 @@
 
 
 #   undef private_member
-#   define private_member(...)              ALIGN(sizeof(int)) __VA_ARGS__
+#   define private_member(...)              PLOOC_ALIGN(sizeof(int)) __VA_ARGS__
 
 #   undef protected_member
-#   define protected_member(...)            ALIGN(sizeof(int)) __VA_ARGS__
+#   define protected_member(...)            PLOOC_ALIGN(sizeof(int)) __VA_ARGS__
 
 #   undef public_member
-#   define public_member(...)               ALIGN(sizeof(int)) __VA_ARGS__
+#   define public_member(...)               PLOOC_ALIGN(sizeof(int)) __VA_ARGS__
 
 #   undef  __class
 #   define __class(__NAME)                  struct __##__NAME
@@ -133,13 +130,13 @@
 #   define __end_def_class(__NAME, ...)                                         
 
 #   undef private_member
-#   define private_member(...)              ALIGN(sizeof(int)) __VA_ARGS__
+#   define private_member(...)              struct { __VA_ARGS__ };
 
 #   undef protected_member
-#   define protected_member(...)            ALIGN(sizeof(int)) __VA_ARGS__
+#   define protected_member(...)            struct { __VA_ARGS__ };
 
 #   undef public_member
-#   define public_member(...)               ALIGN(sizeof(int)) __VA_ARGS__
+#   define public_member(...)               struct { __VA_ARGS__ };
 
 
 #   undef  __class_protected
@@ -197,10 +194,10 @@
         }) + sizeof(uint_fast8_t) - 1) / sizeof(uint_fast8_t)];
 
 #   undef protected_member
-#   define protected_member(...)                ALIGN(sizeof(int)) __VA_ARGS__
+#   define protected_member(...)                struct { __VA_ARGS__ };
 
 #   undef public_member
-#   define public_member(...)                   ALIGN(sizeof(int)) __VA_ARGS__
+#   define public_member(...)                   struct { __VA_ARGS__ };
 
 #   undef  __class_protected
 #   define __class_protected(__NAME)            struct __protected_##__NAME
@@ -244,13 +241,13 @@
 
 
 #   undef private_member
-#   define private_member(...)              ALIGN(sizeof(int)) __VA_ARGS__
+#   define private_member(...)              struct { __VA_ARGS__ };
 
 #   undef protected_member
-#   define protected_member(...)            ALIGN(sizeof(int)) __VA_ARGS__
+#   define protected_member(...)            struct { __VA_ARGS__ };
 
 #   undef public_member
-#   define public_member(...)               ALIGN(sizeof(int)) __VA_ARGS__
+#   define public_member(...)               struct { __VA_ARGS__ };
 
 #else  /* __PLOOC_CLASS_EXTERN */
 
@@ -275,7 +272,7 @@
 #   define protected_member(...)         private_member(__VA_ARGS__)
 
 #   undef public_member
-#   define public_member(...)            ALIGN(sizeof(int)) __VA_ARGS__
+#   define public_member(...)            struct { __VA_ARGS__ };
        
 #endif 
 

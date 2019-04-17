@@ -1,7 +1,7 @@
 /*****************************************************************************
  *   Copyright(C)2009-2019 by GorgonMeducer<embedded_zhuoran@hotmail.com>    *
  *                       and  SimonQian<simonqian@simonqian.com>             *
- *         with support from  HenryLong                                      *
+ *         with support from  HenryLong<henry_long@163.com>                  *
  *                                                                           *
  *  Licensed under the Apache License, Version 2.0 (the "License");          *
  *  you may not use this file except in compliance with the License.         *
@@ -49,6 +49,15 @@
 #   define target       (*ptTarget)
 #endif
 
+#ifndef declare_method
+#   define declare_method   declare_class
+#endif
+#ifndef def_method
+#   define def_method       def_class
+#endif
+#ifndef end_def_method
+#   define end_def_method   end_def_class
+#endif
 
 /*============================ MACROFIED FUNCTIONS ===========================*/
 
