@@ -36,6 +36,11 @@ const i_byte_queue_t BYTE_QUEUE = {
     .Init =             &byte_queue_init,
     .Enqueue =          &byte_queue_enqueue,
     .Dequeue =          &byte_queue_dequeue,
+    .Count =            &byte_queue_count,
+    .Target  = {
+        .Get =          &byte_queue_target_get,
+        .Set =          &byte_queue_target_set,
+    },
 };
 
 /*============================ IMPLEMENTATION ================================*/
@@ -118,6 +123,31 @@ bool byte_queue_dequeue(byte_queue_t *ptObj, uint8_t *pchByte)
     
     return true;
 }
+
+uint_fast16_t byte_queue_count(byte_queue_t *ptObj)
+{
+    class_internal(ptObj, ptThis, byte_queue_t);
+    ASSERT(NULL != ptObj);
+    
+    return this.hwCount;
+}
+
+void *byte_queue_target_get(byte_queue_t *ptObj)
+{
+    class_internal(ptObj, ptThis, byte_queue_t);
+    ASSERT(NULL != ptObj);
+    
+    return this.pTarget;
+}
+
+void  byte_queue_target_set(byte_queue_t *ptObj, void *pTarget)
+{
+    class_internal(ptObj, ptThis, byte_queue_t);
+    ASSERT(NULL != ptObj);
+    
+    this.pTarget = pTarget;
+}
+
 
 mem_t byte_queue_buffer_get(byte_queue_t *ptObj)
 {

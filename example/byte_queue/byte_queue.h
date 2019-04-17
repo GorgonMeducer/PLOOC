@@ -96,9 +96,17 @@ byte_queue_t * byte_queue_init(byte_queue_t *ptObj, byte_queue_cfg_t *ptCFG);
 extern 
 bool byte_queue_enqueue(byte_queue_t *ptObj, uint8_t chByte);
 
-
 extern
 bool byte_queue_dequeue(byte_queue_t *ptObj, uint8_t *pchByte);
+
+extern
+uint_fast16_t byte_queue_count(byte_queue_t *ptObj);
+
+extern 
+void *byte_queue_target_get(byte_queue_t *ptObj);
+
+extern 
+void  byte_queue_target_set(byte_queue_t *ptObj, void *pTarget);
 
 #if defined(__BYTE_QUEUE_CLASS_IMPLEMENT) || defined(__BYTE_QUEUE_CLASS_INHERIT)
 extern mem_t byte_queue_buffer_get(byte_queue_t *ptObj);

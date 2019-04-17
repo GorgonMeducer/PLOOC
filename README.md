@@ -66,7 +66,7 @@ The full license text follows:
 | module | Contrinutor |
 | ------ | ------ |
 | byte_queue | GorgonMeducer |
-
+| Advanced_byte_queue | GorgonMeducer |
 
 ### Applications / Projects which claim to use PLOOC
 ---
@@ -80,19 +80,22 @@ The full license text follows:
 ##### Introduction
 In order to show how PLOOC is easy and simple to use, examples are provided to show deferent aspects of the new OOPC method. Currently, the available examples are:
 
-* byte_queue
+- byte_queue
+- enhanced_byte_queue
  
 More examples will be added later...
 
-##### Example 1: byte_queue
+### Example 1: byte_queue
 This example shows
 - How to define a class
     - How to add private member
     - How to add protected member
 - How to access class members
+- How to define user friendly interface
+
+### Example 2: enhanced_byte_queue
 - How to inherit from a base class
     - How to access protected members which are inherited from base
-- How to define user friendly interface
-    - How to inherit a interface
+- How to inherit a interface
 
 

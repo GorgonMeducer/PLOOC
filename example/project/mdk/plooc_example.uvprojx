@@ -440,6 +440,21 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>enhanced_byte_queue</GroupName>
+          <Files>
+            <File>
+              <FileName>enhanced_byte_queue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\enhanced_byte_queue\enhanced_byte_queue.c</FilePath>
+            </File>
+            <File>
+              <FileName>enhanced_byte_queue.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\enhanced_byte_queue\enhanced_byte_queue.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::Board Support</GroupName>
         </Group>
         <Group>
