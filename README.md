@@ -1,5 +1,7 @@
 ## PLOOC (Protected Low-overhead Object Oriented programming with ANSI-C)
+
 ### Introduction
+---
 The Protected Low-overhead Object Oriented Programming with ANSI-C, a.k.a PLOOC ['plu:k] is an well-orignasied C macro templates with following features:
 
 * Provide __protection for private__ class members
@@ -15,12 +17,14 @@ The Protected Low-overhead Object Oriented Programming with ANSI-C, a.k.a PLOOC 
 > NOTE: Almost ZERO OVERHEAD. The template fully utilises the ANSI-C enforce compilation rules to deliver desired OO feature with the necessary cost.
 
 ### Update Log
+---
 - \[04/17/2019\] Upload PLOOC to github, version 4.01
     - Add method definition which support private method, protected method and public method
     - Add readme and example byte_queue
 
 
 ### License
+---
 The PLOOC library was written by GorgonMeducer(王卓然）<embedded_zhuoran@hotmail.com> and Simon Qian（钱晓晨）<https://github.com/versaloon> with support from Henry Long <henry_long@163.com>.
 
 The PLOOC library is released under an open source license Apache 2.0 that allows both commercial and non-commercial use without restrictions. The only requirement is that credits is given in the source code and in the documentation for your product.
@@ -48,7 +52,7 @@ The full license text follows:
  ```
 
 ### Contribution
-
+---
 #### Template
 | module | Contrinutor |
 | ------ | ------ |
@@ -63,7 +67,11 @@ The full license text follows:
 | ------ | ------ |
 | byte_queue | GorgonMeducer |
 
+
+
+
 ### How to Use
+---
 #### Examples for PLOOC
 ##### Introduction
 In order to show how PLOOC is easy and simple to use, examples are provided to show deferent aspects of the new OOPC method. Currently, the available examples are:
@@ -82,5 +90,3 @@ This example shows
     - How to access protected members which are inherited from base
 - How to define user friendly interface
     - How to inherit a interface
-
-Author:  GorgonMeducer<embedded_zhuoran@hotmail.com>,  under Apache 2.0
