@@ -16,6 +16,20 @@ The Protected Low-overhead Object Oriented Programming with ANSI-C, a.k.a PLOOC 
 * Low-overhead
 > NOTE: Almost ZERO OVERHEAD. The template fully utilises the ANSI-C enforce compilation rules to deliver desired OO feature with the necessary cost.
 
+### What makes PLOOC different from other OOCs?
+The concept of OOC is not new. There are plenty of libraries, SDKs, templates providing objected-oriented programming extension to ANSI-C language. PLOOC emphasizes its low-overhead feature in both code size and performance, but a lot of macro template based ooc solutions are also low-overhead. PLOOC doesn't force you to use heap or pool for memory management, it doesn't provide GC feature. It simply leave those options to users, so it is suitable for even 8bit system. Well, you can also take this as draw-backs of PLOOC. I don't want to argue about this.
+
+*So what really set PLOOC different from the others? Is it simply another re-invented wheel?*
+The answer is NO. Of course. 
+PLOOC brings an unique feature most of others don't have. It let private members of a class truly become private, i.e. protected. So users outside of the class source code are prevented from accessing the private members. What they see will be a solid memory, a mask created with byte array. Since class is mimicked by structure in C, the class in PLOOC is implemented with the masked-structure. As people expected, only class source code can access the private member, only class source code of a derived class can access the protected member of the base class and everyone can accesss the public members.
+
+How could that be? You might already figure it out simply by the word "masked-structure". As you noticed, it is nothing more than a fancy type-cheating in header files. 
+The type-cheating in header files work well until some strict-type-checking compiler is encoutered, the most famous (notorious) one is IAR with multi-file compilation mode enabled. No type-cheating can survive from the bloody axe of IAR multi-file compilation mode. 
+
+PLOOC provides the "private-protection" feature with a different scheme other than type-cheating. As the author, I have to confess that it took me a lot of time to figure it out. And the inital scheme was urgly and hard to use. Thanks to SimonQian, then it took the team another 3 months to make it elegent rather than counter-intuition. The support from HenryLong is also vital. 
+
+I hope you can enjoy this unique trying for the object-oriented programming challenge. 
+
 ### Update Log
 ---
 - \[04/17/2019\] Upload PLOOC to github, version 4.01
@@ -32,23 +46,23 @@ The PLOOC library is released under an open source license Apache 2.0 that allow
 The full license text follows:
 
 	/*****************************************************************************
-	*   Copyright(C)2009-2019 by GorgonMeducer<embedded_zhuoran@hotmail.com>    *
-	*                       and  SimonQian<simonqian@simonqian.com>             *
-	*         with support from  HenryLong<henry_long@163.com>                  *
-	*                                                                           *
-	*  Licensed under the Apache License, Version 2.0 (the "License");          *
-	*  you may not use this file except in compliance with the License.         *
-	*  You may obtain a copy of the License at                                  *
-	*                                                                           *
-	*     http://www.apache.org/licenses/LICENSE-2.0                            *
-	*                                                                           *
-	*  Unless required by applicable law or agreed to in writing, software      *
-	*  distributed under the License is distributed on an "AS IS" BASIS,        *
-	*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. *
-	*  See the License for the specific language governing permissions and      *
-	*  limitations under the License.                                           *
-	*                                                                           *
-	****************************************************************************/
+	 *   Copyright(C)2009-2019 by GorgonMeducer<embedded_zhuoran@hotmail.com>    *
+	 *                       and  SimonQian<simonqian@simonqian.com>             *
+	 *         with support from  HenryLong<henry_long@163.com>                  *
+	 *                                                                           *
+	 *  Licensed under the Apache License, Version 2.0 (the "License");          *
+	 *  you may not use this file except in compliance with the License.         *
+	 *  You may obtain a copy of the License at                                  *
+	 *                                                                           *
+	 *     http://www.apache.org/licenses/LICENSE-2.0                            *
+	 *                                                                           *
+	 *  Unless required by applicable law or agreed to in writing, software      *
+	 *  distributed under the License is distributed on an "AS IS" BASIS,        *
+	 *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. *
+	 *  See the License for the specific language governing permissions and      *
+	 *  limitations under the License.                                           *
+	 *                                                                           *
+	 ****************************************************************************/
 
 
 ### Contribution
