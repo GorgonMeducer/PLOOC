@@ -15,6 +15,8 @@ The Protected Low-overhead Object Oriented Programming with ANSI-C, a.k.a PLOOC 
 * Compliant with __ANSI-C99__ 
 * Low-overhead
 > NOTE: Almost ZERO OVERHEAD. The template fully utilises the ANSI-C enforce compilation rules to deliver desired OO feature with the necessary cost.
+    * Suitable for both bare-metal and RTOS.
+	* Suitable for both 8bit and 32bit MCU
 
 ### What makes PLOOC different from other OOCs?
 The concept of OOC is not new. There are plenty of libraries, SDKs, templates providing objected-oriented programming extension to ANSI-C language. Although PLOOC emphasizes its low-overhead feature in both code size and performance, but a lot of macro template based ooc solutions are also low-overhead. PLOOC doesn't force you to use heap or pool for memory management, it doesn't provide GC feature. It simply leave those options to users, so it is suitable for even 8bit system. Well, you can take this as draw-backs of PLOOC. I don't want to argue about this.
@@ -113,5 +115,6 @@ This example shows
 - How to inherit from a base class
     - How to access protected members which are inherited from base
 - How to inherit a interface
+- How to override base methods
 
 
