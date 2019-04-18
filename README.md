@@ -30,6 +30,33 @@ PLOOC brings an unique feature most of others don't have. It let private members
 How could this be? You might already figure it out simply through the word "masked-structure". As you noticed, it could be nothing more than a fancy type-cheating trick in header files. 
 The type-cheating trick works well until some strict-type-checking compiler is encoutered, the most famous (notorious) one is IAR with multi-file compilation mode enabled. No type-cheating can survive from the bloody axe of IAR multi-file compilation mode. 
 
+    //! the original structure 
+    struct __byte_queue_t {
+	    uint8_t   *pchBuffer;
+		uint16_t  hwBufferSize;
+	    uint16_t  hwHead;
+		uint16_t  hwTail;
+		uint16_t  hwCount;
+	};
+	
+	//! the masked structure: the class byte_queue_t;
+	typedef struct byte_queue_t {
+	     uint8_t chMask [sizeof(__byte_queue_t)];
+	} byte_queue_t;
+	
+	//! you can even do this...if you are serious about the content
+	//! the masked structure: the class byte_queue_t;
+	typedef struct byte_queue_t {
+	     uint8_t chMask [sizeof(struct {
+		      uint32_t			: 32;
+			  uint16_t			: 16;
+			  uint16_t			: 16;
+			  uint16_t			: 16;
+			  uint16_t			: 16;
+		 })];
+	} byte_queue_t;
+	
+
 PLOOC provides the "private-protection" feature with a different scheme other than type-cheating, so it support almost all C compilers with C99 feature enabled. As the author, I have to confess that it took me a lot of time to figure it out how to deal with strict-type-checking and the inital scheme was urgly and counter-intuition. Thanks to SimonQian, it took the team another 3 months to make PLOOC elegent and simple. The support from HenryLong is also vital. 
 
 I hope you can enjoy this unique trying for the object-oriented programming challenge. 
