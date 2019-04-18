@@ -56,11 +56,11 @@ you can even do this...if you are serious about the content
 	//! the masked structure: the class byte_queue_t in header file
 	typedef struct byte_queue_t {
 	    uint8_t chMask [sizeof(struct {
-		    uint32_t        : 32;
-		    uint16_t        : 16;
-		    uint16_t        : 16;
-		    uint16_t        : 16;
-		    uint16_t        : 16;
+            uint32_t        : 32;
+            uint16_t        : 16;
+            uint16_t        : 16;
+            uint16_t        : 16;
+            uint16_t        : 16;
         })];
 	} byte_queue_t;
 	
