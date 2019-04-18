@@ -17,18 +17,20 @@ The Protected Low-overhead Object Oriented Programming with ANSI-C, a.k.a PLOOC 
 > NOTE: Almost ZERO OVERHEAD. The template fully utilises the ANSI-C enforce compilation rules to deliver desired OO feature with the necessary cost.
 
 ### What makes PLOOC different from other OOCs?
-The concept of OOC is not new. There are plenty of libraries, SDKs, templates providing objected-oriented programming extension to ANSI-C language. PLOOC emphasizes its low-overhead feature in both code size and performance, but a lot of macro template based ooc solutions are also low-overhead. PLOOC doesn't force you to use heap or pool for memory management, it doesn't provide GC feature. It simply leave those options to users, so it is suitable for even 8bit system. Well, you can also take this as draw-backs of PLOOC. I don't want to argue about this.
+The concept of OOC is not new. There are plenty of libraries, SDKs, templates providing objected-oriented programming extension to ANSI-C language. Although PLOOC emphasizes its low-overhead feature in both code size and performance, but a lot of macro template based ooc solutions are also low-overhead. PLOOC doesn't force you to use heap or pool for memory management, it doesn't provide GC feature. It simply leave those options to users, so it is suitable for even 8bit system. Well, you can take this as draw-backs of PLOOC. I don't want to argue about this.
 
-*So what really set PLOOC different from the others? Is it simply another re-invented wheel?*
+**So what really set PLOOC different from the others? Is it simply another re-invented wheel?**
+
 The answer is NO. Of course. 
 PLOOC brings an unique feature most of others don't have. It let private members of a class truly become private, i.e. protected. So users outside of the class source code are prevented from accessing the private members. What they see will be a solid memory, a mask created with byte array. Since class is mimicked by structure in C, the class in PLOOC is implemented with the masked-structure. As people expected, only class source code can access the private member, only class source code of a derived class can access the protected member of the base class and everyone can accesss the public members.
 
-How could that be? You might already figure it out simply by the word "masked-structure". As you noticed, it is nothing more than a fancy type-cheating in header files. 
-The type-cheating in header files work well until some strict-type-checking compiler is encoutered, the most famous (notorious) one is IAR with multi-file compilation mode enabled. No type-cheating can survive from the bloody axe of IAR multi-file compilation mode. 
+How could this be? You might already figure it out simply through the word "masked-structure". As you noticed, it could be nothing more than a fancy type-cheating trick in header files. 
+The type-cheating trick works well until some strict-type-checking compiler is encoutered, the most famous (notorious) one is IAR with multi-file compilation mode enabled. No type-cheating can survive from the bloody axe of IAR multi-file compilation mode. 
 
-PLOOC provides the "private-protection" feature with a different scheme other than type-cheating. As the author, I have to confess that it took me a lot of time to figure it out. And the inital scheme was urgly and hard to use. Thanks to SimonQian, then it took the team another 3 months to make it elegent rather than counter-intuition. The support from HenryLong is also vital. 
+PLOOC provides the "private-protection" feature with a different scheme other than type-cheating, so it support almost all C compilers with C99 feature enabled. As the author, I have to confess that it took me a lot of time to figure it out how to deal with strict-type-checking and the inital scheme was urgly and counter-intuition. Thanks to SimonQian, it took the team another 3 months to make PLOOC elegent and simple. The support from HenryLong is also vital. 
 
 I hope you can enjoy this unique trying for the object-oriented programming challenge. 
+If you have any questions or suggestions, please feel free to let us know.
 
 ### Update Log
 ---
