@@ -33,10 +33,10 @@ The type-cheating trick works well until some strict-type-checking compiler is e
     //! the original structure 
     struct __byte_queue_t {
 	    uint8_t   *pchBuffer;
-		uint16_t  hwBufferSize;
+	    uint16_t  hwBufferSize;
 	    uint16_t  hwHead;
-		uint16_t  hwTail;
-		uint16_t  hwCount;
+	    uint16_t  hwTail;
+	    uint16_t  hwCount;
 	};
 	
 	//! the masked structure: the class byte_queue_t;
@@ -44,16 +44,17 @@ The type-cheating trick works well until some strict-type-checking compiler is e
 	     uint8_t chMask [sizeof(__byte_queue_t)];
 	} byte_queue_t;
 	
-	//! you can even do this...if you are serious about the content
+you can even do this...if you are serious about the content
+
 	//! the masked structure: the class byte_queue_t;
 	typedef struct byte_queue_t {
-	     uint8_t chMask [sizeof(struct {
-		      uint32_t			: 32;
-			  uint16_t			: 16;
-			  uint16_t			: 16;
-			  uint16_t			: 16;
-			  uint16_t			: 16;
-		 })];
+	    uint8_t chMask [sizeof(struct {
+		    uint32_t        : 32;
+		    uint16_t        : 16;
+		    uint16_t        : 16;
+		    uint16_t        : 16;
+		    uint16_t        : 16;
+        })];
 	} byte_queue_t;
 	
 
