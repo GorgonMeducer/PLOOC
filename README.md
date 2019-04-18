@@ -30,8 +30,8 @@ PLOOC brings an unique feature most of others don't have. It let private members
 How could this be? You might already figure it out simply through the word "masked-structure". As you noticed, it could be nothing more than a fancy type-cheating trick in header files. 
 The type-cheating trick works well until some strict-type-checking compiler is encoutered, the most famous (notorious) one is IAR with multi-file compilation mode enabled. No type-cheating can survive from the bloody axe of IAR multi-file compilation mode. 
 
-    //! the original structure 
-    struct __byte_queue_t {
+    //! the original structure in class source code
+    struct byte_queue_t {
 	    uint8_t   *pchBuffer;
 	    uint16_t  hwBufferSize;
 	    uint16_t  hwHead;
@@ -39,14 +39,21 @@ The type-cheating trick works well until some strict-type-checking compiler is e
 	    uint16_t  hwCount;
 	};
 	
-	//! the masked structure: the class byte_queue_t;
+	//! the masked structure: the class byte_queue_t in header file
 	typedef struct byte_queue_t {
-	     uint8_t chMask [sizeof(__byte_queue_t)];
+        uint8_t chMask [sizeof(struct {
+	        uint8_t   *pchBuffer;
+	        uint16_t  hwBufferSize;
+	        uint16_t  hwHead;
+	        uint16_t  hwTail;
+	        uint16_t  hwCount;
+	    })];
 	} byte_queue_t;
 	
+It order to make it work, make sure the class source code don't include its own interface header file.
 you can even do this...if you are serious about the content
 
-	//! the masked structure: the class byte_queue_t;
+	//! the masked structure: the class byte_queue_t in header file
 	typedef struct byte_queue_t {
 	    uint8_t chMask [sizeof(struct {
 		    uint32_t        : 32;
