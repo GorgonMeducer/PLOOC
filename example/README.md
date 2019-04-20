@@ -1,6 +1,6 @@
 ## Examples for PLOOC
 ### Introduction
-In order to show how PLOOC is easy and simple to use, examples are provided to show deferent aspects of the new OOPC method. Currently, the available examples are:
+In order to show how PLOOC is easy and simple to use, examples are provided to demostrate diffrent aspects of the new OOPC method. Currently, the available examples are:
 
 - byte_queue
 - enhanced_byte_queue
