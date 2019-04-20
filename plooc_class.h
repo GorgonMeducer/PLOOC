@@ -63,6 +63,16 @@
 #endif
 //! @}
 
+#ifndef __PLOOC_ALIGN
+#   define __PLOOC_ALIGN(__N)   __attribute__((aligned(__N)))
+#endif
+#undef PLOOC_ALIGN
+#define PLOOC_ALIGN(__N)        __PLOOC_ALIGN(__N)
+
+#ifndef PLOOC_DEFAULT_OBJ_ALIGN
+#   define PLOOC_DEFAULT_OBJ_ALIGN      4
+#endif
+
 //! @{
 #ifndef PLOOC_CONNECT2
 #   define PLOOC_CONNECT2( a, b)                __PLOOC_CONNECT2( a, b)

@@ -50,7 +50,7 @@ The type-cheating trick works well until some strict-type-checking compiler is e
 	    })];
 	} byte_queue_t;
 	
-It order to make it work, make sure the class source code don't include its own interface header file.
+It order to make it work, make sure the class source codes don't include their own interface header file.
 you can even do this...if you are serious about the content
 
 	//! the masked structure: the class byte_queue_t in header file
@@ -68,6 +68,7 @@ you can even do this...if you are serious about the content
 PLOOC provides the "private-protection" feature with a different scheme other than type-cheating, so it support almost all C compilers with C99 feature enabled. As the author, I have to confess that it took me a lot of time to figure it out how to deal with strict-type-checking and the inital scheme was urgly and counter-intuition. Thanks to SimonQian, it took the team another 3 months to make PLOOC elegent and simple. The support from HenryLong is also vital. 
 
 I hope you can enjoy this unique trying for the object-oriented programming challenge. 
+
 If you have any questions or suggestions, please feel free to let us know.
 
 ### Update Log
@@ -76,6 +77,9 @@ If you have any questions or suggestions, please feel free to let us know.
     - Add method definition which support private method, protected method and public method
     - Add readme and example byte_queue
 
+- \[04/20/2019\] Upload PLOOC to github, version 4.03
+    - Add default class alignment control
+    - update examples and readme
 
 ### License
 ---
@@ -132,14 +136,14 @@ The full license text follows:
 ---
 #### Examples for PLOOC
 ##### Introduction
-In order to show how PLOOC is easy and simple to use, examples are provided to show deferent aspects of the new OOPC method. Currently, the available examples are:
+In order to show how PLOOC is easy and simple to use, examples are provided to demostrate different aspects of the new OOPC method. Currently, the available examples are:
 
 - byte_queue
 - enhanced_byte_queue
  
 More examples will be added later...
 
-### Example 1: byte_queue
+### [Example 1: byte_queue](https://github.com/GorgonMeducer/PLOOC/tree/master/example/byte_queue)
 This example shows
 - How to define a class
     - How to add private member
@@ -147,7 +151,7 @@ This example shows
 - How to access class members
 - How to define user friendly interface
 
-### Example 2: enhanced_byte_queue
+### [Example 2: enhanced_byte_queue](https://github.com/GorgonMeducer/PLOOC/tree/master/example/enhanced_byte_queue)
 - How to inherit from a base class
     - How to access protected members which are inherited from base
 - How to inherit a interface
