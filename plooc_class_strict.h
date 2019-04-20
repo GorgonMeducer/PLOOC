@@ -56,11 +56,11 @@
     struct __##__NAME {                                                         \
         __PUBLIC                                                                \
         __VA_ARGS__                                                             \
-    };                                                                          \
+    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                      \
     struct __NAME {                                                             \
         __PUBLIC                                                                \
         __VA_ARGS__                                                             \
-    };                                                                          
+    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                                                          
 #   else
 #       define __def_class(__NAME, __PUBLIC, ...)                               \
     typedef struct __NAME __NAME;                                               \
@@ -68,12 +68,12 @@
     struct __##__NAME {                                                         \
         __PUBLIC                                                                \
         __VA_ARGS__                                                             \
-    };                                                                          \
+    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                      \
     struct __NAME {                                                             \
         __PUBLIC                                                                \
         uint8_t PLOOC_CONNECT4(_,__LINE__,__COUNTER__,_chMask)                  \
           [sizeof(struct {__VA_ARGS__})];                                       \
-    };                                                                          
+    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                                                          
     
 #   endif
           
@@ -123,11 +123,11 @@
     struct __protected_##__NAME {                                               \
         __PUBLIC                                                                \
         __VA_ARGS__                                                             \
-    };                                                                          \
+    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                      \
     struct __NAME {                                                             \
         __PUBLIC                                                                \
         __VA_ARGS__                                                             \
-    };
+    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);
 
 #   define __end_def_class(__NAME, ...)                                         
 
@@ -179,12 +179,12 @@
     struct __protected_##__NAME {                                               \
         __PUBLIC                                                                \
         __VA_ARGS__                                                             \
-    };                                                                          \
+    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                      \
     struct __NAME {                                                             \
         __PUBLIC                                                                \
         uint8_t PLOOC_CONNECT4(_,__LINE__,__COUNTER__,_chMask)                  \
           [sizeof(struct {__VA_ARGS__})];                                       \
-    };
+    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);
 
 #   define __end_def_class(__NAME, ...)  
 
@@ -237,7 +237,7 @@
     struct __NAME {                                                             \
         __PUBLIC                                                                \
         __VA_ARGS__                                                             \
-    };                                                                          \
+    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                                                          
 
 #   define __end_def_class(__NAME, ...)  
 
@@ -259,7 +259,7 @@
         __PUBLIC                                                                \
         uint8_t PLOOC_CONNECT4(_,__LINE__,__COUNTER__,_chMask)                  \
           [sizeof(struct {__VA_ARGS__})];                                       \
-    };
+    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);
 
 #   define __end_def_class(__NAME, ...) 
 

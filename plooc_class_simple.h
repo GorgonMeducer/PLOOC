@@ -103,7 +103,7 @@
     struct __NAME {                                                             \
         __PUBLIC                                                                \
         __VA_ARGS__                                                             \
-    };
+    } PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);
           
 #define __end_def_class(__NAME, ...)
 

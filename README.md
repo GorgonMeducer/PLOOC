@@ -50,7 +50,7 @@ The type-cheating trick works well until some strict-type-checking compiler is e
 	    })];
 	} byte_queue_t;
 	
-It order to make it work, make sure the class source code don't include its own interface header file.
+It order to make it work, make sure the class source codes don't include their own interface header file.
 you can even do this...if you are serious about the content
 
 	//! the masked structure: the class byte_queue_t in header file
@@ -68,6 +68,7 @@ you can even do this...if you are serious about the content
 PLOOC provides the "private-protection" feature with a different scheme other than type-cheating, so it support almost all C compilers with C99 feature enabled. As the author, I have to confess that it took me a lot of time to figure it out how to deal with strict-type-checking and the inital scheme was urgly and counter-intuition. Thanks to SimonQian, it took the team another 3 months to make PLOOC elegent and simple. The support from HenryLong is also vital. 
 
 I hope you can enjoy this unique trying for the object-oriented programming challenge. 
+
 If you have any questions or suggestions, please feel free to let us know.
 
 ### Update Log
