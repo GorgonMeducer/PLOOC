@@ -45,23 +45,26 @@
 #ifndef __PLOOC_CLASS_SIMPLE_H__
 #define __PLOOC_CLASS_SIMPLE_H__
 
-#   define __def_simple_class(__NAME)       struct __NAME
+#   define __def_simple_class(__NAME)                                           \
+        struct PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN) __NAME
 #   define def_simple_class(__NAME)         __def_simple_class(__NAME)
 #   define declare_simple_class(__NAME)     typedef struct __NAME __NAME;
 
+
 #   define __visible_member(...)                                                \
-        struct{                                                                 \
+        struct PLOOC_PACKED {                                                         \
             __VA_ARGS__                                                         \
         };
 
 #   if  !defined (__PLOOC_CLASS_USE_NO_STRUCT_MASK__)
 #       define __invisible_member(...)                                          \
-            uint8_t PLOOC_CONNECT2(zzz_, __LINE__)[sizeof(struct{               \
-                __VA_ARGS__                                                     \
-            })];
+        uint_fast8_t PLOOC_PACKED PLOOC_CONNECT4(                               \
+            _,__LINE__,__COUNTER__,_chMask)[(sizeof(struct{                     \
+            __VA_ARGS__                                                         \
+        } ) + sizeof(uint_fast8_t) - 1) / sizeof(uint_fast8_t)];
 #   else
 #       define __invisible_member(...)                                          \
-            struct{                                                             \
+            struct PLOOC_PACKED {                                                             \
                 __VA_ARGS__                                                     \
             } PLOOC_CONNECT2(zzz_, __LINE__);
 #   endif   /* __PLOOC_CLASS_USE_NO_STRUCT_MASK__ */
@@ -69,9 +72,9 @@
 
 #if     defined(__OOC_DEBUG__)
 
-#   define private_member(...)              __VA_ARGS__
-#   define protected_member(...)            __VA_ARGS__
-#   define public_member(...)               __VA_ARGS__
+#   define private_member(...)              __visible_member(__VA_ARGS__)
+#   define protected_member(...)            __visible_member(__VA_ARGS__)
+#   define public_member(...)               __visible_member(__VA_ARGS__)
 
 #elif   defined(__PLOOC_CLASS_IMPLEMENT)
 

@@ -73,6 +73,11 @@
 #   define PLOOC_DEFAULT_OBJ_ALIGN      4
 #endif
 
+#ifndef PLOOC_PACKED
+#   define PLOOC_PACKED         __attribute__((packed))
+#endif
+
+
 //! @{
 #ifndef PLOOC_CONNECT2
 #   define PLOOC_CONNECT2( a, b)                __PLOOC_CONNECT2( a, b)

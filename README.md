@@ -73,13 +73,19 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ### Update Log
 ---
-- \[04/17/2019\] Upload PLOOC to github, version 4.01
-    - Add method definition which support private method, protected method and public method
-    - Add readme and example byte_queue
+
+- \[05/01/2019\] Compatability Improving, version 4.04
+    - Add PLOOC_PACKED and PLOOC_ALIGN to add alignment support
+    - Using uint_fast8_t to replace uint8_t to use target machine implied alignment.
 
 - \[04/20/2019\] Upload PLOOC to github, version 4.03
     - Add default class alignment control
     - update examples and readme
+    
+- \[04/17/2019\] Upload PLOOC to github, version 4.01
+    - Add method definition which support private method, protected method and public method
+    - Add readme and example byte_queue
+
 
 ### License
 ---
