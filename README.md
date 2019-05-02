@@ -74,9 +74,11 @@ If you have any questions or suggestions, please feel free to let us know.
 ### Update Log
 ---
 
-- \[05/02/2019\] Efficiency improve, version 4.10
+- \[05/02/2019\] Efficiency improve, version 4.11
     - Using __alignof__ to improve the code efficiency when dealing with masked structure
     - Using PLOOC_INVISIABLE and PLOOC_VISIBLE in both simple and strict version
+    - Simplify the structure
+    - Improve capatability between IAR and armclang (LLVM)
 
 - \[05/01/2019\] Compatability Improving, version 4.04
     - Add PLOOC_PACKED and PLOOC_ALIGN to add alignment support
