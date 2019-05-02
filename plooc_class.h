@@ -120,7 +120,7 @@
             struct {                                                            \
                 __VA_ARGS__                                                     \
             }   PLOOC_CONNECT2(zzz_, __LINE__)                                  \
-                PLOOC_ALIGN(__alignof_struct(__VA_ARGS__));
+                PLOOC_ALIGN(PLOOC_ALIGNOF_STRUCT(__VA_ARGS__));
 #   endif   /* __PLOOC_CLASS_USE_NO_STRUCT_MASK__ */
 
 #endif
