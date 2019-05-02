@@ -45,8 +45,7 @@
 #ifndef __PLOOC_CLASS_SIMPLE_H__
 #define __PLOOC_CLASS_SIMPLE_H__
 
-#   define __def_simple_class(__NAME)                                           \
-        struct PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN) __NAME
+#   define __def_simple_class(__NAME)       struct  __NAME
 #   define def_simple_class(__NAME)         __def_simple_class(__NAME)
 #   define declare_simple_class(__NAME)     typedef struct __NAME __NAME;
 

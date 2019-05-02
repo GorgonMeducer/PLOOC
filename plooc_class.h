@@ -93,6 +93,8 @@
 #endif
 //! @}
 
+#define PLOOC_ALIGNOF_STRUCT(...)       PLOOC_ALIGNOF(struct {__VA_ARGS__})
+#define PLOOC_SIZEOF_STRUCT(...)        sizeof(struct {__VA_ARGS__})
 
 #   define PLOOC_VISIBLE(...)                                                   \
         struct  {                                                               \
@@ -100,26 +102,17 @@
         }PLOOC_ALIGN(PLOOC_ALIGNOF_STRUCT(__VA_ARGS__));
 
 #   if  !defined (__PLOOC_CLASS_USE_NO_STRUCT_MASK__)
-
-#define PLOOC_ALIGNOF_STRUCT(...)       PLOOC_ALIGNOF(struct {__VA_ARGS__})
-#define PLOOC_SIZEOF_STRUCT(...)        sizeof(struct {__VA_ARGS__})
-#define PLOOC_ALIGNED_SIZE(...)                                                 \
-        (   (       PLOOC_SIZEOF_STRUCT(__VA_ARGS__)                            \
-                +   PLOOC_ALIGNOF_STRUCT(__VA_ARGS__) - 1)                      \
-            /   PLOOC_ALIGNOF_STRUCT(__VA_ARGS__)                               \
-        * PLOOC_ALIGNOF_STRUCT(__VA_ARGS__))
         
 #       define PLOOC_INVISIBLE(...)                                             \
-        uint_fast8_t PLOOC_CONNECT4(_,__LINE__,__COUNTER__,_chMask)[            \
-                (PLOOC_ALIGNED_SIZE(__VA_ARGS__) + sizeof(uint_fast8_t) - 1)    \
-            /   sizeof(uint_fast8_t)]                                           \
+        uint8_t PLOOC_CONNECT4(_,__LINE__,__COUNTER__,_chMask)                  \
+                [PLOOC_SIZEOF_STRUCT(__VA_ARGS__)]                              \
                 PLOOC_ALIGN(PLOOC_ALIGNOF_STRUCT(__VA_ARGS__));
 
 #   else
 #       define PLOOC_INVISIBLE(...)                                             \
             struct {                                                            \
                 __VA_ARGS__                                                     \
-            }   PLOOC_CONNECT2(zzz_, __LINE__)                                  \
+            }   PLOOC_CONNECT3(zzz_, __LINE__,__COUNTER__)                      \
                 PLOOC_ALIGN(PLOOC_ALIGNOF_STRUCT(__VA_ARGS__));
 #   endif   /* __PLOOC_CLASS_USE_NO_STRUCT_MASK__ */
 

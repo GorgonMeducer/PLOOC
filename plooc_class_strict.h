@@ -55,24 +55,24 @@
     typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
         __PUBLIC                                                                \
-        __VA_ARGS__                                                             \
-    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                      \
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    };                                                                          \
     struct __NAME {                                                             \
         __PUBLIC                                                                \
-        __VA_ARGS__                                                             \
-    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                                                          
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    };                                                                          
 #   else
 #       define __def_class(__NAME, __PUBLIC, ...)                               \
     typedef struct __NAME __NAME;                                               \
     typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
         __PUBLIC                                                                \
-        __VA_ARGS__                                                             \
-    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                      \
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    };                                                                          \
     struct __NAME {                                                             \
         __PUBLIC                                                                \
         PLOOC_INVISIBLE(__VA_ARGS__)                                            \
-    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                                                          
+    };                                                                          
     
 #   endif
           
@@ -121,12 +121,12 @@
     typedef struct __NAME __NAME;                                               \
     struct __protected_##__NAME {                                               \
         __PUBLIC                                                                \
-        __VA_ARGS__                                                             \
-    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                      \
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    };                                                                          \
     struct __NAME {                                                             \
         __PUBLIC                                                                \
-        __VA_ARGS__                                                             \
-    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    };
 
 #   define __end_def_class(__NAME, ...)                                         
 
@@ -177,12 +177,12 @@
     typedef struct __NAME __NAME;                                               \
     struct __protected_##__NAME {                                               \
         __PUBLIC                                                                \
-        __VA_ARGS__                                                             \
-    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                      \
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    };                                                                          \
     struct __NAME {                                                             \
         __PUBLIC                                                                \
         PLOOC_INVISIBLE(__VA_ARGS__)                                            \
-    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);
+    };
 
 #   define __end_def_class(__NAME, ...)  
 
@@ -230,8 +230,8 @@
     typedef struct __NAME __NAME;                                               \
     struct __NAME {                                                             \
         __PUBLIC                                                                \
-        __VA_ARGS__                                                             \
-    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                                                          
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    };                                                                          
 
 #   define __end_def_class(__NAME, ...)  
 
@@ -252,7 +252,7 @@
     struct __NAME {                                                             \
         __PUBLIC                                                                \
         PLOOC_INVISIBLE(__VA_ARGS__)                                            \
-    }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);
+    };
 
 #   define __end_def_class(__NAME, ...) 
 
