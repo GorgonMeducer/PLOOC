@@ -71,10 +71,7 @@
     }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                      \
     struct __NAME {                                                             \
         __PUBLIC                                                                \
-        uint_fast8_t PLOOC_PACKED PLOOC_CONNECT4(                               \
-            _,__LINE__,__COUNTER__,_chMask)[(sizeof(struct{                     \
-        __VA_ARGS__                                                             \
-        }) + sizeof(uint_fast8_t) - 1) / sizeof(uint_fast8_t)];                 \
+        PLOOC_INVISIBLE(__VA_ARGS__)                                            \
     }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                                                          
     
 #   endif
@@ -83,13 +80,13 @@
 
 
 #   undef private_member
-#   define private_member(...)              struct PLOOC_PACKED { __VA_ARGS__ };
+#   define private_member(...)              PLOOC_VISIBLE(__VA_ARGS__)
 
 #   undef protected_member
-#   define protected_member(...)            struct PLOOC_PACKED { __VA_ARGS__ };
+#   define protected_member(...)            PLOOC_VISIBLE(__VA_ARGS__)
 
 #   undef public_member
-#   define public_member(...)               struct PLOOC_PACKED { __VA_ARGS__ };
+#   define public_member(...)               PLOOC_VISIBLE(__VA_ARGS__)
 
 #   undef  __class
 #   define __class(__NAME)                  __##__NAME
@@ -134,13 +131,13 @@
 #   define __end_def_class(__NAME, ...)                                         
 
 #   undef private_member
-#   define private_member(...)              struct PLOOC_PACKED { __VA_ARGS__ };
+#   define private_member(...)              PLOOC_VISIBLE(__VA_ARGS__)
 
 #   undef protected_member
-#   define protected_member(...)            struct PLOOC_PACKED { __VA_ARGS__ };
+#   define protected_member(...)            PLOOC_VISIBLE(__VA_ARGS__)
 
 #   undef public_member
-#   define public_member(...)               struct PLOOC_PACKED { __VA_ARGS__ };
+#   define public_member(...)               PLOOC_VISIBLE(__VA_ARGS__)
 
 
 #   undef  __class_protected
@@ -184,26 +181,19 @@
     }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);                                      \
     struct __NAME {                                                             \
         __PUBLIC                                                                \
-        uint_fast8_t PLOOC_PACKED PLOOC_CONNECT4(                               \
-            _,__LINE__,__COUNTER__,_chMask)[(sizeof(struct{                     \
-        __VA_ARGS__                                                             \
-        }) + sizeof(uint_fast8_t) - 1) / sizeof(uint_fast8_t)];                 \
+        PLOOC_INVISIBLE(__VA_ARGS__)                                            \
     }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);
 
 #   define __end_def_class(__NAME, ...)  
 
 #   undef private_member
-#   define private_member(...)                                                  \
-        uint_fast8_t PLOOC_PACKED PLOOC_CONNECT4(                               \
-            _,__LINE__,__COUNTER__,_chMask)[(sizeof(struct{                     \
-        __VA_ARGS__                                                             \
-        }) + sizeof(uint_fast8_t) - 1) / sizeof(uint_fast8_t)];
+#   define private_member(...)                  PLOOC_INVISIBLE(__VA_ARGS__)  
 
 #   undef protected_member
-#   define protected_member(...)        struct PLOOC_PACKED { __VA_ARGS__ };
+#   define protected_member(...)                PLOOC_VISIBLE(__VA_ARGS__)
 
 #   undef public_member
-#   define public_member(...)           struct PLOOC_PACKED { __VA_ARGS__ };
+#   define public_member(...)                   PLOOC_VISIBLE(__VA_ARGS__)
 
 #   undef  __class_protected
 #   define __class_protected(__NAME)            struct __protected_##__NAME
@@ -247,13 +237,13 @@
 
 
 #   undef private_member
-#   define private_member(...)              struct PLOOC_PACKED { __VA_ARGS__ };
+#   define private_member(...)              PLOOC_VISIBLE(__VA_ARGS__)
 
 #   undef protected_member
-#   define protected_member(...)            struct PLOOC_PACKED { __VA_ARGS__ };
+#   define protected_member(...)            PLOOC_VISIBLE(__VA_ARGS__)
 
 #   undef public_member
-#   define public_member(...)               struct PLOOC_PACKED { __VA_ARGS__ };
+#   define public_member(...)               PLOOC_VISIBLE(__VA_ARGS__)
 
 #else  /* __PLOOC_CLASS_EXTERN */
 
@@ -261,26 +251,19 @@
     typedef struct __NAME __NAME;                                               \
     struct __NAME {                                                             \
         __PUBLIC                                                                \
-        uint_fast8_t PLOOC_PACKED PLOOC_CONNECT4(                               \
-            _,__LINE__,__COUNTER__,_chMask)[(sizeof(struct{                     \
-        __VA_ARGS__                                                             \
-        }) + sizeof(uint_fast8_t) - 1) / sizeof(uint_fast8_t)];                 \
+        PLOOC_INVISIBLE(__VA_ARGS__)                                            \
     }PLOOC_ALIGN(PLOOC_DEFAULT_OBJ_ALIGN);
 
 #   define __end_def_class(__NAME, ...) 
 
 #   undef private_member
-#   define private_member(...)                                                  \
-        uint_fast8_t PLOOC_PACKED PLOOC_CONNECT4(                               \
-            _,__LINE__,__COUNTER__,_chMask)[(sizeof(struct{                     \
-        __VA_ARGS__                                                             \
-        }) + sizeof(uint_fast8_t) - 1) / sizeof(uint_fast8_t)];
+#   define private_member(...)              PLOOC_INVISIBLE(__VA_ARGS__)                 
 
 #   undef protected_member
-#   define protected_member(...)         private_member(__VA_ARGS__)
+#   define protected_member(...)            PLOOC_INVISIBLE(__VA_ARGS__)
 
 #   undef public_member
-#   define public_member(...)            struct PLOOC_PACKED { __VA_ARGS__ };
+#   define public_member(...)               PLOOC_VISIBLE(__VA_ARGS__)
        
 #endif 
 
