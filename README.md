@@ -75,8 +75,8 @@ If you have any questions or suggestions, please feel free to let us know.
 ---
 
 - \[05/02/2019\] Efficiency improve, version 4.11
-    - Using __alignof__ to improve the code efficiency when dealing with masked structure
-    - Using PLOOC_INVISIABLE and PLOOC_VISIBLE in both simple and strict version
+    - Use \_\_alignof\_\_ to improve the code efficiency when dealing with masked structure
+    - Use PLOOC_INVISIABLE and PLOOC_VISIBLE in both simple and strict version
     - Simplify the structure
     - Improve capatability between IAR and armclang (LLVM)
 

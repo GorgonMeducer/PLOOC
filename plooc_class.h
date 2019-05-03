@@ -64,32 +64,33 @@
 //! @}
 
 #ifndef __PLOOC_ALIGN
-#   define __PLOOC_ALIGN(__N)   __attribute__((aligned(__N)))
+#   define __PLOOC_ALIGN(__N)           __attribute__((aligned(__N)))
 #endif
-#undef PLOOC_ALIGN
-#define PLOOC_ALIGN(__N)        __PLOOC_ALIGN(__N)
+#ifndef PLOOC_ALIGN
+#   define PLOOC_ALIGN(__N)             __PLOOC_ALIGN(__N)
+#endif
 
 #ifndef PLOOC_DEFAULT_OBJ_ALIGN
-#   define PLOOC_DEFAULT_OBJ_ALIGN      4
+#   define PLOOC_DEFAULT_OBJ_ALIGN      sizeof(uint_fast8_t)
 #endif
 
 #ifndef PLOOC_PACKED
-#   define PLOOC_PACKED         __attribute__((packed))
+#   define PLOOC_PACKED                 __attribute__((packed))
 #endif
 
 #ifndef PLOOC_ALIGNOF
-#   define PLOOC_ALIGNOF(...)   __alignof__(__VA_ARGS__)
+#   define PLOOC_ALIGNOF(...)           __alignof__(__VA_ARGS__)
 #endif
 
 //! @{
 #ifndef PLOOC_CONNECT2
-#   define PLOOC_CONNECT2( a, b)                __PLOOC_CONNECT2( a, b)
+#   define PLOOC_CONNECT2( a, b)        __PLOOC_CONNECT2( a, b)
 #endif
 #ifndef PLOOC_CONNECT3
-#   define PLOOC_CONNECT3( a, b, c)             __PLOOC_CONNECT3( a, b, c)
+#   define PLOOC_CONNECT3( a, b, c)     __PLOOC_CONNECT3( a, b, c)
 #endif
 #ifndef PLOOC_CONNECT4
-#   define PLOOC_CONNECT4( a, b, c, d)          __PLOOC_CONNECT4( a, b, c, d)
+#   define PLOOC_CONNECT4( a, b, c, d)  __PLOOC_CONNECT4( a, b, c, d)
 #endif
 //! @}
 
