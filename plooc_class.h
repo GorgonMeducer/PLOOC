@@ -42,12 +42,6 @@
 #ifndef this
 #   define this         (*ptThis)
 #endif
-#ifndef base
-#   define base         (*ptBase)
-#endif
-#ifndef target
-#   define target       (*ptTarget)
-#endif
 
 /*============================ MACROFIED FUNCTIONS ===========================*/
 
