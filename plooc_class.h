@@ -24,8 +24,9 @@
 /******************************************************************************
  * HOW TO USE                                                                 *
  ******************************************************************************/
-//!Add following content to your module header file, e.g. xxxxxx.h
-//#include "plooc_class.h"      
+ //! TODO: Add How to use
+
+   
 
 /*============================ INCLUDES ======================================*/
 #include <stdint.h>
@@ -39,9 +40,17 @@
  */
 
 /*============================ MACROS ========================================*/
-#ifndef this
-#   define this         (*ptThis)
-#endif
+/*!\ node if you want your code more "elegent", say you want to use "this" with 
+ *        "." rather than a pointer with "->", you can add following macros to
+ *        your code, assuming the variable name of the object pointer is "ptThis".
+ *        If your object pointer has a different name, please feel free to change
+ *        the macro by yourself
+ 
+#undef this
+#define this         (*ptThis)
+
+*/
+#include "./plooc.h"   
 
 /*============================ MACROFIED FUNCTIONS ===========================*/
 
@@ -113,6 +122,11 @@
 
 #endif
 
+#if defined(__OOC_RELEASE__)
+#   undef __OOC_DEBUG__
+#   define __OOC_DEBUG__        1
+#endif
+
 /*============================ TYPES =========================================*/
 /*============================ GLOBAL VARIABLES ==============================*/
 /*============================ PROTOTYPES ====================================*/
@@ -121,11 +135,14 @@
 #   include "./plooc_class_strict.h"
 #elif   defined(__PLOOC_CLASS_USE_SIMPLE_TEMPLATE__)
 #   include "./plooc_class_simple.h"
+#elif   defined(__PLOOC_CLASS_USE_BLACK_BOX_TEMPLATE__)
+#   include "./plooc_class_black_box.h"
 #else
 #   include "./plooc_class_simple.h"
 #endif
 
 #undef __PLOOC_CLASS_USE_STRICT_TEMPLATE__
 #undef __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__
+#undef __PLOOC_CLASS_USE_BLACK_BOX_TEMPLATE__
 #undef __PLOOC_CLASS_IMPLEMENT
 #undef __PLOOC_CLASS_INHERIT

@@ -58,8 +58,7 @@
  *!       def_interface( i_lv1_t, which( inherit( i_lv0_abc_t ) 
  *!                                      inherit( i_lv0_efg_t ) ) )
  *!           ...
- *!       end_def_interface( i_lv1_t, which( inherit( i_lv0_abc_t ) 
- *!                                          inherit( i_lv0_efg_t ) ) )
+ *!       end_def_interface( i_lv1_t )
   */
   
   
@@ -105,13 +104,13 @@
 #define INHERIT(__TYPE)                __INHERIT(__TYPE)
 
 /*! \note You can only use IMPLEMENT when defining INTERFACE. For Implement 
- *        interface when defining CLASS, you should use DEF_CLASS_IMPLEMENT 
+ *        interface when defining class, you should use DEF_CLASS_IMPLEMENT 
  *        instead.
  */
 #define __IMPLEMENT(__INTERFACE)    __IMPLEMENT_EX(__INTERFACE, use_as__##__INTERFACE)
 #define IMPLEMENT(__INTERFACE)      __IMPLEMENT(__INTERFACE)  
 
-/*! \note if you have used INHERIT or IMPLEMENT to define a CLASS / INTERFACE, 
+/*! \note if you have used INHERIT or IMPLEMENT to define a class / INTERFACE, 
           you can use OBJ_CONVERT_AS to extract the reference to the inherited 
           object. 
   \*/
@@ -129,7 +128,7 @@
 #define inherit_ex(__TYPE, __NAME)          INHERIT_EX(__TYPE, __NAME)
 #define inherit(__TYPE)                     INHERIT(__TYPE)
 #define which(...)                          WHICH(__VA_ARGS__)
-#define ref_interface(__NAME)               REF_INTERFACE(__NAME)
+#define ref_interface(__INTERFACE)          const __INTERFACE *ptMethod;
 #define convert_obj_as(__OBJ, __TYPE)       OBJ_CONVERT_AS(__OBJ, __TYPE)
 #define obj_convert_as(__OBJ, __TYPE)       OBJ_CONVERT_AS(__OBJ, __TYPE)       /*  obsolete */
 #define ref_obj_as(__OBJ, __TYPE)           REF_OBJ_AS(__OBJ, __TYPE)

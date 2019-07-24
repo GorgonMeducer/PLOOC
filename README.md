@@ -74,6 +74,16 @@ If you have any questions or suggestions, please feel free to let us know.
 ### Update Log
 ---
 
+- \[07/24/2019\] Add new ooc class template, version 4.20
+    - Add plooc_class_black_box.h. This template is used for creating true-black-box module. It only support "private" and "public" but no "protected".  
+
+- \[07/12/2019\] Minor Update, version 4.13
+    - Add "__OOC_RELEASE__". The struct requires protection only at development stage. For private properties, setters and getters are provided for controlloing the access. It is possible to remove masks and allow private members observable in release stage, during this stage, the setters and getters can be changed from API functions to macros. By doing so, the code size can be smaller.
+
+- \[05/30/2019\] Minor Update, version 4.12
+    - remove "this", "target" and "base" to prevent naming pollution.
+    - remove PLOOC_ALIGN from top-level class definition to prevent inconsistent compiler interpretation towards this alignment decroration. 
+
 - \[05/02/2019\] Efficiency improve, version 4.11
     - Use \_\_alignof\_\_ to improve the code efficiency when dealing with masked structure
     - Use PLOOC_INVISIABLE and PLOOC_VISIBLE in both simple and strict version
