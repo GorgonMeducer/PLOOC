@@ -135,11 +135,14 @@
 #   include "./plooc_class_strict.h"
 #elif   defined(__PLOOC_CLASS_USE_SIMPLE_TEMPLATE__)
 #   include "./plooc_class_simple.h"
+#elif   defined(__PLOOC_CLASS_USE_BLACK_BOX_TEMPLATE__)
+#   include "./plooc_class_black_box.h"
 #else
 #   include "./plooc_class_simple.h"
 #endif
 
 #undef __PLOOC_CLASS_USE_STRICT_TEMPLATE__
 #undef __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__
+#undef __PLOOC_CLASS_USE_BLACK_BOX_TEMPLATE__
 #undef __PLOOC_CLASS_IMPLEMENT
 #undef __PLOOC_CLASS_INHERIT
