@@ -74,6 +74,10 @@ If you have any questions or suggestions, please feel free to let us know.
 ### Update Log
 ---
 
+- \[07/26/2019\] Syntax update, version 4.21
+    - Modify plooc_class_black_box.h to use unified syntax as other templates.
+    - Add extern_class and end_extern_class to all templates
+
 - \[07/24/2019\] Add new ooc class template, version 4.20
     - Add plooc_class_black_box.h. This template is used for creating true-black-box module. It only support "private" and "public" but no "protected".  
 

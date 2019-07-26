@@ -33,65 +33,132 @@
 #undef class
 #undef __class
 /*============================ MACROFIED FUNCTIONS ===========================*/
-/*! \NOTE: Never define __OOC_DEBUG__ unless you know the consequence and how  
- *!        the issue could be solved. But in anyway, there is nothing you can 
- *!        do about this header file. 
- */
-#ifndef __OOC_DEBUG__
 
-#define __class(__NAME)             __##__NAME
+#if   defined(__PLOOC_CLASS_IMPLEMENT)
 
-#define declare_class(__NAME)                                                   \
-     typedef union __NAME __NAME;                
-
-#define __def_class(__NAME,...)                                                 \
+#   ifdef __OOC_DEBUG__
+#       define __def_class(__NAME, __PUBLIC ,...)                               \
+    typedef struct __NAME __NAME;                                               \
     typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
-        __VA_ARGS__
-
-#define __end_def_class(__NAME, ...)                                            \
-    };    
-
-
-#define __extern_class(__NAME,...)                                              \
-    union __NAME {                                                              \
-        __VA_ARGS__                                                             \
-        uint_fast8_t __NAME##__chMask[(sizeof(struct{                           \
-        __VA_ARGS__
-
-
-#define __end_extern_class(__NAME, ...)                                         \
-        }) + sizeof(uint_fast8_t) - 1) / sizeof(uint_fast8_t)];                 \
-    };
-    
-#else
-
-#define __class(__NAME)             __NAME
-
-#define declare_class(__NAME)                                                   \
-     typedef struct __NAME __NAME;                
-
-#define __def_class(__NAME,...)                                                 \
+        __PUBLIC                                                                \
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    };                                                                          \
     struct __NAME {                                                             \
-        __VA_ARGS__
-          
-#define __end_def_class(__NAME, ...)                                            \
+        __PUBLIC                                                                \
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    };                                                                          
+#   else
+#       define __def_class(__NAME, __PUBLIC, ...)                               \
+    typedef struct __NAME __NAME;                                               \
+    typedef struct __##__NAME __##__NAME;                                       \
+    struct __##__NAME {                                                         \
+        __PUBLIC                                                                \
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PUBLIC                                                                \
+        PLOOC_INVISIBLE(__VA_ARGS__)                                            \
     };                                                                          
     
-#define __extern_class(__NAME,...)                                              \
-    struct __NAME {                                                             \
-        __VA_ARGS__                                                             
+#   endif
+          
+#   define __end_def_class(__NAME, ...)                                                                           
 
-#define __end_extern_class(__NAME, ...)                                         \
-    };
+#   undef private_member
+#   define private_member(...)              PLOOC_VISIBLE(__VA_ARGS__)
+
+#   undef public_member
+#   define public_member(...)               PLOOC_VISIBLE(__VA_ARGS__)
+
+#   undef  __class
+#   define __class(__NAME)                  __##__NAME
+
+#   undef  class
+#   define class(__NAME)                    __class(__NAME)
+
+#define __extern_class(__NAME,...)
+#define __end_extern_class(__NAME, ...)
+
+#else
+
+#ifndef __OOC_DEBUG__        
+
+#   define __def_class(__NAME, __PUBLIC, ...)                                   \
+    typedef struct __NAME __NAME;                                               \
+    typedef struct __##__NAME __##__NAME;                                       \
+    struct __##__NAME {                                                         \
+        __PUBLIC                                                                \
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    };                                                                                                                                                  
+  
+#define __extern_class(__NAME,__PUBLIC, ...)                                    \
+    typedef struct __NAME __NAME;                                               \
+    struct __NAME {                                                             \
+        __PUBLIC                                                                \
+        PLOOC_INVISIBLE(__VA_ARGS__)                                            \
+    }; 
+
+
+#define __end_extern_class(__NAME, ...)
+
+#   undef private_member
+#   define private_member(...)              PLOOC_VISIBLE(__VA_ARGS__)
+
+#   undef public_member
+#   define public_member(...)               PLOOC_VISIBLE(__VA_ARGS__)
+    
+#else
+               
+#   define __def_class(__NAME, __PUBLIC, ...)                                   \
+    typedef struct __NAME __NAME;                                               \
+    typedef struct __##__NAME __##__NAME;                                       \
+    struct __##__NAME {                                                         \
+        __PUBLIC                                                                \
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    };                                                                                                                                                  
+  
+#define __extern_class(__NAME,__PUBLIC, ...)                                    \
+    typedef struct __NAME __NAME;                                               \
+    struct __NAME {                                                             \
+        __PUBLIC                                                                \
+        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+    }; 
+
+
+#define __end_extern_class(__NAME, ...)
+    
+#   undef private_member
+#   define private_member(...)              PLOOC_INVISIBLE(__VA_ARGS__)
+
+#   undef public_member
+#   define public_member(...)               PLOOC_VISIBLE(__VA_ARGS__)
     
 #endif
 
+
+
+#   define __end_def_class(__NAME, ...)  
+
+#endif
+
+
+#   undef  __class
+#   define __class(__NAME)                  __##__NAME
+
+#   undef  class
+#   define class(__NAME)                    __class(__NAME)
+
+#undef declare_class
+#define declare_class(__NAME)           typedef struct __NAME __NAME;  
+
 #define end_def_class(__NAME, ...)      __end_def_class(__NAME, __VA_ARGS__)
-#define def_class(__NAME, ...)          __def_class(__NAME, __VA_ARGS__)
+#define def_class(__NAME,__PUBLIC, ...)                                         \
+            __def_class(__NAME, __PUBLIC, __VA_ARGS__)
 #define class(__NAME)                   __class(__NAME)
 
-#define extern_class(__NAME, ...)       __extern_class(__NAME, __VA_ARGS__)
+#define extern_class(__NAME, __PUBLIC, ...)                                     \
+            __extern_class(__NAME, __PUBLIC,__VA_ARGS__)
 #define end_extern_class(__NAME, ...)   __end_extern_class(__NAME, __VA_ARGS__)
 
 #ifndef __PLOOC_CLASS_BLACK_BOX_H__
@@ -154,5 +221,6 @@
 /*============================ LOCAL VARIABLES ===============================*/
 /*============================ PROTOTYPES ====================================*/
 
-
+#undef __PLOOC_CLASS_IMPLEMENT
+#undef __PLOOC_CLASS_INHERIT
 /* EOF */
