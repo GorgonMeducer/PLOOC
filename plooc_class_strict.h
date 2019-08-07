@@ -43,6 +43,10 @@
 #undef __def_class
 #undef end_def_class
 #undef __end_def_class
+#undef extern_class
+#undef __extern_class
+#undef end_extern_class
+#undef __end_extern_class
 
 /*============================ MACROFIED FUNCTIONS ===========================*/
 
@@ -77,6 +81,9 @@
 #   endif
           
 #   define __end_def_class(__NAME, ...)                                                                           
+
+#define __extern_class(__NAME,__PUBLIC, ...) 
+#define __end_extern_class(__NAME, ...)
 
 
 #   undef private_member
@@ -129,6 +136,10 @@
     };
 
 #   define __end_def_class(__NAME, ...)                                         
+
+#define __extern_class(__NAME,__PUBLIC, ...)                                    
+
+#define __end_extern_class(__NAME, ...)
 
 #   undef private_member
 #   define private_member(...)              PLOOC_VISIBLE(__VA_ARGS__)
@@ -186,6 +197,10 @@
 
 #   define __end_def_class(__NAME, ...)  
 
+#define __extern_class(__NAME,__PUBLIC, ...)                                    
+
+#define __end_extern_class(__NAME, ...)
+
 #   undef private_member
 #   define private_member(...)                  PLOOC_INVISIBLE(__VA_ARGS__)  
 
@@ -235,6 +250,14 @@
 
 #   define __end_def_class(__NAME, ...)  
 
+#define __extern_class(__NAME,__PUBLIC, ...)                                    \
+    typedef struct __NAME __NAME;                                               \
+    struct __NAME {                                                             \
+        __PUBLIC                                                                \
+        PLOOC_VISIBLE(__VA_ARGS__)                                            \
+    }; 
+    
+#define __end_extern_class(__NAME, ...)
 
 #   undef private_member
 #   define private_member(...)              PLOOC_VISIBLE(__VA_ARGS__)
@@ -256,6 +279,15 @@
 
 #   define __end_def_class(__NAME, ...) 
 
+#define __extern_class(__NAME,__PUBLIC, ...)                                    \
+    typedef struct __NAME __NAME;                                               \
+    struct __NAME {                                                             \
+        __PUBLIC                                                                \
+        PLOOC_INVISIBLE(__VA_ARGS__)                                            \
+    }; 
+
+#define __end_extern_class(__NAME, ...)
+
 #   undef private_member
 #   define private_member(...)              PLOOC_INVISIBLE(__VA_ARGS__)                 
 
@@ -272,6 +304,11 @@
 
 #undef declare_class
 #define declare_class(__NAME)           typedef struct __NAME __NAME;    
+
+#define extern_class(__NAME, __PUBLIC, ...)                                     \
+            __extern_class(__NAME, __PUBLIC,__VA_ARGS__)
+#define end_extern_class(__NAME, ...)   __end_extern_class(__NAME, __VA_ARGS__)
+
 
 #undef __PLOOC_CLASS_IMPLEMENT
 #undef __PLOOC_CLASS_INHERIT

@@ -32,9 +32,7 @@ typedef struct mem_t {
     uint16_t    hwSize;                 //!< buffer size
 }mem_t;
 
-/*! \NOTE: Make sure #include "plooc_class.h" is close to the class
- *!        definition and there is NO ANY OTHER module-interface-header file 
- *!        included in this file
+/*! \NOTE: Make sure #include "plooc_class.h" is close to the class definition 
  */
 #define __PLOOC_CLASS_USE_STRICT_TEMPLATE__
    

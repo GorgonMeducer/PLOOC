@@ -80,11 +80,11 @@ int main(void)
         while(ENHANCED_BYTE_QUEUE.Peek.PeekByte(&s_tQueue, &chByte)) {
             printf("%c\r\n", chByte);
         }
-        printf("There are %d byte in the queue!\r\n", 
+        printf("There are %d byte(s) in the queue!\r\n", 
                 ENHANCED_BYTE_QUEUE.Count(&s_tQueue));
-        printf("Let's remove all peeked byte from queue... \r\n");
+        printf("Let's remove all peeked byte(s) from queue... \r\n");
         ENHANCED_BYTE_QUEUE.Peek.GetAllPeeked(&s_tQueue);
-        printf("There are %d byte in the queue!\r\n", 
+        printf("Now there are %d byte(s) in the queue!\r\n", 
                 ENHANCED_BYTE_QUEUE.Count(&s_tQueue));
     } while(0);
    
