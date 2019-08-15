@@ -89,13 +89,15 @@
 #undef end_extern_class
 #undef __end_extern_class
 
-#define __def_class(__NAME,__PUBLIC, ...)                                       \
-    struct __NAME {                                                             \
-        __PUBLIC                                                                \
-        PLOOC_VISIBLE(__VA_ARGS__)                                              \
-    };
           
-#define __end_def_class(__NAME, ...)
+#define __end_def_class(...)
+
+#define __def_class(__NAME, ...)                                                \
+    typedef struct __NAME __NAME;                                               \
+    struct __NAME {                                                             \
+        __VA_ARGS__                                                             \
+    };                      
+    
 
 #if     defined(__PLOOC_CLASS_IMPLEMENT)
 
@@ -118,7 +120,7 @@
 #   define __with_class(__TYPE, __SRC, ...)                                     \
         {                                                                       \
             class(__TYPE)*_ =(class(__TYPE) *)(__SRC);                          \
-            UNUSED_PARAM(_);                                                    \
+            PLOOC_UNUSED_PARAM(_);                                              \
             __VA_ARGS__;                                                        \
         }                                                                       \
         for (class(__TYPE)*_ =(class(__TYPE) *)(__SRC); NULL != _; _ = NULL)
@@ -127,44 +129,9 @@
 #   define with_class(__TYPE, __SRC, ...)                                       \
             __with_class(__TYPE, __SRC, __VA_ARGS__)
 
-#define __extern_class(__NAME,__PUBLIC, ...)                                    
+#define __extern_class(...)                                    
 
-#define __end_extern_class(__NAME, ...)
-
-#elif   defined(__OOC_DEBUG__) && defined(__PLOOC_CLASS_INHERIT)
-
-#   undef  __class_protected
-#   define __class_protected(__NAME)        __NAME
-
-#   undef  class_protected
-#   define class_protected(__NAME)          __class_protected(__NAME)
-
-#   undef __protected_internal
-#   define __protected_internal(__SRC, __DES, __TYPE,...)                       \
-            class_protected(__TYPE)*(__DES)=(class_protected(__TYPE) *)(__SRC); \
-            __with_protected(__TYPE, (__SRC), __VA_ARGS__)
-
-#   undef protected_internal            
-#   define protected_internal(__SRC, __DES, __TYPE,...)                         \
-            __protected_internal(__SRC, __DES, __TYPE, __VA_ARGS__)    
-
-#   undef __with_protected
-#   define __with_protected(__TYPE, __SRC, ...)                                 \
-        {                                                                       \
-            class_protected(__TYPE)*_ =(class_protected(__TYPE) *)(__SRC);      \
-            __VA_ARGS__;                                                        \
-        }                                                                       \
-        for (   class_protected(__TYPE)*_ =(class_protected(__TYPE) *)(__SRC);  \
-                NULL != _;                                                      \
-                _ = NULL)
-
-#   undef with_protected
-#   define with_protected(__TYPE, __SRC, ...)                                   \
-            __with_protected(__TYPE, __SRC, __VA_ARGS__)
-        
-#define __extern_class(__NAME,__PUBLIC, ...)                                    
-
-#define __end_extern_class(__NAME, ...)
+#define __end_extern_class(...)
         
 #elif   defined(__PLOOC_CLASS_INHERIT)
 
@@ -193,43 +160,30 @@
 #   define with_protected(__TYPE, __SRC, ...)                                   \
             __with_protected(__TYPE, __SRC, __VA_ARGS__)            
 
-#define __extern_class(__NAME,__PUBLIC, ...)                                    
+#define __extern_class(...)                                    
 
-#define __end_extern_class(__NAME, ...)
-
-#elif defined(__OOC_DEBUG__)
-
-#define __extern_class(__NAME,__PUBLIC, ...)                                    \
-    typedef struct __NAME __NAME;                                               \
-    struct __NAME {                                                             \
-        __PUBLIC                                                                \
-        PLOOC_VISIBLE(__VA_ARGS__)                                              \
-    }; 
-
-#define __end_extern_class(__NAME, ...)
+#define __end_extern_class(...)
 
 #else  /* __PLOOC_CLASS_EXTERN */
 
-#define __extern_class(__NAME,__PUBLIC, ...)                                    \
-    typedef struct __NAME __NAME;                                               \
-    struct __NAME {                                                             \
-        __PUBLIC                                                                \
-        PLOOC_INVISIBLE(__VA_ARGS__)                                            \
-    }; 
+#define __extern_class(...)             __def_class(__VA_ARGS__)
 
-#define __end_extern_class(__NAME, ...)
+#define __end_extern_class(...)
 
 #endif 
 
-
+#undef which
+#define which(...)                      PLOOC_VISIBLE(__VA_ARGS__)
+                                                    
 #define def_class(__NAME, ...)          __def_class(__NAME, __VA_ARGS__)
-#define end_def_class(__NAME, ...)      __end_def_class(__NAME, __VA_ARGS__)
+                           
+#define end_def_class(...)              __end_def_class(__VA_ARGS__)
 
 #undef declare_class
 #define declare_class(__NAME)           typedef struct __NAME __NAME;
 
-#define extern_class(__NAME, __PUBLIC, ...)                                     \
-            __extern_class(__NAME, __PUBLIC,__VA_ARGS__)
+#define extern_class(__NAME, ...)       __extern_class(__NAME, __VA_ARGS__)
+
 #define end_extern_class(__NAME, ...)   __end_extern_class(__NAME, __VA_ARGS__)
 
 #undef __PLOOC_CLASS_IMPLEMENT

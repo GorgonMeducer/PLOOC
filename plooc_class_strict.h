@@ -40,6 +40,13 @@
 
 /*============================ MACROS ========================================*/
 #undef def_class
+#undef __def_class2
+#undef __def_class3
+#undef __def_class4
+#undef __def_class5
+#undef __def_class6
+#undef __def_class7
+#undef __def_class8
 #undef __def_class
 #undef end_def_class
 #undef __end_def_class
@@ -53,47 +60,123 @@
 
 #if   defined(__PLOOC_CLASS_IMPLEMENT)
 
-#   ifdef __OOC_DEBUG__
-#       define __def_class(__NAME, __PUBLIC ,...)                               \
+#       define __def_class2(__NAME, _1)                                         \
     typedef struct __NAME __NAME;                                               \
     typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
-        __PUBLIC                                                                \
-        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_1)                                       \
     };                                                                          \
     struct __NAME {                                                             \
-        __PUBLIC                                                                \
-        PLOOC_VISIBLE(__VA_ARGS__)                                              \
-    };                                                                          
-#   else
-#       define __def_class(__NAME, __PUBLIC, ...)                               \
-    typedef struct __NAME __NAME;                                               \
-    typedef struct __##__NAME __##__NAME;                                       \
-    struct __##__NAME {                                                         \
-        __PUBLIC                                                                \
-        PLOOC_VISIBLE(__VA_ARGS__)                                              \
-    };                                                                          \
-    struct __NAME {                                                             \
-        __PUBLIC                                                                \
-        PLOOC_INVISIBLE(__VA_ARGS__)                                            \
-    };                                                                          
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                                                     \
+    };        
     
-#   endif
+#       define __def_class3(__NAME, _1, _2)                                     \
+    typedef struct __NAME __NAME;                                               \
+    typedef struct __##__NAME __##__NAME;                                       \
+    struct __##__NAME {                                                         \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_2)                                       \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+    };
+    
+#       define __def_class4(__NAME, _1, _2, _3)                                 \
+    typedef struct __NAME __NAME;                                               \
+    typedef struct __##__NAME __##__NAME;                                       \
+    struct __##__NAME {                                                         \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_3)                                       \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+    };
+    
+#       define __def_class5(__NAME, _1, _2, _3, _4)                             \
+    typedef struct __NAME __NAME;                                               \
+    typedef struct __##__NAME __##__NAME;                                       \
+    struct __##__NAME {                                                         \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_4)                                       \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
+    };
+    
+#       define __def_class6(__NAME, _1, _2, _3, _4, _5)                         \
+    typedef struct __NAME __NAME;                                               \
+    typedef struct __##__NAME __##__NAME;                                       \
+    struct __##__NAME {                                                         \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_5)                                       \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_5)                                       \
+    };
+    
+#       define __def_class7(__NAME, _1, _2, _3, _4, _5, _6)                     \
+    typedef struct __NAME __NAME;                                               \
+    typedef struct __##__NAME __##__NAME;                                       \
+    struct __##__NAME {                                                         \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_5)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_6)                                       \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_5)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_6)                                       \
+    };
+    
+#       define __def_class8(__NAME, _1, _2, _3, _4, _5, _6, _7)                 \
+    typedef struct __NAME __NAME;                                               \
+    typedef struct __##__NAME __##__NAME;                                       \
+    struct __##__NAME {                                                         \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_5)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_6)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRI_,_7)                                       \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_5)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_6)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_7)                                       \
+    };
           
-#   define __end_def_class(__NAME, ...)                                                                           
+#   define __end_def_class(...)                                                                           
 
-#define __extern_class(__NAME,__PUBLIC, ...) 
-#define __end_extern_class(__NAME, ...)
+#define __extern_class(...) 
+#define __end_extern_class(...)
 
-
-#   undef private_member
-#   define private_member(...)              PLOOC_VISIBLE(__VA_ARGS__)
-
-#   undef protected_member
-#   define protected_member(...)            PLOOC_VISIBLE(__VA_ARGS__)
-
-#   undef public_member
-#   define public_member(...)               PLOOC_VISIBLE(__VA_ARGS__)
 
 #   undef  __class
 #   define __class(__NAME)                  __##__NAME
@@ -122,93 +205,121 @@
 #   undef with_class
 #   define with_class(__TYPE, __SRC, ...)                                       \
             __with_class(__TYPE, __SRC, __VA_ARGS__)
-
-#elif   defined(__OOC_DEBUG__) && defined(__PLOOC_CLASS_INHERIT)
-#   define __def_class(__NAME,__PUBLIC,...)                                     \
-    typedef struct __NAME __NAME;                                               \
-    struct __protected_##__NAME {                                               \
-        __PUBLIC                                                                \
-        PLOOC_VISIBLE(__VA_ARGS__)                                              \
-    };                                                                          \
-    struct __NAME {                                                             \
-        __PUBLIC                                                                \
-        PLOOC_VISIBLE(__VA_ARGS__)                                              \
-    };
-
-#   define __end_def_class(__NAME, ...)                                         
-
-#define __extern_class(__NAME,__PUBLIC, ...)                                    
-
-#define __end_extern_class(__NAME, ...)
-
-#   undef private_member
-#   define private_member(...)              PLOOC_VISIBLE(__VA_ARGS__)
-
-#   undef protected_member
-#   define protected_member(...)            PLOOC_VISIBLE(__VA_ARGS__)
-
-#   undef public_member
-#   define public_member(...)               PLOOC_VISIBLE(__VA_ARGS__)
-
-
-#   undef  __class_protected
-#   define __class_protected(__NAME)        struct __protected_##__NAME
-
-#   undef  class_protected
-#   define class_protected(__NAME)          __class_protected(__NAME)
-
-#   undef __protected_internal
-#   define __protected_internal(__SRC, __DES, __TYPE,...)                       \
-            class_protected(__TYPE)*(__DES)=(class_protected(__TYPE) *)(__SRC); \
-            __with_protected(__TYPE, (__SRC), __VA_ARGS__)
-
-#   undef protected_internal            
-#   define protected_internal(__SRC, __DES, __TYPE,...)                         \
-            __protected_internal(__SRC, __DES, __TYPE, __VA_ARGS__)    
-              
-            
-#   undef __with_protected
-#   define __with_protected(__TYPE, __SRC, ...)                                 \
-        {                                                                       \
-            class_protected(__TYPE)*_ =(class_protected(__TYPE) *)(__SRC);      \
-            _ = _;                                                              \
-            __VA_ARGS__;                                                        \
-        }                                                                       \
-        for (   class_protected(__TYPE)*_ =(class_protected(__TYPE) *)(__SRC);  \
-                NULL != _;                                                      \
-                _ = NULL)
-
-#   undef with_protected
-#   define with_protected(__TYPE, __SRC, ...)                                   \
-            __with_protected(__TYPE, __SRC, __VA_ARGS__)
               
 #elif   defined(__PLOOC_CLASS_INHERIT)
 
-#   define __def_class(__NAME, __PUBLIC, ...)                                   \
+#       define __def_class2(__NAME, _1)                                         \
     typedef struct __NAME __NAME;                                               \
     struct __protected_##__NAME {                                               \
-        __PUBLIC                                                                \
-        PLOOC_VISIBLE(__VA_ARGS__)                                              \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
     };                                                                          \
     struct __NAME {                                                             \
-        __PUBLIC                                                                \
-        PLOOC_INVISIBLE(__VA_ARGS__)                                            \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+    };        
+    
+#       define __def_class3(__NAME, _1, _2)                                     \
+    typedef struct __NAME __NAME;                                               \
+    struct __protected_##__NAME {                                               \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_2)                                       \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+    };
+    
+#       define __def_class4(__NAME, _1, _2, _3)                                 \
+    typedef struct __NAME __NAME;                                               \
+    struct __protected_##__NAME {                                               \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_3)                                       \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+    };
+    
+#       define __def_class5(__NAME, _1, _2, _3, _4)                             \
+    typedef struct __NAME __NAME;                                               \
+    struct __protected_##__NAME {                                               \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_4)                                       \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
+    };
+    
+#       define __def_class6(__NAME, _1, _2, _3, _4, _5)                         \
+    typedef struct __NAME __NAME;                                               \
+    struct __protected_##__NAME {                                               \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_5)                                       \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_5)                                       \
+    };
+    
+#       define __def_class7(__NAME, _1, _2, _3, _4, _5, _6)                     \
+    typedef struct __NAME __NAME;                                               \
+    struct __protected_##__NAME {                                               \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_5)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_6)                                       \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_5)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_6)                                       \
+    };
+    
+#       define __def_class8(__NAME, _1, _2, _3, _4, _5, _6, _7)                 \
+    typedef struct __NAME __NAME;                                               \
+    struct __protected_##__NAME {                                               \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_5)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_6)                                       \
+        __PLOOC_CONNECT2(__PLOOC_PRO_,_7)                                       \
+    };                                                                          \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_5)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_6)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_7)                                       \
     };
 
-#   define __end_def_class(__NAME, ...)  
 
-#define __extern_class(__NAME,__PUBLIC, ...)                                    
 
-#define __end_extern_class(__NAME, ...)
+#   define __end_def_class(...)  
 
-#   undef private_member
-#   define private_member(...)                  PLOOC_INVISIBLE(__VA_ARGS__)  
+#define __extern_class(...)                                    
 
-#   undef protected_member
-#   define protected_member(...)                PLOOC_VISIBLE(__VA_ARGS__)
-
-#   undef public_member
-#   define public_member(...)                   PLOOC_VISIBLE(__VA_ARGS__)
+#define __end_extern_class(...)
 
 #   undef  __class_protected
 #   define __class_protected(__NAME)            struct __protected_##__NAME
@@ -239,75 +350,90 @@
 #   define with_protected(__TYPE, __SRC, ...)                                   \
             __with_protected(__TYPE, __SRC, __VA_ARGS__)            
 
-#elif defined(__OOC_DEBUG__)
-
-#   define __def_class(__NAME, __PUBLIC, ...)                                   \
-    typedef struct __NAME __NAME;                                               \
-    struct __NAME {                                                             \
-        __PUBLIC                                                                \
-        PLOOC_VISIBLE(__VA_ARGS__)                                              \
-    };                                                                          
-
-#   define __end_def_class(__NAME, ...)  
-
-#define __extern_class(__NAME,__PUBLIC, ...)                                    \
-    typedef struct __NAME __NAME;                                               \
-    struct __NAME {                                                             \
-        __PUBLIC                                                                \
-        PLOOC_VISIBLE(__VA_ARGS__)                                            \
-    }; 
-    
-#define __end_extern_class(__NAME, ...)
-
-#   undef private_member
-#   define private_member(...)              PLOOC_VISIBLE(__VA_ARGS__)
-
-#   undef protected_member
-#   define protected_member(...)            PLOOC_VISIBLE(__VA_ARGS__)
-
-#   undef public_member
-#   define public_member(...)               PLOOC_VISIBLE(__VA_ARGS__)
-
 #else  /* __PLOOC_CLASS_EXTERN */
 
-#   define __def_class(__NAME, __PUBLIC, ...)                                   \
+#       define __def_class2(__NAME, _1)                                         \
     typedef struct __NAME __NAME;                                               \
     struct __NAME {                                                             \
-        __PUBLIC                                                                \
-        PLOOC_INVISIBLE(__VA_ARGS__)                                            \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+    };        
+    
+#       define __def_class3(__NAME, _1, _2)                                     \
+    typedef struct __NAME __NAME;                                               \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+    };
+    
+#       define __def_class4(__NAME, _1, _2, _3)                                 \
+    typedef struct __NAME __NAME;                                               \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+    };
+    
+#       define __def_class5(__NAME, _1, _2, _3, _4)                             \
+    typedef struct __NAME __NAME;                                               \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
+    };
+    
+#       define __def_class6(__NAME, _1, _2, _3, _4, _5)                         \
+    typedef struct __NAME __NAME;                                               \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_5)                                       \
+    };
+    
+#       define __def_class7(__NAME, _1, _2, _3, _4, _5, _6)                     \
+    typedef struct __NAME __NAME;                                               \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_5)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_6)                                       \
+    };
+    
+#       define __def_class8(__NAME, _1, _2, _3, _4, _5, _6, _7)                 \
+    typedef struct __NAME __NAME;                                               \
+    struct __NAME {                                                             \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_5)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_6)                                       \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_7)                                       \
     };
 
-#   define __end_def_class(__NAME, ...) 
+#   define __end_def_class(...) 
 
-#define __extern_class(__NAME,__PUBLIC, ...)                                    \
-    typedef struct __NAME __NAME;                                               \
-    struct __NAME {                                                             \
-        __PUBLIC                                                                \
-        PLOOC_INVISIBLE(__VA_ARGS__)                                            \
-    }; 
+#define __extern_class(...)             __PLOOC_EVAL(__def_class, __VA_ARGS__)  \
+                                                    (__VA_ARGS__)
 
-#define __end_extern_class(__NAME, ...)
-
-#   undef private_member
-#   define private_member(...)              PLOOC_INVISIBLE(__VA_ARGS__)                 
-
-#   undef protected_member
-#   define protected_member(...)            PLOOC_INVISIBLE(__VA_ARGS__)
-
-#   undef public_member
-#   define public_member(...)               PLOOC_VISIBLE(__VA_ARGS__)
+#define __end_extern_class(...)
        
 #endif 
 
-#define def_class(__NAME, ...)          __def_class(__NAME, __VA_ARGS__)
-#define end_def_class(__NAME, ...)      __end_def_class(__NAME, __VA_ARGS__)
+#define def_class(...)                  __PLOOC_EVAL(__def_class, __VA_ARGS__)  \
+                                                    (__VA_ARGS__)
+
+#define end_def_class(...)              __end_def_class(__VA_ARGS__)
 
 #undef declare_class
 #define declare_class(__NAME)           typedef struct __NAME __NAME;    
 
-#define extern_class(__NAME, __PUBLIC, ...)                                     \
-            __extern_class(__NAME, __PUBLIC,__VA_ARGS__)
-#define end_extern_class(__NAME, ...)   __end_extern_class(__NAME, __VA_ARGS__)
+#define extern_class(...)               __extern_class(__VA_ARGS__)
+#define end_extern_class(...)           __end_extern_class(__VA_ARGS__)
 
 
 #undef __PLOOC_CLASS_IMPLEMENT

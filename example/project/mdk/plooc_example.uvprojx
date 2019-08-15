@@ -413,11 +413,6 @@
               <FilePath>..\..\..\plooc_class.h</FilePath>
             </File>
             <File>
-              <FileName>plooc_class_simple.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\..\plooc_class_simple.h</FilePath>
-            </File>
-            <File>
               <FileName>plooc_class_strict.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\..\plooc_class_strict.h</FilePath>
@@ -425,7 +420,12 @@
             <File>
               <FileName>plooc_class_black_box.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\..\..\..\..\..\..\..\..\..\PLOOC\PLOOC\plooc_class_black_box.h</FilePath>
+              <FilePath>..\..\..\plooc_class_black_box.h</FilePath>
+            </File>
+            <File>
+              <FileName>plooc_class_simple.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\plooc_class_simple.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -47,9 +47,9 @@
 //! @{
 declare_class(enhanced_byte_queue_t)
 
-def_class(enhanced_byte_queue_t, 
+def_class(enhanced_byte_queue_t,
     which(implement(byte_queue_t))
-    /*! no public_member */  ,/*! don't forget the comma here */
+
     private_member(
         uint16_t hwPeek;
         uint16_t hwPeekCount;
