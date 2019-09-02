@@ -56,3 +56,5 @@ dkms.conf
 *.lst
 *.dep
 *.gabwan01
+*.lnp
+*.scvd

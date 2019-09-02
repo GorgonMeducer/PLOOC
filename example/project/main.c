@@ -40,7 +40,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-
 static enhanced_byte_queue_t s_tQueue;
 
 int main(void)

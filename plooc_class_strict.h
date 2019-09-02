@@ -67,7 +67,7 @@
         __PLOOC_CONNECT2(__PLOOC_PRI_,_1)                                       \
     };                                                                          \
     struct __NAME {                                                             \
-        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                                                     \
+        __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
     };        
     
 #       define __def_class3(__NAME, _1, _2)                                     \
@@ -172,7 +172,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_7)                                       \
     };
           
-#   define __end_def_class(...)                                                                           
+#   define __end_def_class(...)
 
 #define __extern_class(...) 
 #define __end_extern_class(...)

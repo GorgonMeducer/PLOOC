@@ -29,7 +29,8 @@
           a. if the target processor is 8 bits, define it as uint8_t
           b. if the target processor is 16 bits, define it as uint16_t 
           c. if the target processor is 32 bits, define it as uint32_t
-          d. if the target processor is 64 bits, define it as either uint32_t or uint64_t
+          d. if the target processor is 64 bits, define it as either uint32_t or 
+             uint64_t
  */
 
 /*============================ MACROS ========================================*/
@@ -88,31 +89,40 @@
 
 //! \brief macro for inheritance
 
+#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L
+#define __IMPLEMENT_EX(__TYPE, __NAME)                                          \
+            __TYPE  __NAME;                                                 
+#else
 #define __IMPLEMENT_EX(__TYPE, __NAME)                                          \
             union {                                                             \
                 __TYPE  __NAME;                                                 \
                 __TYPE;                                                         \
             };
-            
+#endif
+
 #define __INHERIT_EX(__TYPE, __NAME)    __TYPE  __NAME;
 #define INHERIT_EX(__TYPE, __NAME)      __INHERIT_EX(__TYPE, __NAME)
 
 #define __INHERIT(__TYPE)              INHERIT_EX(__TYPE, use_as__##__TYPE)
 #define INHERIT(__TYPE)                __INHERIT(__TYPE)
 
+
+
 /*! \note You can only use IMPLEMENT when defining INTERFACE. For Implement 
  *        interface when defining class, you should use DEF_CLASS_IMPLEMENT 
  *        instead.
  */
-#define __IMPLEMENT(__INTERFACE)    __IMPLEMENT_EX(__INTERFACE, use_as__##__INTERFACE)
-#define IMPLEMENT(__INTERFACE)      __IMPLEMENT(__INTERFACE)  
+#define __IMPLEMENT(__INTERFACE)        __IMPLEMENT_EX( __INTERFACE,            \
+                                                        use_as__##__INTERFACE)
+#define IMPLEMENT(__INTERFACE)          __IMPLEMENT(__INTERFACE)  
 
 /*! \note if you have used INHERIT or IMPLEMENT to define a class / INTERFACE, 
           you can use OBJ_CONVERT_AS to extract the reference to the inherited 
           object. 
   \*/
 #define __OBJ_CONVERT_AS(__OBJ, __INTERFACE)    (__OBJ.use_as__##__INTERFACE)
-#define OBJ_CONVERT_AS(__OBJ, __INTERFACE)      __OBJ_CONVERT_AS((__OBJ), __INTERFACE)          
+#define OBJ_CONVERT_AS(__OBJ, __INTERFACE)      __OBJ_CONVERT_AS(   (__OBJ),    \
+                                                                    __INTERFACE)
 
 #define __REF_OBJ_AS(__OBJ, __TYPE)             (&(__OBJ.use_as__##__TYPE))
 #define REF_OBJ_AS(__OBJ, __TYPE)               __REF_OBJ_AS((__OBJ), __TYPE)
@@ -128,7 +138,7 @@
 
 
 
-#define __8_PLOOC_EVAL(__FUNC, __NO_ARGS)   __FUNC##__NO_ARGS                                  
+#define __8_PLOOC_EVAL(__FUNC, __NO_ARGS)   __FUNC##__NO_ARGS
 #define __7_PLOOC_EVAL(__FUNC, __NO_ARGS)   __8_PLOOC_EVAL(__FUNC, __NO_ARGS)
 #define __6_PLOOC_EVAL(__FUNC, __NO_ARGS)   __7_PLOOC_EVAL(__FUNC, __NO_ARGS)
 #define __5_PLOOC_EVAL(__FUNC, __NO_ARGS)   __6_PLOOC_EVAL(__FUNC, __NO_ARGS)
@@ -143,7 +153,7 @@
                                                 __PLOOC_VA_NUM_ARGS(__VA_ARGS__))
 //! @}   
            
-/*----------------------------------------------------------------------------*          
+/*----------------------------------------------------------------------------* 
  * new standard (lower case)                                                  *
  *----------------------------------------------------------------------------*/
 #define implement(__TYPE)                   IMPLEMENT(__TYPE)

@@ -32,7 +32,8 @@
           a. if the target processor is 8 bits, define it as uint8_t
           b. if the target processor is 16 bits, define it as uint16_t 
           c. if the target processor is 32 bits, define it as uint32_t
-          d. if the target processor is 64 bits, define it as either uint32_t or uint64_t
+          d. if the target processor is 64 bits, define it as either uint32_t or
+             uint64_t
  */
 
 

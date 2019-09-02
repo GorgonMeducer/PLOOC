@@ -1,0 +1,379 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+<title>Static Call Graph - [.\Objects\plooc_example.axf]</title></head>
+<body><HR>
+<H1>Static Call Graph for image .\Objects\plooc_example.axf</H1><HR>
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6130001: Last Updated: Fri Aug 16 12:18:24 2019
+<BR><P>
+<H3>Maximum Stack Usage =         24 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
+Call chain for Maximum Stack Depth:</H3>
+main &rArr; __2printf
+<P>
+<H3>
+Mutually Recursive functions
+</H3> <LI><a href="#[1]">NMI_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[1]">NMI_Handler</a><BR>
+ <LI><a href="#[2]">HardFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[2]">HardFault_Handler</a><BR>
+ <LI><a href="#[3]">MemManage_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[3]">MemManage_Handler</a><BR>
+ <LI><a href="#[4]">BusFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[4]">BusFault_Handler</a><BR>
+ <LI><a href="#[5]">UsageFault_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[5]">UsageFault_Handler</a><BR>
+ <LI><a href="#[6]">SVC_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[6]">SVC_Handler</a><BR>
+ <LI><a href="#[7]">DebugMon_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[7]">DebugMon_Handler</a><BR>
+ <LI><a href="#[8]">PendSV_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[8]">PendSV_Handler</a><BR>
+ <LI><a href="#[9]">SysTick_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[9]">SysTick_Handler</a><BR>
+ <LI><a href="#[14]">DUALTIMER_Handler</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[14]">DUALTIMER_Handler</a><BR>
+ <LI><a href="#[35]">stdout_putchar</a>&nbsp;&nbsp;&nbsp;&rArr;&nbsp;&nbsp;&nbsp;<a href="#[35]">stdout_putchar</a><BR>
+</UL>
+<P>
+<H3>
+Function Pointers
+</H3><UL>
+ <LI><a href="#[4]">BusFault_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[14]">DUALTIMER_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[7]">DebugMon_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[17]">ETHERNET_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[10]">GPIO0ALL_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[22]">GPIO0_0_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[23]">GPIO0_1_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[24]">GPIO0_2_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[25]">GPIO0_3_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[26]">GPIO0_4_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[27]">GPIO0_5_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[28]">GPIO0_6_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[29]">GPIO0_7_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[11]">GPIO1ALL_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[1a]">GPIO2_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[1b]">GPIO3_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[2]">HardFault_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[18]">I2S_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[3]">MemManage_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[1]">NMI_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[8]">PendSV_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[0]">Reset_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[15]">SPI_0_1_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[20]">SPI_2_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[21]">SPI_3_4_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[6]">SVC_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[9]">SysTick_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[2b]">SystemInit</a> from lto-llvm-829089.o(.text.SystemInit) referenced from startup_cmsdk_cm3.o(.text)
+ <LI><a href="#[12]">TIMER0_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[13]">TIMER1_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[19]">TOUCHSCREEN_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[a]">UART0RX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[b]">UART0TX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[c]">UART1RX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[d]">UART1TX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[e]">UART2RX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[f]">UART2TX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[1c]">UART3RX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[1d]">UART3TX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[1e]">UART4RX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[1f]">UART4TX_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[16]">UART_0_1_2_OVF_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[5]">UsageFault_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
+ <LI><a href="#[2c]">__main</a> from entry.o(.ARM.Collect$$$$00000000) referenced from startup_cmsdk_cm3.o(.text)
+ <LI><a href="#[2d]">enhanced_byte_queue_enqueue</a> from lto-llvm-829089.o(.text.enhanced_byte_queue_enqueue) referenced from lto-llvm-829089.o(.text.main)
+ <LI><a href="#[2e]">fputc</a> from lto-llvm-829089.o(.text.fputc) referenced from printf3.o(i.__0printf$3)
+ <LI><a href="#[2a]">main</a> from lto-llvm-829089.o(.text.main) referenced from entry9a.o(.ARM.Collect$$$$0000000B)
+</UL>
+<P>
+<H3>
+Global Symbols
+</H3>
+<P><STRONG><a name="[2c]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(.text)
+</UL>
+<P><STRONG><a name="[3c]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+
+<P><STRONG><a name="[2f]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
+<BR><BR>[Calls]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+</UL>
+
+<P><STRONG><a name="[31]"></a>__main_after_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
+<BR><BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+</UL>
+
+<P><STRONG><a name="[3d]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+
+<P><STRONG><a name="[3e]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+
+<P><STRONG><a name="[3f]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+
+<P><STRONG><a name="[40]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+
+<P><STRONG><a name="[41]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+
+<P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[1]"></a>NMI_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NMI_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[2]"></a>HardFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HardFault_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[3]"></a>MemManage_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemManage_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MemManage_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[4]"></a>BusFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BusFault_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BusFault_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[5]"></a>UsageFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsageFault_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsageFault_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[6]"></a>SVC_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVC_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SVC_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[7]"></a>DebugMon_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DebugMon_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DebugMon_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[8]"></a>PendSV_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[9]"></a>SysTick_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[14]"></a>DUALTIMER_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DUALTIMER_Handler
+</UL>
+<BR>[Called By]<UL><LI><a href="#[14]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DUALTIMER_Handler
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[17]"></a>ETHERNET_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[10]"></a>GPIO0ALL_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[22]"></a>GPIO0_0_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[23]"></a>GPIO0_1_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[24]"></a>GPIO0_2_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[25]"></a>GPIO0_3_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[26]"></a>GPIO0_4_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[27]"></a>GPIO0_5_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[28]"></a>GPIO0_6_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[29]"></a>GPIO0_7_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[11]"></a>GPIO1ALL_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[1a]"></a>GPIO2_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[1b]"></a>GPIO3_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[18]"></a>I2S_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[15]"></a>SPI_0_1_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[20]"></a>SPI_2_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[21]"></a>SPI_3_4_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[12]"></a>TIMER0_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[13]"></a>TIMER1_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[19]"></a>TOUCHSCREEN_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[a]"></a>UART0RX_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[b]"></a>UART0TX_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[c]"></a>UART1RX_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[d]"></a>UART1TX_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[e]"></a>UART2RX_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[f]"></a>UART2TX_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[1c]"></a>UART3RX_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[1d]"></a>UART3TX_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[1e]"></a>UART4RX_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[1f]"></a>UART4TX_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[16]"></a>UART_0_1_2_OVF_Handler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_cmsdk_cm3.o(.text))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(RESET)
+</UL>
+<P><STRONG><a name="[42]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+
+<P><STRONG><a name="[3b]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+</UL>
+
+<P><STRONG><a name="[30]"></a>__scatterload</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, init.o(.text))
+<BR><BR>[Calls]<UL><LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main_after_scatterload
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
+</UL>
+
+<P><STRONG><a name="[43]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+
+<P><STRONG><a name="[33]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset$wrapper
+<LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+</UL>
+
+<P><STRONG><a name="[44]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+
+<P><STRONG><a name="[45]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+
+<P><STRONG><a name="[32]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
+</UL>
+
+<P><STRONG><a name="[46]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+
+<P><STRONG><a name="[37]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[34]"></a>_memset$wrapper</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, memseta.o(.text), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
+</UL>
+
+<P><STRONG><a name="[2b]"></a>SystemInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, lto-llvm-829089.o(.text.SystemInit))
+<BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(.text)
+</UL>
+<P><STRONG><a name="[2e]"></a>fputc</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, lto-llvm-829089.o(.text.fputc))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = fputc &rArr; stdout_putchar &rArr;  stdout_putchar (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stdout_putchar
+</UL>
+<BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;puts
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> printf3.o(i.__0printf$3)
+</UL>
+<P><STRONG><a name="[2a]"></a>main</STRONG> (Thumb, 328 bytes, Stack size 0 bytes, lto-llvm-829089.o(.text.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = main &rArr; __2printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;puts
+<LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr8
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
+</UL>
+<P><STRONG><a name="[39]"></a>__0printf$3</STRONG> (Thumb, 22 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
+</UL>
+
+<P><STRONG><a name="[47]"></a>__1printf$3</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3), UNUSED)
+
+<P><STRONG><a name="[38]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf3.o(i.__0printf$3))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[48]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+
+<P><STRONG><a name="[49]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+
+<P><STRONG><a name="[4a]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+
+<P><STRONG><a name="[36]"></a>puts</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, puts.o(i.puts))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = puts &rArr; fputc &rArr; stdout_putchar &rArr;  stdout_putchar (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
+</UL>
+<BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+<P>
+<H3>
+Local Symbols
+</H3>
+<P><STRONG><a name="[3a]"></a>_printf_core</STRONG> (Thumb, 436 bytes, Stack size 96 bytes, printf3.o(i._printf_core), UNUSED)
+<BR><BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$3
+</UL>
+
+<P><STRONG><a name="[2d]"></a>enhanced_byte_queue_enqueue</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, lto-llvm-829089.o(.text.enhanced_byte_queue_enqueue))
+<BR>[Address Reference Count : 1]<UL><LI> lto-llvm-829089.o(.text.main)
+</UL>
+<P><STRONG><a name="[35]"></a>stdout_putchar</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lto-llvm-829089.o(.text.stdout_putchar))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8 + In Cycle
+<LI>Call Chain = stdout_putchar &rArr;  stdout_putchar (Cycle)
+</UL>
+<BR>[Calls]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stdout_putchar
+</UL>
+<BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stdout_putchar
+<LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
+</UL>
+<P>
+<H3>
+Undefined Global Symbols
+</H3><HR></body></html>
