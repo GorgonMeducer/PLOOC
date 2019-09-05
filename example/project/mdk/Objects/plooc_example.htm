@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\plooc_example.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\plooc_example.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6130001: Last Updated: Fri Aug 16 12:18:24 2019
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6130001: Last Updated: Thu Sep  5 12:39:47 2019
 <BR><P>
 <H3>Maximum Stack Usage =         24 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -54,7 +54,7 @@ Function Pointers
  <LI><a href="#[21]">SPI_3_4_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[6]">SVC_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[9]">SysTick_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
- <LI><a href="#[2b]">SystemInit</a> from lto-llvm-829089.o(.text.SystemInit) referenced from startup_cmsdk_cm3.o(.text)
+ <LI><a href="#[2b]">SystemInit</a> from lto-llvm-ed1ec2.o(.text.SystemInit) referenced from startup_cmsdk_cm3.o(.text)
  <LI><a href="#[12]">TIMER0_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[13]">TIMER1_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[19]">TOUCHSCREEN_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
@@ -71,9 +71,9 @@ Function Pointers
  <LI><a href="#[16]">UART_0_1_2_OVF_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[5]">UsageFault_Handler</a> from startup_cmsdk_cm3.o(.text) referenced from startup_cmsdk_cm3.o(RESET)
  <LI><a href="#[2c]">__main</a> from entry.o(.ARM.Collect$$$$00000000) referenced from startup_cmsdk_cm3.o(.text)
- <LI><a href="#[2d]">enhanced_byte_queue_enqueue</a> from lto-llvm-829089.o(.text.enhanced_byte_queue_enqueue) referenced from lto-llvm-829089.o(.text.main)
- <LI><a href="#[2e]">fputc</a> from lto-llvm-829089.o(.text.fputc) referenced from printf3.o(i.__0printf$3)
- <LI><a href="#[2a]">main</a> from lto-llvm-829089.o(.text.main) referenced from entry9a.o(.ARM.Collect$$$$0000000B)
+ <LI><a href="#[2d]">enhanced_byte_queue_enqueue</a> from lto-llvm-ed1ec2.o(.text.enhanced_byte_queue_enqueue) referenced from lto-llvm-ed1ec2.o(.text.main)
+ <LI><a href="#[2e]">fputc</a> from lto-llvm-ed1ec2.o(.text.fputc) referenced from printf3.o(i.__0printf$3)
+ <LI><a href="#[2a]">main</a> from lto-llvm-ed1ec2.o(.text.main) referenced from entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
 <P>
 <H3>
@@ -305,10 +305,10 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[33]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
 
-<P><STRONG><a name="[2b]"></a>SystemInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, lto-llvm-829089.o(.text.SystemInit))
+<P><STRONG><a name="[2b]"></a>SystemInit</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, lto-llvm-ed1ec2.o(.text.SystemInit))
 <BR>[Address Reference Count : 1]<UL><LI> startup_cmsdk_cm3.o(.text)
 </UL>
-<P><STRONG><a name="[2e]"></a>fputc</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, lto-llvm-829089.o(.text.fputc))
+<P><STRONG><a name="[2e]"></a>fputc</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, lto-llvm-ed1ec2.o(.text.fputc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = fputc &rArr; stdout_putchar &rArr;  stdout_putchar (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stdout_putchar
@@ -317,7 +317,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> printf3.o(i.__0printf$3)
 </UL>
-<P><STRONG><a name="[2a]"></a>main</STRONG> (Thumb, 328 bytes, Stack size 0 bytes, lto-llvm-829089.o(.text.main))
+<P><STRONG><a name="[2a]"></a>main</STRONG> (Thumb, 328 bytes, Stack size 0 bytes, lto-llvm-ed1ec2.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = main &rArr; __2printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
@@ -361,17 +361,17 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$3
 </UL>
 
-<P><STRONG><a name="[2d]"></a>enhanced_byte_queue_enqueue</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, lto-llvm-829089.o(.text.enhanced_byte_queue_enqueue))
-<BR>[Address Reference Count : 1]<UL><LI> lto-llvm-829089.o(.text.main)
+<P><STRONG><a name="[2d]"></a>enhanced_byte_queue_enqueue</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, lto-llvm-ed1ec2.o(.text.enhanced_byte_queue_enqueue))
+<BR>[Address Reference Count : 1]<UL><LI> lto-llvm-ed1ec2.o(.text.main)
 </UL>
-<P><STRONG><a name="[35]"></a>stdout_putchar</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lto-llvm-829089.o(.text.stdout_putchar))
+<P><STRONG><a name="[35]"></a>stdout_putchar</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lto-llvm-ed1ec2.o(.text.stdout_putchar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + In Cycle
 <LI>Call Chain = stdout_putchar &rArr;  stdout_putchar (Cycle)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stdout_putchar
 </UL>
-<BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stdout_putchar
-<LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
+<BR>[Called By]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;fputc
+<LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stdout_putchar
 </UL>
 <P>
 <H3>

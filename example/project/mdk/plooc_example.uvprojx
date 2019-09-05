@@ -327,7 +327,7 @@
             <uC99>1</uC99>
             <uGnu>1</uGnu>
             <useXO>0</useXO>
-            <v6Lang>3</v6Lang>
+            <v6Lang>1</v6Lang>
             <v6LangP>3</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
@@ -336,7 +336,7 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls>-fms-extensions -Wno-microsoft-anon-tag -Wno-empty-body</MiscControls>
-              <Define>_MSC_VER</Define>
+              <Define>_MSC_VER __OOC_DEBUG__</Define>
               <Undefine></Undefine>
               <IncludePath>..\mdk;..\..\..\example;..\..\..\..\PLOOC</IncludePath>
             </VariousControls>

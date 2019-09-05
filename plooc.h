@@ -19,9 +19,12 @@
 #define __PROTECTED_LOW_OVERHEAD_OBJECT_ORIENTED_C_H__
 
 /*============================ INCLUDES ======================================*/
+#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L
+//! you have to define this by yourselves
+#else
 #include <stdint.h>
 #include <stdbool.h>
-
+#endif
 
 /*! \NOTE the uint_fast8_t used in this header file is defined in stdint.h 
           if you don't have stdint.h supported in your toolchain, you should
@@ -64,6 +67,29 @@
 
 #define DECLARE_INTERFACE(__NAME)   typedef struct __NAME __NAME;
 
+#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L
+
+//! \name interface definition
+//! @{
+#define DEF_INTERFACE(__NAME)                                                   \
+            typedef struct __NAME __NAME;                                       \
+            struct __NAME {
+
+#define END_DEF_INTERFACE(__NAME)                                               \
+            };
+//! @}
+
+//! \name structure definition
+//! @{
+#define DEF_STRUCTURE(__NAME)                                                   \
+            typedef struct __NAME __NAME;                                       \
+            struct __NAME {
+
+#define END_DEF_STRUCTURE(__NAME)                                               \
+            };
+//! @}
+
+#else
 //! \name interface definition
 //! @{
 #define DEF_INTERFACE(__NAME,...)                                               \
@@ -85,7 +111,7 @@
 #define END_DEF_STRUCTURE(__NAME)                                               \
             };
 //! @}
-
+#endif
 
 //! \brief macro for inheritance
 
@@ -128,6 +154,7 @@
 #define REF_OBJ_AS(__OBJ, __TYPE)               __REF_OBJ_AS((__OBJ), __TYPE)
            
            
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
 /*! \brief You can use __PLOOC_EVAL() to dynamically select the right API which
  *!        has the right number of parameters (no more than 8).
  */
@@ -152,10 +179,21 @@
                                                 __FUNC,                         \
                                                 __PLOOC_VA_NUM_ARGS(__VA_ARGS__))
 //! @}   
+#endif
            
 /*----------------------------------------------------------------------------* 
  * new standard (lower case)                                                  *
  *----------------------------------------------------------------------------*/
+#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L
+#   define def_interface(__NAME)            DEF_INTERFACE(__NAME)
+#   define def_structure(__NAME)            DEF_STRUCTURE(__NAME)
+#   define def_params(__CODE)               __CODE
+#else
+#   define def_interface(__NAME, ...)       DEF_INTERFACE(__NAME, __VA_ARGS__)
+#   define def_structure(__NAME, ...)       DEF_STRUCTURE(__NAME, __VA_ARGS__)
+#   define def_params(...)                  __VA_ARGS__
+#endif
+
 #define implement(__TYPE)                   IMPLEMENT(__TYPE)
 #define implement_ex(__TYPE, __NAME)        __IMPLEMENT_EX(__TYPE, __NAME)
 #define inherit_ex(__TYPE, __NAME)          INHERIT_EX(__TYPE, __NAME)
@@ -164,17 +202,17 @@
 #define convert_obj_as(__OBJ, __TYPE)       OBJ_CONVERT_AS(__OBJ, __TYPE)
 #define obj_convert_as(__OBJ, __TYPE)       OBJ_CONVERT_AS(__OBJ, __TYPE)       /*  obsolete */
 #define ref_obj_as(__OBJ, __TYPE)           REF_OBJ_AS(__OBJ, __TYPE)
-#define def_interface(__NAME, ...)          DEF_INTERFACE(__NAME, __VA_ARGS__)
+
 #define end_def_interface(__NAME)           END_DEF_INTERFACE(__NAME)
 #define declare_interface(__NAME)           DECLARE_INTERFACE(__NAME)
-#define def_structure(__NAME, ...)          DEF_STRUCTURE(__NAME, __VA_ARGS__)
+
 #define end_def_structure(__NAME)           END_DEF_STRUCTURE(__NAME)
 
 
 #define this_interface(__INTERFACE)         convert_obj_as(this, __INTERFACE)
 #define base_obj(__TYPE)                    convert_obj_as(this, __TYPE)
            
-#define def_params(...)                     __VA_ARGS__
+
         
 /*============================ TYPES =========================================*/
 

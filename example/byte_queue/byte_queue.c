@@ -55,12 +55,14 @@ byte_queue_t * byte_queue_init(byte_queue_t *ptObj, byte_queue_cfg_t *ptCFG)
     class_internal(ptObj, ptThis, byte_queue_t);
     
     ASSERT(NULL != ptObj && NULL != ptCFG);
-    
+
     /* access inherited member of mem_t directly */
-    if (    (NULL == ptCFG->pchBuffer) 
-        ||  (0 == ptCFG->hwSize)) {
+    if (    (NULL == ptCFG->use_as__mem_t.pchBuffer) 
+        ||  (0 == ptCFG->use_as__mem_t.hwSize)) {
+
         return NULL;
     }
+   
     
     memset(ptObj, 0, sizeof(byte_queue_t));     //! clear object
     /*
@@ -88,10 +90,9 @@ bool byte_queue_enqueue(byte_queue_t *ptObj, uint8_t chByte)
         //! queue is full
         return false;
     }
-    
-    this.pchBuffer[this.hwHead++] = chByte;
+    this.use_as__mem_t.pchBuffer[this.hwHead++] = chByte;
     this.hwCount++;
-    if (this.hwHead >= this.hwSize) {
+    if (this.hwHead >= this.use_as__mem_t.hwSize) {
         this.hwHead = 0;
     }
     /* ------------------atomicity sensitive end---------------- */
@@ -113,9 +114,9 @@ bool byte_queue_dequeue(byte_queue_t *ptObj, uint8_t *pchByte)
         return false;
     }
     
-    chByte = this.pchBuffer[this.hwTail++];
+    chByte = this.use_as__mem_t.pchBuffer[this.hwTail++];
     this.hwCount--;
-    if (this.hwTail >= this.hwSize) {
+    if (this.hwTail >= this.use_as__mem_t.hwSize) {
         this.hwTail = 0;
     }
     /* ------------------atomicity sensitive end---------------- */
