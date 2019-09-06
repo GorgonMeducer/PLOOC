@@ -202,27 +202,30 @@ More examples will be added later...
 
   - Require C11 support
 
+```
+LOG_OUT("\r\n-[Demo of polymorphism]------------------------------\r\n");
+LOG_OUT((uint32_t) 0x12345678);
+LOG_OUT("\r\n");
+LOG_OUT(0x12345678);
+LOG_OUT("\r\n");
+LOG_OUT("PI is ");
+LOG_OUT(3.1415926f);
+LOG_OUT("\r\n");
 
-	LOG_OUT("\r\n-[Demo of polymorphism]------------------------------\r\n");
-	LOG_OUT((uint32_t) 0x12345678);
-	LOG_OUT("\r\n");
-	LOG_OUT(0x12345678);
-	LOG_OUT("\r\n");
-	LOG_OUT("PI is ");
-	LOG_OUT(3.1415926f);
-	LOG_OUT("\r\n");
-	
-	LOG_OUT("\r\nShow BYTE Array:\r\n");
-	LOG_OUT((uint8_t *)main, 100);
-	
-	LOG_OUT("\r\nShow Half-WORD Array:\r\n");
-	LOG_OUT((uint16_t *)main, 100/sizeof(uint16_t));
-	
-	LOG_OUT("\r\nShow WORD Array:\r\n");
-	LOG_OUT((uint32_t *)main, 100/sizeof(uint32_t));
+LOG_OUT("\r\nShow BYTE Array:\r\n");
+LOG_OUT((uint8_t *)main, 100);
+
+LOG_OUT("\r\nShow Half-WORD Array:\r\n");
+LOG_OUT((uint16_t *)main, 100/sizeof(uint16_t));
+
+LOG_OUT("\r\nShow WORD Array:\r\n");
+LOG_OUT((uint32_t *)main, 100/sizeof(uint32_t));
+```
 
 
-    ![example3](https://github.com/GorgonMeducer/PLOOC/blob/master/example/picture/example3.png?raw=true)
+
+![example3](https://github.com/GorgonMeducer/PLOOC/blob/master/example/picture/example3.png?raw=true)
 
   
+
 
