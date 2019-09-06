@@ -7,7 +7,7 @@ In order to show how PLOOC is easy and simple to use, examples are provided to d
 
 More examples will be added later...
 
-## [Example 1: byte_queue](https://github.com/GorgonMeducer/PLOOC/tree/master/example/byte_queue)
+## [Example 1: How to define a class](https://github.com/GorgonMeducer/PLOOC/tree/master/example/byte_queue)
 This example shows
 - How to define a class
     - How to add private member
@@ -15,12 +15,17 @@ This example shows
 - How to access class members
 - How to define user friendly interface
 
-## [Example 2: enhanced_byte_queue](https://github.com/GorgonMeducer/PLOOC/tree/master/example/enhanced_byte_queue)
+## [Example 2: How to access protected members](https://github.com/GorgonMeducer/PLOOC/tree/master/example/enhanced_byte_queue)
 - How to inherit from a base class
     - How to access protected members which are inherited from base
 - How to inherit a interface
 - How to override base methods
 
+## [Example 3: How to implement Polymorphism ](https://github.com/GorgonMeducer/PLOOC/tree/master/example/trace)
+
+- How to implement polymorphism using PLOOC
+
+  ![example3](https://github.com/GorgonMeducer/PLOOC/tree/master/example/picture/example3.png)
+
 
 Author:  GorgonMeducer<embedded_zhuoran@hotmail.com>,  under Apache 2.0
-

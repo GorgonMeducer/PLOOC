@@ -14,7 +14,8 @@ The Protected Low-overhead Object Oriented Programming with ANSI-C, a.k.a PLOOC 
 - Support strict type checking/validation in certain compilers, such as IAR with multi-file compilation enabled.
 - Compliant with __ANSI-C99__ 
   - ANSI-C90 is also supported but the protection for private feature is disabled.
-  - When C11 or _Generic is available, fully support for polymorphism is possible (we are working on this...)
+- Support **Polymorphism**
+  - Require C11 or _Generic
 - Low-overhead
 > NOTE: Almost ZERO OVERHEAD. The template fully utilises the ANSI-C enforced compilation rules to deliver desired OO features with the the least necessary cost.
 
@@ -76,14 +77,16 @@ If you have any questions or suggestions, please feel free to let us know.
 ## Update Log
 ---
 
-- \[09/05/2019] Add support for C89/90
+- [09/06/2019] Add support for C89/90, version 4.50
+    - Add support for polymorphism \(require C11\)
+- \[09/05/2019] Add support for C89/90, version 4.40
     - When C89/90 is enforced, \_\_OOC_DEBUG\_\_ should always be defined. 
     - The protection for private and protected members is turned off.
-- \[08/15/2019] Update plooc_class_strict.h to use more soften syntax
+- \[08/15/2019] Update plooc_class_strict.h to use more soften syntax, version 4.31
     - Users now can use arbitrary order for public_member, private_member and protected_member.
     - The separator "," can be ignored. 
     - Simplified the plooc_class_strict.h template. Some common macros are moved to plooc_class.h, which will be shared by other template later. 
-- \[08/14/2019\] Introduce support for limited support for polymorphism
+- \[08/14/2019\] Introduce support for limited support for polymorphism, version 4.30
     - Use can use macro \_\_PLOOC_EVAL() to select the right API which has the corresponding number of parameters. 
 - \[07/26/2019\] Syntax update, version 4.21
     - Modify plooc_class_black_box.h to use unified syntax as other templates.
@@ -155,8 +158,9 @@ The full license text follows:
 ### Examples
 | module | Contrinutor |
 | ------ | ------ |
-| byte_queue | GorgonMeducer |
-| Advanced_byte_queue | GorgonMeducer |
+| How to define a class | GorgonMeducer |
+| How to access protected members | GorgonMeducer |
+| How to implement Polymorphism | GorgonMeducer |
 
 ## Applications / Projects which claim to use PLOOC
 ---
@@ -175,18 +179,30 @@ In order to show how PLOOC is easy and simple to use, examples are provided to d
 
 More examples will be added later...
 
-#### [Example 1: byte_queue](https://github.com/GorgonMeducer/PLOOC/tree/master/example/byte_queue)
-This example shows
-- How to define a class
+- ### [Example 1: How to define a class](https://github.com/GorgonMeducer/PLOOC/tree/master/example/byte_queue)
+
+  This example shows
+
+  - How to define a class
     - How to add private member
     - How to add protected member
-- How to access class members
-- How to define user friendly interface
+  - How to access class members
+  - How to define user friendly interface
 
-#### [Example 2: enhanced_byte_queue](https://github.com/GorgonMeducer/PLOOC/tree/master/example/enhanced_byte_queue)
-- How to inherit from a base class
+  ### [Example 2: How to access protected members](https://github.com/GorgonMeducer/PLOOC/tree/master/example/enhanced_byte_queue)
+
+  - How to inherit from a base class
     - How to access protected members which are inherited from base
-- How to inherit a interface
-- How to override base methods
+  - How to inherit a interface
+  - How to override base methods
 
+  ### [Example 3: How to implement Polymorphism ](https://github.com/GorgonMeducer/PLOOC/tree/master/example/trace)
+
+  - How to implement polymorphism using PLOOC
+
+  - Require C11 support
+
+    ![example3](https://github.com/GorgonMeducer/PLOOC/tree/master/example/picture/example3.png)
+
+  
 

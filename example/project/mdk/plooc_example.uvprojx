@@ -327,7 +327,7 @@
             <uC99>1</uC99>
             <uGnu>1</uGnu>
             <useXO>0</useXO>
-            <v6Lang>1</v6Lang>
+            <v6Lang>6</v6Lang>
             <v6LangP>3</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
@@ -456,6 +456,21 @@
               <FileName>enhanced_byte_queue.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\enhanced_byte_queue\enhanced_byte_queue.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>trace</GroupName>
+          <Files>
+            <File>
+              <FileName>trace.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\trace\trace.h</FilePath>
+            </File>
+            <File>
+              <FileName>trace.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\trace\trace.c</FilePath>
             </File>
           </Files>
         </Group>
