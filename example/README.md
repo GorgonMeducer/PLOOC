@@ -21,9 +21,9 @@ This example shows
 - How to inherit a interface
 - How to override base methods
 
-## [Example 3: How to implement Polymorphism ](https://github.com/GorgonMeducer/PLOOC/tree/master/example/trace)
+## [Example 3: How to implement Overload ](https://github.com/GorgonMeducer/PLOOC/tree/master/example/trace)
 
-- How to implement polymorphism using PLOOC
+- How to implement overload using PLOOC
 
   ![example3](https://github.com/GorgonMeducer/PLOOC/blob/master/example/picture/example3.png?raw=true)
 
