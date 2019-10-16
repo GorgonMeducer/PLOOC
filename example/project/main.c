@@ -90,7 +90,7 @@ int main(void)
                 ENHANCED_BYTE_QUEUE.Count(&s_tQueue));
     } while(0);
    
-    LOG_OUT("\r\n-[Demo of polymorphism]------------------------------\r\n");
+    LOG_OUT("\r\n-[Demo of overload]------------------------------\r\n");
     LOG_OUT((uint32_t) 0x12345678);
     LOG_OUT("\r\n");
     LOG_OUT(0x12345678);
