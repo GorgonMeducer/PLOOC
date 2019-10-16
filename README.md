@@ -14,7 +14,7 @@ The Protected Low-overhead Object Oriented Programming with ANSI-C, a.k.a PLOOC 
 - Support strict type checking/validation in certain compilers, such as IAR with multi-file compilation enabled.
 - Compliant with __ANSI-C99__ 
   - ANSI-C90 is also supported but the protection for private feature is disabled.
-- Support **Polymorphism**
+- Support **Overload**
   - Require C11 or _Generic
 - Low-overhead
 > NOTE: Almost ZERO OVERHEAD. The template fully utilises the ANSI-C enforced compilation rules to deliver desired OO features with the the least necessary cost.
@@ -78,7 +78,7 @@ If you have any questions or suggestions, please feel free to let us know.
 ---
 
 - [09/06/2019] Add support for C89/90, version 4.50
-    - Add support for polymorphism \(require C11\)
+    - Add full support for overload \(require C11\)
 - \[09/05/2019] Add support for C89/90, version 4.40
     - When C89/90 is enforced, \_\_OOC_DEBUG\_\_ should always be defined. 
     - The protection for private and protected members is turned off.
@@ -86,7 +86,7 @@ If you have any questions or suggestions, please feel free to let us know.
     - Users now can use arbitrary order for public_member, private_member and protected_member.
     - The separator "," can be ignored. 
     - Simplified the plooc_class_strict.h template. Some common macros are moved to plooc_class.h, which will be shared by other template later. 
-- \[08/14/2019\] Introduce support for limited support for polymorphism, version 4.30
+- \[08/14/2019\] Introduce support for limited support for overload, version 4.30
     - Use can use macro \_\_PLOOC_EVAL() to select the right API which has the corresponding number of parameters. 
 - \[07/26/2019\] Syntax update, version 4.21
     - Modify plooc_class_black_box.h to use unified syntax as other templates.
@@ -196,14 +196,14 @@ More examples will be added later...
   - How to inherit a interface
   - How to override base methods
 
-  ### [Example 3: How to implement Polymorphism ](https://github.com/GorgonMeducer/PLOOC/tree/master/example/trace)
+  ### [Example 3: How to implement Overload ](https://github.com/GorgonMeducer/PLOOC/tree/master/example/trace)
 
-  - How to implement polymorphism using PLOOC
+  - How to implement overload using PLOOC
 
   - Require C11 support
 
 ```
-LOG_OUT("\r\n-[Demo of polymorphism]------------------------------\r\n");
+LOG_OUT("\r\n-[Demo of overload]------------------------------\r\n");
 LOG_OUT((uint32_t) 0x12345678);
 LOG_OUT("\r\n");
 LOG_OUT(0x12345678);
