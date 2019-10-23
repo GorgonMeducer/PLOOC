@@ -9,29 +9,33 @@ License Information: Gabriel Wang, ARM, LIC=DSNMN-HC3UK-7DYQY-GE3XM-62JWP-CELZ6
  
 Tool Versions:
 Toolchain:       MDK-ARM Professional  Version: 5.28.0.0
-Toolchain Path:  C:\Program Files\ARMCompiler6.13DevdropforArmv8.1-MandMVE\Bin
-C Compiler:      Armcc.exe
-Assembler:       Armasm.exe V6.13.0.1 (dev drop 1) for Armv8.1-M and MVE
-Linker/Locator:  ArmLink.exe
-Library Manager: ArmAr.exe V6.13.0.1 (dev drop 1) for Armv8.1-M and MVE
-Hex Converter:   FromElf.exe
+Toolchain Path:  C:\Keil_v5\ARM\ARMCompiler6.13\Bin
+C Compiler:      ArmClang.exe V6.13
+Assembler:       Armasm.exe V6.13
+Linker/Locator:  ArmLink.exe V6.13
+Library Manager: ArmAr.exe V6.13
+Hex Converter:   FromElf.exe V6.13
 CPU DLL:         SARMCM3.DLL V5.28.0.0
 Dialog DLL:      DCM.DLL V1.17.3.0
 Target DLL:      DbgFM.DLL V1.15.44.0
 Dialog DLL:      TCM.DLL V1.36.2.0
  
 <h2>Project:</h2>
-C:\Work\SVN\projects\MCU\vsf_master\vsf_dev\source\vsf\utilities\3rd-party\PLOOC\example\project\mdk\plooc_example.uvprojx
+C:\Work\SVN\projects\MCU\PLOOC\PLOOC\example\project\mdk\plooc_example.uvprojx
 Project File Date:  09/05/2019
 
 <h2>Output:</h2>
-*** Using Compiler 'V6.13.0.1 (dev drop 1) for Armv8.1-M and MVE', folder: 'C:\Program Files\ARMCompiler6.13DevdropforArmv8.1-MandMVE\Bin'
-Build target 'arm_compiler_6_example'
-compiling byte_queue.c...
+*** Using Compiler 'V6.13', folder: 'C:\Keil_v5\ARM\ARMCompiler6.13\Bin'
+Rebuild target 'arm_compiler_6_example'
 compiling main.c...
+compiling platform.c...
+compiling byte_queue.c...
 compiling enhanced_byte_queue.c...
+assembling startup_CMSDK_CM3.s...
+compiling system_CMSDK_CM3.c...
+compiling trace.c...
 linking...
-Program Size: Code=1144 RO-data=324 RW-data=4 ZI-data=1308  
+Program Size: Code=4864 RO-data=456 RW-data=4 ZI-data=1308  
 ".\Objects\plooc_example.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -60,8 +64,8 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.0.0
       Source file:   Device\CMSDK_CM3\Source\ARM\startup_CMSDK_CM3.s
-      Source file:   Device\CMSDK_CM3\Source\system_CMSDK_CM3.c
       Include file:  CMSIS\Config\RTE_Device.h
+      Source file:   Device\CMSDK_CM3\Source\system_CMSDK_CM3.c
 Build Time Elapsed:  00:00:02
 </pre>
 </body>
