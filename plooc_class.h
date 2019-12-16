@@ -113,11 +113,11 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
 #ifndef PLOOC_ALIGN
 #   define PLOOC_ALIGN(__N)             __PLOOC_ALIGN(__N)
 #endif
-
+/*
 #ifndef PLOOC_DEFAULT_OBJ_ALIGN
 #   define PLOOC_DEFAULT_OBJ_ALIGN      sizeof(uint_fast8_t)
 #endif
-
+*/
 #ifndef PLOOC_PACKED
 #   define PLOOC_PACKED                 __attribute__((packed))
 #endif
@@ -238,8 +238,13 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
 
 #endif
 
-#undef which
-#define which                                   ,_which
+#   if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L
+#   undef which
+#   define which(__DECLARE)                     ,_which(__DECLARE)
+#else
+#   undef which
+#   define which(...)                           ,_which(__VA_ARGS__)
+#endif
 
 #undef private_member
 #define private_member                          ,_private_member
