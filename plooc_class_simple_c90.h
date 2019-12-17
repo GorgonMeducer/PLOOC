@@ -75,7 +75,7 @@
 #define __end_def_class(__NAME)
 
 #define __def_class(__NAME, __MEMBER)                                           \
-    typedef struct __NAME __NAME;                                               \
+    /*typedef struct __NAME __NAME; */                                          \
     struct __NAME {                                                             \
         __MEMBER                                                                \
     };                      
