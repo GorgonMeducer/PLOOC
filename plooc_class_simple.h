@@ -124,6 +124,7 @@
 #   undef __class_internal
 #   define __class_internal(__SRC, __DES, __TYPE, ...)                          \
             class(__TYPE) *(__DES) = (class(__TYPE) *)(__SRC);                  \
+            PLOOC_UNUSED_PARAM(__DES);                                          \
             __with_class(__TYPE, (__SRC), __VA_ARGS__)
             
 #   undef class_internal
@@ -148,6 +149,7 @@
 #   define __with_protected(__TYPE, __SRC, ...)                                 \
         {                                                                       \
             class_protected(__TYPE)*_ =(class_protected(__TYPE) *)(__SRC);      \
+            PLOOC_UNUSED_PARAM(_);                                              \
             __VA_ARGS__;                                                        \
         }
 
@@ -159,6 +161,7 @@
 #   undef __protected_internal
 #   define __protected_internal(__SRC, __DES, __TYPE, ...)                      \
             class_protected(__TYPE) *(__DES)=(class_protected(__TYPE) *)(__SRC);\
+            PLOOC_UNUSED_PARAM(__DES);                                          \
             __with_protected(__TYPE, __SRC, __VA_ARGS__)
 
 #   undef protected_internal            

@@ -60,7 +60,7 @@
 
 #if   defined(__PLOOC_CLASS_IMPLEMENT)
 
-#       define __def_class2(__NAME, _1)                                         \
+#   define __def_class2(__NAME, _1)                                             \
     typedef struct __NAME __NAME;                                               \
     typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
@@ -70,7 +70,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
     };        
     
-#       define __def_class3(__NAME, _1, _2)                                     \
+#   define __def_class3(__NAME, _1, _2)                                         \
     typedef struct __NAME __NAME;                                               \
     typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
@@ -82,7 +82,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
     };
     
-#       define __def_class4(__NAME, _1, _2, _3)                                 \
+#   define __def_class4(__NAME, _1, _2, _3)                                     \
     typedef struct __NAME __NAME;                                               \
     typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
@@ -96,7 +96,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
     };
     
-#       define __def_class5(__NAME, _1, _2, _3, _4)                             \
+#   define __def_class5(__NAME, _1, _2, _3, _4)                                 \
     typedef struct __NAME __NAME;                                               \
     typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
@@ -112,7 +112,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
     };
     
-#       define __def_class6(__NAME, _1, _2, _3, _4, _5)                         \
+#   define __def_class6(__NAME, _1, _2, _3, _4, _5)                             \
     typedef struct __NAME __NAME;                                               \
     typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
@@ -130,7 +130,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_5)                                       \
     };
     
-#       define __def_class7(__NAME, _1, _2, _3, _4, _5, _6)                     \
+#   define __def_class7(__NAME, _1, _2, _3, _4, _5, _6)                         \
     typedef struct __NAME __NAME;                                               \
     typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
@@ -150,7 +150,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_6)                                       \
     };
     
-#       define __def_class8(__NAME, _1, _2, _3, _4, _5, _6, _7)                 \
+#   define __def_class8(__NAME, _1, _2, _3, _4, _5, _6, _7)                     \
     typedef struct __NAME __NAME;                                               \
     typedef struct __##__NAME __##__NAME;                                       \
     struct __##__NAME {                                                         \
@@ -174,8 +174,8 @@
           
 #   define __end_def_class(...)
 
-#define __extern_class(...) 
-#define __end_extern_class(...)
+#   define __extern_class(...) 
+#   define __end_extern_class(...)
 
 
 #   undef  __class
@@ -189,7 +189,7 @@
 #   define __with_class(__TYPE, __SRC, ...)                                     \
         {                                                                       \
             class(__TYPE)*_ =(class(__TYPE) *)(__SRC);                          \
-            _ = _;                                                              \
+            PLOOC_UNUSED_PARAM(_);                                              \
             __VA_ARGS__;                                                        \
         }                                                                       \
         for (class(__TYPE)*_ =(class(__TYPE) *)(__SRC);NULL != _; _ = NULL)
@@ -201,6 +201,7 @@
 #   undef __class_internal
 #   define __class_internal(__SRC, __DES, __TYPE, ...)                          \
             class(__TYPE) *(__DES) = (class(__TYPE) *)(__SRC);                  \
+            PLOOC_UNUSED_PARAM(__DES);                                          \
             __with_class(__TYPE, (__SRC), __VA_ARGS__)
 
           
@@ -211,7 +212,7 @@
 
 #elif   defined(__PLOOC_CLASS_INHERIT)
 
-#       define __def_class2(__NAME, _1)                                         \
+#   define __def_class2(__NAME, _1)                                             \
     typedef struct __NAME __NAME;                                               \
     struct __protected_##__NAME {                                               \
         __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
@@ -220,7 +221,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_1)                                       \
     };        
     
-#       define __def_class3(__NAME, _1, _2)                                     \
+#   define __def_class3(__NAME, _1, _2)                                         \
     typedef struct __NAME __NAME;                                               \
     struct __protected_##__NAME {                                               \
         __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
@@ -231,7 +232,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_2)                                       \
     };
     
-#       define __def_class4(__NAME, _1, _2, _3)                                 \
+#   define __def_class4(__NAME, _1, _2, _3)                                     \
     typedef struct __NAME __NAME;                                               \
     struct __protected_##__NAME {                                               \
         __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
@@ -244,7 +245,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_3)                                       \
     };
     
-#       define __def_class5(__NAME, _1, _2, _3, _4)                             \
+#   define __def_class5(__NAME, _1, _2, _3, _4)                                 \
     typedef struct __NAME __NAME;                                               \
     struct __protected_##__NAME {                                               \
         __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
@@ -259,7 +260,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_4)                                       \
     };
     
-#       define __def_class6(__NAME, _1, _2, _3, _4, _5)                         \
+#   define __def_class6(__NAME, _1, _2, _3, _4, _5)                             \
     typedef struct __NAME __NAME;                                               \
     struct __protected_##__NAME {                                               \
         __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
@@ -276,7 +277,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_5)                                       \
     };
     
-#       define __def_class7(__NAME, _1, _2, _3, _4, _5, _6)                     \
+#   define __def_class7(__NAME, _1, _2, _3, _4, _5, _6)                         \
     typedef struct __NAME __NAME;                                               \
     struct __protected_##__NAME {                                               \
         __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
@@ -295,7 +296,7 @@
         __PLOOC_CONNECT2(__PLOOC_EXT_,_6)                                       \
     };
     
-#       define __def_class8(__NAME, _1, _2, _3, _4, _5, _6, _7)                 \
+#   define __def_class8(__NAME, _1, _2, _3, _4, _5, _6, _7)                     \
     typedef struct __NAME __NAME;                                               \
     struct __protected_##__NAME {                                               \
         __PLOOC_CONNECT2(__PLOOC_PRO_,_1)                                       \
@@ -320,9 +321,9 @@
 
 #   define __end_def_class(...)  
 
-#define __extern_class(...)                                    
+#   define __extern_class(...)                                    
 
-#define __end_extern_class(...)
+#   define __end_extern_class(...)
 
 #   undef  __class_protected
 #   define __class_protected(__NAME)            struct __protected_##__NAME
@@ -335,7 +336,7 @@
 #   define __with_protected(__TYPE, __SRC, ...)                                 \
         {                                                                       \
             class_protected(__TYPE)*_ =(class_protected(__TYPE) *)(__SRC);      \
-            _ = _;                                                              \
+            PLOOC_UNUSED_PARAM(_);                                              \
             __VA_ARGS__;                                                        \
         }                                                                       \
         for (   class_protected(__TYPE)*_ =(class_protected(__TYPE) *)(__SRC);  \
@@ -349,6 +350,7 @@
 #   undef __protected_internal
 #   define __protected_internal(__SRC, __DES, __TYPE, ...)                      \
             class_protected(__TYPE) *(__DES)=(class_protected(__TYPE) *)(__SRC);\
+            PLOOC_UNUSED_PARAM(__DES);                                          \
             __with_protected(__TYPE, __SRC, __VA_ARGS__)
 
 #   undef protected_internal            

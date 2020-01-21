@@ -76,7 +76,7 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ## Update Log
 ---
-
+- [21/01/2020] Misc update for C90, version 4.51
 - [09/06/2019] Add support for C89/90, version 4.50
     - Add full support for overload \(require C11\)
 - \[09/05/2019] Add support for C89/90, version 4.40

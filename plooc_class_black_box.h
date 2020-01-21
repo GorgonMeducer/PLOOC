@@ -195,6 +195,7 @@
 #   undef __class_internal
 #   define __class_internal(__SRC, __DES, __TYPE, ...)                          \
             class(__TYPE) *(__DES) = (class(__TYPE) *)(__SRC);                  \
+            PLOOC_UNUSED_PARAM(__DES);                                          \
             __with_class(__TYPE, (__SRC), __VA_ARGS__)
             
 #   undef class_internal
@@ -205,7 +206,7 @@
 #   define __with_class(__TYPE, __SRC, ...)                                     \
         {                                                                       \
             class(__TYPE)*_ =(class(__TYPE) *)(__SRC);                          \
-            UNUSED_PARAM(_);                                                    \
+            PLOOC_UNUSED_PARAM(_);                                              \
             __VA_ARGS__;                                                        \
         }                                                                       \
         for (class(__TYPE)*_ =(class(__TYPE) *)(__SRC); NULL != _; _ = NULL)
