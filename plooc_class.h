@@ -157,11 +157,14 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
 #   define PLOOC_ALIGNOF_STRUCT(...)       PLOOC_ALIGNOF(struct {__VA_ARGS__})
 #   define PLOOC_SIZEOF_STRUCT(...)        sizeof(struct {__VA_ARGS__})
 
-#   define PLOOC_VISIBLE(...)                                                   \
+#   if defined(PLOOC_CFG_REMOVE_MEMORY_LAYOUT_BOUNDARY___USE_WITH_CAUTION)
+#       define PLOOC_VISIBLE(...)           __VA_ARGS__
+#   else
+#       define PLOOC_VISIBLE(...)                                               \
         struct  {                                                               \
             __VA_ARGS__                                                         \
         }PLOOC_ALIGN(PLOOC_ALIGNOF_STRUCT(__VA_ARGS__));
-
+#   endif
 
 #   if  !defined (__PLOOC_CLASS_USE_NO_STRUCT_MASK__)
         

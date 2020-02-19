@@ -51,6 +51,8 @@
 
 /*! \note add which macro to support multiple inheriting and implementations
  *!
+ *!       declare_interface( i_lv0_abc_t )
+ *!       declare_interface( i_lv0_efg_t )
  *!       def_interface( i_lv0_abc_t )
  *!           ...
  *!       end_def_interface( i_lv0_abc_t )
@@ -59,6 +61,7 @@
  *!           ...
  *!       end_def_interface( i_lv0_efg_t )
  *!     
+ *!       declare_interface( i_lv1_t )
  *!       def_interface( i_lv1_t, which( inherit( i_lv0_abc_t ) 
  *!                                      inherit( i_lv0_efg_t ) ) )
  *!           ...
