@@ -157,7 +157,21 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
 #   define PLOOC_ALIGNOF_STRUCT(...)       PLOOC_ALIGNOF(struct {__VA_ARGS__})
 #   define PLOOC_SIZEOF_STRUCT(...)        sizeof(struct {__VA_ARGS__})
 
-#   if defined(PLOOC_CFG_REMOVE_MEMORY_LAYOUT_BOUNDARY___USE_WITH_CAUTION)
+/*! \note When both __OOC_DEBUG__ and 
+ *!       PLOOC_CFG_REMOVE_MEMORY_LAYOUT_BOUNDARY___USE_WITH_CAUTION___ are 
+ *!       defined, memory layout boundary, i.e. struct wrapper inside PLOOC
+ *!       VISIBLE will be removed. This enables some platform to use the gaps
+ *!       between members with different memory aligments to add members with
+ *!       correct size and aligment for saving space. 
+ *!
+ *!       You can do this when you have all the source code and compile all
+ *!       the source code with the same presence of "__OOC_DEBUG__".
+ *!       If some of the code is compiled with different presence of 
+ *!       "__OOC_DEBUG__", i.e. using Lib + source, removing the memory 
+ *!       layout boundaries will cause different view of the structure and hence
+ *!       cause undefined behaviours.
+ */
+#   if defined(PLOOC_CFG_REMOVE_MEMORY_LAYOUT_BOUNDARY___USE_WITH_CAUTION___)
 #       define PLOOC_VISIBLE(...)           __VA_ARGS__
 #   else
 #       define PLOOC_VISIBLE(...)                                               \
