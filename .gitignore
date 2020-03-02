@@ -62,3 +62,4 @@ dkms.conf
 *.htm
 example/project/mdk/Objects/plooc_example.build_log.htm
 example/project/mdk/Objects/plooc_example.htm
+example/project/mdk/Objects/plooc_example.sct
