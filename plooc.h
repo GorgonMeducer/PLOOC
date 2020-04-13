@@ -192,10 +192,12 @@
 #   define def_interface(__NAME)            __def_interface(__NAME)
 #   define def_structure(__NAME)            __def_structure(__NAME)
 #   define def_params(__CODE)               __CODE
+#   define end_def_params()
 #else
 #   define def_interface(__NAME, ...)       __def_interface(__NAME, __VA_ARGS__)
 #   define def_structure(__NAME, ...)       __def_structure(__NAME, __VA_ARGS__)
 #   define def_params(...)                  __VA_ARGS__
+#   define end_def_params(...)
 #endif
 
 #define implement(__TYPE)                   IMPLEMENT(__TYPE)
