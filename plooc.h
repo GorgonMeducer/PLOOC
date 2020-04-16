@@ -163,13 +163,23 @@
  *!        has the right number of parameters (no more than 8).
  */
 //! @{
-#define __PLOOC_VA_NUM_ARGS_IMPL(_1,_2,_3,_4,_5,_6,_7, _8, __N,...)      __N
+#define __PLOOC_VA_NUM_ARGS_IMPL(   _0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,  \
+                                    _13,_14,_15,_16,__N,...)      __N
 #define __PLOOC_VA_NUM_ARGS(...)                                                \
-            __PLOOC_VA_NUM_ARGS_IMPL(__VA_ARGS__, 8,7,6,5,4,3,2,1)
+            __PLOOC_VA_NUM_ARGS_IMPL( 0,##__VA_ARGS__,16,15,14,13,12,11,10,9,   \
+                                      8,7,6,5,4,3,2,1,0)
 
+#define __16_PLOOC_EVAL(__FUNC, __NO_ARGS)  __FUNC##__NO_ARGS
+#define __15_PLOOC_EVAL(__FUNC, __NO_ARGS)  __16_PLOOC_EVAL(__FUNC, __NO_ARGS)
+#define __14_PLOOC_EVAL(__FUNC, __NO_ARGS)  __16_PLOOC_EVAL(__FUNC, __NO_ARGS)
+#define __13_PLOOC_EVAL(__FUNC, __NO_ARGS)  __14_PLOOC_EVAL(__FUNC, __NO_ARGS)
 
+#define __12_PLOOC_EVAL(__FUNC, __NO_ARGS)  __13_PLOOC_EVAL(__FUNC, __NO_ARGS)
+#define __11_PLOOC_EVAL(__FUNC, __NO_ARGS)  __12_PLOOC_EVAL(__FUNC, __NO_ARGS)
+#define __10_PLOOC_EVAL(__FUNC, __NO_ARGS)  __11_PLOOC_EVAL(__FUNC, __NO_ARGS)
+#define __9_PLOOC_EVAL(__FUNC, __NO_ARGS)   __10_PLOOC_EVAL(__FUNC, __NO_ARGS)
+#define __8_PLOOC_EVAL(__FUNC, __NO_ARGS)   __9_PLOOC_EVAL(__FUNC, __NO_ARGS)
 
-#define __8_PLOOC_EVAL(__FUNC, __NO_ARGS)   __FUNC##__NO_ARGS
 #define __7_PLOOC_EVAL(__FUNC, __NO_ARGS)   __8_PLOOC_EVAL(__FUNC, __NO_ARGS)
 #define __6_PLOOC_EVAL(__FUNC, __NO_ARGS)   __7_PLOOC_EVAL(__FUNC, __NO_ARGS)
 #define __5_PLOOC_EVAL(__FUNC, __NO_ARGS)   __6_PLOOC_EVAL(__FUNC, __NO_ARGS)
@@ -193,11 +203,15 @@
 #   define def_structure(__NAME)            __def_structure(__NAME)
 #   define def_params(__CODE)               __CODE
 #   define end_def_params()
+#   define def_members(__CODE)              __CODE
+#   define end_def_members()
 #else
 #   define def_interface(__NAME, ...)       __def_interface(__NAME, __VA_ARGS__)
 #   define def_structure(__NAME, ...)       __def_structure(__NAME, __VA_ARGS__)
 #   define def_params(...)                  __VA_ARGS__
 #   define end_def_params(...)
+#   define def_members(...)                 __VA_ARGS__
+#   define end_def_members(...)
 #endif
 
 #define implement(__TYPE)                   IMPLEMENT(__TYPE)
