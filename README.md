@@ -76,7 +76,7 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ## Update Log
 ---
-- \[15/04/2020\] Update __PLOOC_EVAL, version 4.53
+- \[15/04/2020\] Update __PLOOC_EVAL, version 4.5.3
     - Increase the range of number of arguments, from 1~8 to 0~16.
 - [19/02/2020] Minor update to enable RAM footprint optimisation, version 4.52
     - Introducing macro PLOOC_CFG_REMOVE_MEMORY_LAYOUT_BOUNDARY___USE_WITH_CAUTION which removes structure layout boundaries for PLOOC_VISIBLE. It can save RAM when certain condition is met and \_\_OOC\_DEBUG\_\_ is defined. Please use it with caution as it will cause different memory layouts when \_\_OOC\_DEBUG\_\_ is not defined. 
