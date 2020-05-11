@@ -18,8 +18,12 @@
 #ifndef __PROTECTED_LOW_OVERHEAD_OBJECT_ORIENTED_C_H__
 #define __PROTECTED_LOW_OVERHEAD_OBJECT_ORIENTED_C_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*============================ INCLUDES ======================================*/
-#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L
+#if (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) && !defined(__cplusplus)
 //! you have to define this by yourselves
 #else
 #include <stdint.h>
@@ -37,13 +41,14 @@
  */
 
 /*============================ MACROS ========================================*/
+#ifndef __cplusplus
+#   ifndef private
+#       define private    static
+#   endif
 
-#ifndef private
-#   define private    static
-#endif
-
-#ifndef public
-#   define public      
+#   ifndef public
+#       define public      
+#   endif
 #endif
 
 /*============================ MACROFIED FUNCTIONS ===========================*/
@@ -71,7 +76,7 @@
 #define __declare_interface(__NAME)   typedef struct __NAME __NAME;
 #define __declare_structure(__NAME)   typedef struct __NAME __NAME;
 
-#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L
+#if (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) && !defined(__cplusplus)
 
 //! \name interface definition
 //! @{
@@ -119,7 +124,7 @@
 
 //! \brief macro for inheritance
 
-#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L
+#if (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) && !defined(__cplusplus)
 #define __IMPLEMENT_EX(__TYPE, __NAME)                                          \
             __TYPE  __NAME;                                                 
 #else
@@ -158,7 +163,7 @@
 #define REF_OBJ_AS(__OBJ, __TYPE)               __REF_OBJ_AS((__OBJ), __TYPE)
            
            
-#if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L
+#if (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || defined(__cplusplus)
 /*! \brief You can use __PLOOC_EVAL() to dynamically select the right API which
  *!        has the right number of parameters (no more than 8).
  */
@@ -313,6 +318,9 @@ end_def_interface(en_property_t)
 /*============================ LOCAL VARIABLES ===============================*/
 /*============================ PROTOTYPES ====================================*/
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 /* EOF */

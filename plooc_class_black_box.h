@@ -15,11 +15,13 @@
 *                                                                           *
 ****************************************************************************/
 
-
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /*============================ INCLUDES ======================================*/
-#include <stdint.h>
-#include <stdbool.h>
+//#include <stdint.h>
+//#include <stdbool.h>
 
 /*============================ MACROS ========================================*/
 #undef def_class
@@ -226,4 +228,9 @@
 
 #undef __PLOOC_CLASS_IMPLEMENT
 #undef __PLOOC_CLASS_INHERIT
+
+#ifdef __cplusplus
+}
+#endif
+
 /* EOF */

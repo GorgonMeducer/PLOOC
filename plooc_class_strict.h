@@ -15,6 +15,11 @@
  *                                                                           *
  ****************************************************************************/
  
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 //#ifndef __PLOOC_CLASS_STRICT_H__          /* deliberately comment this out! */
 //#define __PLOOC_CLASS_STRICT_H__          /* deliberately comment this out! */
 
@@ -26,7 +31,7 @@
 
 
 /*============================ INCLUDES ======================================*/
-#include <stdint.h>
+//#include <stdint.h>
 
 /*! \NOTE the uint_fast8_t used in this header file is defined in stdint.h 
           if you don't have stdint.h supported in your toolchain, you should
@@ -452,3 +457,7 @@
 /*============================ PROTOTYPES ====================================*/
 
 //#endif                                /* deliberately comment this out! */
+
+#ifdef __cplusplus
+}
+#endif

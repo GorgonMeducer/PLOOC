@@ -76,6 +76,9 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ## Update Log
 ---
+- \[11/05/2020\] Minor Update, version 4.5.4
+    - Make it possible to use PLOOC based C source code in C++ project
+        - Please make sure \_\_OOC\_DEBUG\_\_ is defined in the project 
 - \[15/04/2020\] Update __PLOOC_EVAL, version 4.5.3
     - Increase the range of number of arguments, from 1~8 to 0~16.
 - [19/02/2020] Minor update to enable RAM footprint optimisation, version 4.52
