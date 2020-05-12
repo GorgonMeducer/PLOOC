@@ -307,5 +307,9 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
 #undef __PLOOC_CLASS_INHERIT
 
 #ifdef __cplusplus
+#   undef class
+#   undef this
+#   undef private
+#   undef public
 }
 #endif
