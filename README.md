@@ -76,6 +76,8 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ## Update Log
 ---
+- \[16/05/2020\] Minor Update, version 4.5.4a
+    - Introduce \_\_OOC\_CPP\_\_ to replace \_\_OOC\_DEBUG\_\_ when you want to mix C source code with C++ source code. Please put it in the project global configuration. 
 - \[11/05/2020\] Minor Update, version 4.5.4
     - Make it possible to use PLOOC based C source code in C++ project
         - Please make sure \_\_OOC\_DEBUG\_\_ is defined in the project 

@@ -18,7 +18,7 @@
  ****************************************************************************/
 
 
-#ifdef __cplusplus
+#if defined(__cplusplus) || defined(__OOC_CPP__)
 #   undef __PLOOC_CLASS_USE_STRICT_TEMPLATE__ 
 #   undef PLOOC_CFG_REMOVE_MEMORY_LAYOUT_BOUNDARY___USE_WITH_CAUTION___
 #   define PLOOC_CFG_REMOVE_MEMORY_LAYOUT_BOUNDARY___USE_WITH_CAUTION___
@@ -26,7 +26,7 @@
 extern "C" {
 #endif
 
-#if defined(__OOC_RELEASE__)
+#if defined(__OOC_RELEASE__) || defined(__OOC_CPP__)
 #   undef __OOC_DEBUG__
 #   define __OOC_DEBUG__        1
 #endif
@@ -306,10 +306,13 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
 #undef __PLOOC_CLASS_IMPLEMENT
 #undef __PLOOC_CLASS_INHERIT
 
-#ifdef __cplusplus
+#if defined(__cplusplus)
 #   undef class
 #   undef this
 #   undef private
 #   undef public
+#endif
+
+#if defined(__cplusplus) || defined(__OOC_CPP__)
 }
 #endif
