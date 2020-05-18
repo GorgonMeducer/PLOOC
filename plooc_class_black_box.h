@@ -24,9 +24,13 @@ extern "C" {
 //#include <stdbool.h>
 
 /*============================ MACROS ========================================*/
+#undef declare_class
+#undef dcl_class
 #undef def_class
+#undef define_class
 #undef __def_class
 #undef end_def_class
+#undef end_define_class
 #undef __end_def_class
 #undef extern_class
 #undef __extern_class
@@ -65,7 +69,7 @@ extern "C" {
     
 #   endif
           
-#   define __end_def_class(__NAME, ...)
+#   define __end_def_class(__name, ...)
 
 #   undef private_member
 #   define private_member(...)              PLOOC_VISIBLE(__VA_ARGS__)
@@ -74,13 +78,12 @@ extern "C" {
 #   define public_member(...)               PLOOC_VISIBLE(__VA_ARGS__)
 
 #   undef  __class
-#   define __class(__NAME)                  __##__NAME
+#   define __class(__name)                  __##__name
 
-#   undef  class
-#   define class(__NAME)                    __class(__NAME)
+#   define class(__name)                    __class(__name)
 
-#define __extern_class(__NAME,...)
-#define __end_extern_class(__NAME, ...)
+#define __extern_class(__name,...)
+#define __end_extern_class(__name, ...)
 
 #else
 
@@ -102,7 +105,7 @@ extern "C" {
     }; 
 
 
-#define __end_extern_class(__NAME, ...)
+#define __end_extern_class(__name, ...)
 
 #   undef private_member
 #   define private_member(...)              PLOOC_VISIBLE(__VA_ARGS__)
@@ -128,7 +131,7 @@ extern "C" {
     }; 
 
 
-#define __end_extern_class(__NAME, ...)
+#define __end_extern_class(__name, ...)
     
 #   undef private_member
 #   define private_member(...)              PLOOC_INVISIBLE(__VA_ARGS__)
@@ -140,28 +143,34 @@ extern "C" {
 
 
 
-#   define __end_def_class(__NAME, ...)  
+#   define __end_def_class(__name, ...)  
 
 #endif
 
 
 #   undef  __class
-#   define __class(__NAME)                  __##__NAME
+#   define __class(__name)                  __##__name
 
 #   undef  class
-#   define class(__NAME)                    __class(__NAME)
+#   define class(__name)                    __class(__name)
 
-#undef declare_class
-#define declare_class(__NAME)           typedef struct __NAME __NAME;  
 
-#define end_def_class(__NAME, ...)      __end_def_class(__NAME, __VA_ARGS__)
-#define def_class(__NAME,__PUBLIC, ...)                                         \
-            __def_class(__NAME, __PUBLIC, __VA_ARGS__)
-#define class(__NAME)                   __class(__NAME)
+#define declare_class(__name)           typedef struct __name __name;  
+#define dcl_class(__name)               declare_class(__name)
 
-#define extern_class(__NAME, __PUBLIC, ...)                                     \
-            __extern_class(__NAME, __PUBLIC,__VA_ARGS__)
-#define end_extern_class(__NAME, ...)   __end_extern_class(__NAME, __VA_ARGS__)
+#define end_def_class(__name, ...)      __end_def_class(__name, __VA_ARGS__)
+#define end_define_class(__name, ...)   end_def_class(__name, ...)
+
+#define def_class(__name,__public, ...)                                         \
+            __def_class(__name, __public, __VA_ARGS__)
+#define define_class(__name, __public, ...)                                     \
+            def_class(__name,__public, __VA_ARGS__) 
+
+#define class(__name)                   __class(__name)
+
+#define extern_class(__name, __public, ...)                                     \
+            __extern_class(__name, __public,__VA_ARGS__)
+#define end_extern_class(__name, ...)   __end_extern_class(__name, __VA_ARGS__)
 
 #ifndef __PLOOC_CLASS_BLACK_BOX_H__
 #define __PLOOC_CLASS_BLACK_BOX_H__

@@ -52,9 +52,11 @@ extern "C" {
 #ifndef __PLOOC_CLASS_SIMPLE_H__
 #define __PLOOC_CLASS_SIMPLE_H__
 
-#   define __def_simple_class(__NAME)       struct  __NAME
-#   define def_simple_class(__NAME)         __def_simple_class(__NAME)
-#   define declare_simple_class(__NAME)     typedef struct __NAME __NAME;
+#   define __def_simple_class(__name)       struct  __name
+#   define def_simple_class(__name)         __def_simple_class(__name)
+#   define define_simple_class(__name)      def_simple_class(__name)
+#   define declare_simple_class(__name)     typedef struct __name __name;
+#   define dcl_simple_class(__name)         declare_simple_class(__name)
 
 #endif  /* __PLOOC_CLASS_SIMPLE_H__ */
 
@@ -85,9 +87,13 @@ extern "C" {
 #endif
 
 // code below is just try to be compatible with plooc_class_strict
+#undef declare_class
+#undef dcl_class
 #undef def_class
+#undef define_class
 #undef __def_class
 #undef end_def_class
+#undef end_define_class
 #undef __end_def_class
 #undef extern_class
 #undef __extern_class
@@ -187,12 +193,14 @@ extern "C" {
 #undef which
 #define which(...)                      PLOOC_VISIBLE(__VA_ARGS__)
                                                     
-#define def_class(__NAME, ...)          __def_class(__NAME, __VA_ARGS__)
+#define def_class(__name, ...)          __def_class(__name, __VA_ARGS__)
+#define define_class(__name, ...)       def_class(__name, __VA_ARGS__)
                            
 #define end_def_class(...)              __end_def_class(__VA_ARGS__)
+#define end_define_class(...)           end_def_class(__VA_ARGS__)
 
-#undef declare_class
-#define declare_class(__NAME)           typedef struct __NAME __NAME;
+#define dcl_class(__name)               typedef struct __name __name;
+#define declare_class(__name)           typedef struct __name __name;
 
 #define extern_class(__NAME, ...)       __extern_class(__NAME, __VA_ARGS__)
 

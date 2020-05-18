@@ -76,6 +76,9 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ## Update Log
 ---
+- \[18/05/2020\] Introduce both short- and long- style of macro, version 4.5.5
+    - dcl_xxxxx/declare_xxxxx
+    - def_xxxx/define_xxxxx; end_def_xxxx/end_define_xxxx
 - \[16/05/2020\] Minor Update, version 4.5.4a
     - Introduce \_\_OOC\_CPP\_\_ to replace \_\_OOC\_DEBUG\_\_ when you want to mix C source code with C++ source code. Please put it in the project global configuration. 
 - \[11/05/2020\] Minor Update, version 4.5.4
