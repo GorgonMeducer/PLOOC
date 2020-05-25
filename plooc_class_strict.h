@@ -16,9 +16,6 @@
  ****************************************************************************/
  
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 //#ifndef __PLOOC_CLASS_STRICT_H__          /* deliberately comment this out! */
 //#define __PLOOC_CLASS_STRICT_H__          /* deliberately comment this out! */
@@ -43,6 +40,10 @@ extern "C" {
              uint64_t
  */
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 /*============================ MACROS ========================================*/
 #undef dcl_class
 #undef declare_class

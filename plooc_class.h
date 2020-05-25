@@ -22,8 +22,9 @@
 #   undef __PLOOC_CLASS_USE_STRICT_TEMPLATE__ 
 #   undef PLOOC_CFG_REMOVE_MEMORY_LAYOUT_BOUNDARY___USE_WITH_CAUTION___
 #   define PLOOC_CFG_REMOVE_MEMORY_LAYOUT_BOUNDARY___USE_WITH_CAUTION___
-
+#   ifdef __cplusplus
 extern "C" {
+#   endif
 #endif
 
 #if defined(__OOC_RELEASE__) || defined(__OOC_CPP__)
@@ -63,9 +64,13 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
 #   endif
 #endif
 
+
+#ifdef __cplusplus
+}
+#endif
+
 #ifndef __PLOOC_CLASS_H__           
 #define __PLOOC_CLASS_H__           
-
 
 /******************************************************************************
  * HOW TO USE                                                                 *
@@ -86,6 +91,11 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
              uint64_t
  */
 
+#include "./plooc.h"  
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 /*============================ MACROS ========================================*/
 /*!\ node if you want your code more "elegent", say you want to use "this" with 
  *        "." rather than a pointer with "->", you can add following macros to
@@ -97,7 +107,7 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
 #define this         (*ptThis)
 
 */
-#include "./plooc.h"   
+ 
 
 
 
@@ -286,6 +296,10 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
 /*============================ PROTOTYPES ====================================*/
 /*============================ INCLUDES ======================================*/
 
+#if defined(__cplusplus)
+}
+#endif
+
 #if     defined(__PLOOC_CLASS_USE_STRICT_TEMPLATE__)
 #   include "./plooc_class_strict.h"
 #elif   defined(__PLOOC_CLASS_USE_SIMPLE_TEMPLATE__)
@@ -298,6 +312,10 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
 #   include "./plooc_class_black_box.h"
 #else
 #   include "./plooc_class_simple.h"
+#endif
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
 #undef __PLOOC_CLASS_USE_STRICT_TEMPLATE__
@@ -313,6 +331,6 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
 #   undef public
 #endif
 
-#if defined(__cplusplus) || defined(__OOC_CPP__)
+#if defined(__cplusplus)
 }
 #endif

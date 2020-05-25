@@ -18,10 +18,6 @@
 #ifndef __PROTECTED_LOW_OVERHEAD_OBJECT_ORIENTED_C_H__
 #define __PROTECTED_LOW_OVERHEAD_OBJECT_ORIENTED_C_H__
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /*============================ INCLUDES ======================================*/
 #if (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) && !defined(__cplusplus)
 //! you have to define this by yourselves
@@ -39,6 +35,10 @@ extern "C" {
           d. if the target processor is 64 bits, define it as either uint32_t or 
              uint64_t
  */
+ 
+ #ifdef __cplusplus
+extern "C" {
+#endif
 
 /*============================ MACROS ========================================*/
 #ifndef __cplusplus
