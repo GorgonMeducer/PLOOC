@@ -107,9 +107,6 @@ extern "C" {
 #define this         (*ptThis)
 
 */
- 
-
-
 
 /*============================ MACROFIED FUNCTIONS ===========================*/
 
@@ -271,6 +268,10 @@ extern "C" {
 
 #endif
 
+#if defined(__cplusplus)
+}
+#endif
+
 #endif
 
 #   if (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) && !defined(__cplusplus)
@@ -296,9 +297,7 @@ extern "C" {
 /*============================ PROTOTYPES ====================================*/
 /*============================ INCLUDES ======================================*/
 
-#if defined(__cplusplus)
-}
-#endif
+
 
 #if     defined(__PLOOC_CLASS_USE_STRICT_TEMPLATE__)
 #   include "./plooc_class_strict.h"
