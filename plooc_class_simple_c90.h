@@ -91,7 +91,7 @@ extern "C" {
     };                      
     
 
-#if     defined(__PLOOC_CLASS_IMPLEMENT)
+#if     defined(__PLOOC_CLASS_IMPLEMENT__) || defined(__PLOOC_CLASS_IMPLEMENT)
 
 #   undef  __class
 #   define __class(__NAME)                  __NAME
@@ -112,7 +112,7 @@ extern "C" {
 
 #define __end_extern_class(__NAME)
         
-#elif   defined(__PLOOC_CLASS_INHERIT)
+#elif   defined(__PLOOC_CLASS_INHERIT__) || defined(__PLOOC_CLASS_INHERIT)
 
 #   undef  __class_protected
 #   define __class_protected(__NAME)            __NAME
@@ -157,8 +157,11 @@ extern "C" {
 
 #define end_extern_class(__name)        __end_extern_class(__name)
 
+#undef __PLOOC_CLASS_IMPLEMENT__
+#undef __PLOOC_CLASS_INHERIT__
 #undef __PLOOC_CLASS_IMPLEMENT
 #undef __PLOOC_CLASS_INHERIT
+
 /*============================ TYPES =========================================*/
 /*============================ GLOBAL VARIABLES ==============================*/
 /*============================ LOCAL VARIABLES ===============================*/

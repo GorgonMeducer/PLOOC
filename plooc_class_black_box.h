@@ -42,7 +42,7 @@ extern "C" {
 #undef __class
 /*============================ MACROFIED FUNCTIONS ===========================*/
 
-#if   defined(__PLOOC_CLASS_IMPLEMENT)
+#if   defined(__PLOOC_CLASS_IMPLEMENT__) || defined(__PLOOC_CLASS_IMPLEMENT)
 
 #   ifdef __OOC_DEBUG__
 #       define __def_class(__NAME, __PUBLIC ,...)                               \
@@ -237,6 +237,8 @@ extern "C" {
 /*============================ LOCAL VARIABLES ===============================*/
 /*============================ PROTOTYPES ====================================*/
 
+#undef __PLOOC_CLASS_IMPLEMENT__
+#undef __PLOOC_CLASS_INHERIT__
 #undef __PLOOC_CLASS_IMPLEMENT
 #undef __PLOOC_CLASS_INHERIT
 

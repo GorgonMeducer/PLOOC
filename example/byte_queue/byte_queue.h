@@ -37,9 +37,9 @@ typedef struct mem_t {
 #define __PLOOC_CLASS_USE_STRICT_TEMPLATE__
    
 #if     defined(__BYTE_QUEUE_CLASS_IMPLEMENT)
-#   define __PLOOC_CLASS_IMPLEMENT
+#   define __PLOOC_CLASS_IMPLEMENT__
 #elif   defined(__BYTE_QUEUE_CLASS_INHERIT)
-#   define __PLOOC_CLASS_INHERIT
+#   define __PLOOC_CLASS_INHERIT__
 #endif   
 
 #include "plooc_class.h"

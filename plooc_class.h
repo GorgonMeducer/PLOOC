@@ -321,6 +321,8 @@ extern "C" {
 #undef __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__
 #undef __PLOOC_CLASS_USE_BLACK_BOX_TEMPLATE__
 #undef __PLOOC_CLASS_IMPLEMENT
+#undef __PLOOC_CLASS_IMPLEMENT__
+#undef __PLOOC_CLASS_INHERIT__
 #undef __PLOOC_CLASS_INHERIT
 
 #if defined(__cplusplus)

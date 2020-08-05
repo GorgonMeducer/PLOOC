@@ -76,6 +76,9 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ## Update Log
 ---
+- \[05/08/2020\] Add \_\_PLOOC\_CLASS\_IMPLEMENT\_\_ and \_\_PLOOC\_CLASS\_INHERIT\_\_ version 4.5.6
+    - use \_\_xxxxx\_\_ as emphasis because \_\_xxxxx usually means "internal"
+    - The original \_\_PLOOC\_CLASS\_IMPLEMENT and \_\_PLOOC\_CLASS\_INHERIT are deprecated and will be kept for a while before completely removed. 
 - \[18/05/2020\] Introduce both short- and long- style of macro, version 4.5.5
     - dcl_xxxxx/declare_xxxxx
     - def_xxxx/define_xxxxx; end_def_xxxx/end_define_xxxx

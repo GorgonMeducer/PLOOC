@@ -68,7 +68,7 @@ extern "C" {
 /*============================ MACROFIED FUNCTIONS ===========================*/
 
 
-#if   defined(__PLOOC_CLASS_IMPLEMENT)
+#if   defined(__PLOOC_CLASS_IMPLEMENT__) || defined(__PLOOC_CLASS_IMPLEMENT)
 
 #   define __def_class2(__NAME, _1)                                             \
     typedef struct __NAME __NAME;                                               \
@@ -220,7 +220,7 @@ extern "C" {
             __class_internal(__SRC, __DES, __TYPE, __VA_ARGS__)
 
 
-#elif   defined(__PLOOC_CLASS_INHERIT)
+#elif   defined(__PLOOC_CLASS_INHERIT__) || defined(__PLOOC_CLASS_INHERIT)
 
 #   define __def_class2(__NAME, _1)                                             \
     typedef struct __NAME __NAME;                                               \
@@ -456,6 +456,8 @@ extern "C" {
 #define end_extern_class(...)           __end_extern_class(__VA_ARGS__)
 
 
+#undef __PLOOC_CLASS_IMPLEMENT__
+#undef __PLOOC_CLASS_INHERIT__
 #undef __PLOOC_CLASS_IMPLEMENT
 #undef __PLOOC_CLASS_INHERIT
 /*============================ TYPES =========================================*/
