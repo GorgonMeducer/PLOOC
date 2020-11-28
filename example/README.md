@@ -25,7 +25,7 @@ This example shows
 
 - How to implement overload using PLOOC
 
-  ![example3](https://github.com/GorgonMeducer/PLOOC/blob/master/example/picture/example3.png?raw=true)
+  ![example3](./picture/example3.png?raw=true)
 
 
 Author:  GorgonMeducer<embedded_zhuoran@hotmail.com>,  under Apache 2.0

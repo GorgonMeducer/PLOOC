@@ -244,7 +244,7 @@ LOG_OUT((uint32_t *)main, 100/sizeof(uint32_t));
 
 
 
-![example3](https://github.com/GorgonMeducer/PLOOC/blob/master/example/picture/example3.png?raw=true)
+![example3](./example/picture/example3.png?raw=true)
 
   
 
