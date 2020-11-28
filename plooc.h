@@ -73,51 +73,51 @@ extern "C" {
  *!       end_def_interface( i_lv1_t )
   */
 
-#define __declare_interface(__NAME)   typedef struct __NAME __NAME;
-#define __declare_structure(__NAME)   typedef struct __NAME __NAME;
+#define __declare_interface(__name)   typedef struct __name __name;
+#define __declare_structure(__name)   typedef struct __name __name;
 
 #if (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) && !defined(__cplusplus)
 
 //! \name interface definition
 //! @{
-#define __def_interface(__NAME)                                                 \
-            /*typedef struct __NAME __NAME;*/                                   \
-            struct __NAME {
+#define __def_interface(__name)                                                 \
+            /*typedef struct __name __name;*/                                   \
+            struct __name {
 
-#define __end_def_interface(__NAME)                                             \
+#define __end_def_interface(__name)                                             \
             };
 //! @}
 
 //! \name structure definition
 //! @{
-#define __def_structure(__NAME)                                                 \
-            /*typedef struct __NAME __NAME; */                                  \
-            struct __NAME {
+#define __def_structure(__name)                                                 \
+            /*typedef struct __name __name; */                                  \
+            struct __name {
 
-#define __end_def_structure(__NAME)                                             \
+#define __end_def_structure(__name)                                             \
             };
 //! @}
 
 #else
 //! \name interface definition
 //! @{
-#define __def_interface(__NAME,...)                                             \
-            typedef struct __NAME __NAME;                                       \
+#define __def_interface(__name,...)                                             \
+            typedef struct __name __name;                                       \
             __VA_ARGS__                                                         \
-            struct __NAME {
+            struct __name {
 
-#define __end_def_interface(__NAME)                                             \
+#define __end_def_interface(__name)                                             \
             };
 //! @}
 
 //! \name structure definition
 //! @{
-#define __def_structure(__NAME,...)                                             \
-            typedef struct __NAME __NAME;                                       \
+#define __def_structure(__name,...)                                             \
+            typedef struct __name __name;                                       \
             __VA_ARGS__                                                         \
-            struct __NAME {
+            struct __name {
 
-#define __end_def_structure(__NAME)                                             \
+#define __end_def_structure(__name)                                             \
             };
 //! @}
 #endif
@@ -176,7 +176,7 @@ extern "C" {
 
 #define __16_PLOOC_EVAL(__FUNC, __NO_ARGS)  __FUNC##__NO_ARGS
 #define __15_PLOOC_EVAL(__FUNC, __NO_ARGS)  __16_PLOOC_EVAL(__FUNC, __NO_ARGS)
-#define __14_PLOOC_EVAL(__FUNC, __NO_ARGS)  __16_PLOOC_EVAL(__FUNC, __NO_ARGS)
+#define __14_PLOOC_EVAL(__FUNC, __NO_ARGS)  __15_PLOOC_EVAL(__FUNC, __NO_ARGS)
 #define __13_PLOOC_EVAL(__FUNC, __NO_ARGS)  __14_PLOOC_EVAL(__FUNC, __NO_ARGS)
 
 #define __12_PLOOC_EVAL(__FUNC, __NO_ARGS)  __13_PLOOC_EVAL(__FUNC, __NO_ARGS)
@@ -231,14 +231,14 @@ extern "C" {
 #   define end_define_members(...)
 #endif
 
-#define implement(__TYPE)                   IMPLEMENT(__TYPE)
-#define implement_ex(__TYPE, __NAME)        __IMPLEMENT_EX(__TYPE, __NAME)
-#define inherit_ex(__TYPE, __NAME)          INHERIT_EX(__TYPE, __NAME)
-#define inherit(__TYPE)                     INHERIT(__TYPE)
+#define implement(__type)                   IMPLEMENT(__type)
+#define implement_ex(__type, __name)        __IMPLEMENT_EX(__type, __name)
+#define inherit_ex(__type, __name)          INHERIT_EX(__type, __name)
+#define inherit(__type)                     INHERIT(__type)
 #define ref_interface(__INTERFACE)          const __INTERFACE *ptMethod;
-#define convert_obj_as(__OBJ, __TYPE)       OBJ_CONVERT_AS(__OBJ, __TYPE)
-#define obj_convert_as(__OBJ, __TYPE)       OBJ_CONVERT_AS(__OBJ, __TYPE)       /*  obsolete */
-#define ref_obj_as(__OBJ, __TYPE)           REF_OBJ_AS(__OBJ, __TYPE)
+#define convert_obj_as(__obj, __type)       OBJ_CONVERT_AS(__obj, __type)
+#define obj_convert_as(__obj, __type)       OBJ_CONVERT_AS(__obj, __type)       /*  obsolete */
+#define ref_obj_as(__obj, __type)           REF_OBJ_AS(__obj, __type)
 
 #define end_def_interface(__name)           __end_def_interface(__name)
 #define end_define_interface(__name)        __end_def_interface(__name)
@@ -250,7 +250,7 @@ extern "C" {
 #define declare_structure(__name)           __declare_structure(__name)
 
 #define this_interface(__INTERFACE)         convert_obj_as(this, __INTERFACE)
-#define base_obj(__TYPE)                    convert_obj_as(this, __TYPE)
+#define base_obj(__type)                    convert_obj_as(this, __type)
            
 
         

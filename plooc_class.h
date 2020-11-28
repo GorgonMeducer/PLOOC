@@ -112,13 +112,13 @@ extern "C" {
 
 //! @{
 #ifndef __PLOOC_CONNECT2
-#   define __PLOOC_CONNECT2( a, b)              a##b
+#   define __PLOOC_CONNECT2( __A, __B)              __A##__B
 #endif
 #ifndef __PLOOC_CONNECT3
-#   define __PLOOC_CONNECT3( a, b, c)           a##b##c
+#   define __PLOOC_CONNECT3( __A, __B, __C)           __A##__B##__C
 #endif
 #ifndef __PLOOC_CONNECT4
-#   define __PLOOC_CONNECT4( a, b, c, d)        a##b##c##d
+#   define __PLOOC_CONNECT4( __A, __B, __C, __D)        __A##__B##__C##__D
 #endif
 //! @}
 
@@ -139,13 +139,13 @@ extern "C" {
 
 //! @{
 #ifndef PLOOC_CONNECT2
-#   define PLOOC_CONNECT2( a, b)        __PLOOC_CONNECT2( a, b)
+#   define PLOOC_CONNECT2( __A, __B)        __PLOOC_CONNECT2( __A, __B)
 #endif
 #ifndef PLOOC_CONNECT3
-#   define PLOOC_CONNECT3( a, b, c)     __PLOOC_CONNECT3( a, b, c)
+#   define PLOOC_CONNECT3( __A, __B, __C)     __PLOOC_CONNECT3( __A, __B, __C)
 #endif
 #ifndef PLOOC_CONNECT4
-#   define PLOOC_CONNECT4( a, b, c, d)  __PLOOC_CONNECT4( a, b, c, d)
+#   define PLOOC_CONNECT4( __A, __B, __C, __D)  __PLOOC_CONNECT4( __A, __B, __C, __D)
 #endif
 //! @}
                              
@@ -276,7 +276,7 @@ extern "C" {
 
 #   if (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) && !defined(__cplusplus)
 #   undef which
-#   define which(__DECLARE)                     ,_which(__DECLARE)
+#   define which(__declare)                     ,_which(__declare)
 #else
 #   undef which
 #   define which(...)                           ,_which(__VA_ARGS__)
@@ -308,6 +308,16 @@ extern "C" {
 #       include "./plooc_class_simple.h"
 #   endif
 #elif   defined(__PLOOC_CLASS_USE_BLACK_BOX_TEMPLATE__)
+#   ifndef __PLOOC_I_KNOW_BLACK_BOX_IS_INCOMPATIBLE_WITH_OTHER_TEMPLATES__
+#       warning The black box template is incompatible with other templates. When\
+ header files which contains different templates mixing together, the one contains\
+ black box template will cause conflicts in other header files. To avoid such\
+ conflicts, you can either use black box alone in a project or in a module's\
+ source code, avoid including header files which directly or indirectly including\
+ the header file of the very same module. To suppress this warning, please find the\
+ macro __PLOOC_I_KNOW_BLACK_BOX_IS_INCOMPATIBLE_WITH_OTHER_TEMPLATES__ in your\
+ project to acknowledge that you understand the facts and consequences.
+#   endif
 #   include "./plooc_class_black_box.h"
 #else
 #   include "./plooc_class_simple.h"

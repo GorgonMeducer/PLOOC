@@ -45,27 +45,27 @@ extern "C" {
 #if   defined(__PLOOC_CLASS_IMPLEMENT__) || defined(__PLOOC_CLASS_IMPLEMENT)
 
 #   ifdef __OOC_DEBUG__
-#       define __def_class(__NAME, __PUBLIC ,...)                               \
-    typedef struct __NAME __NAME;                                               \
-    typedef struct __##__NAME __##__NAME;                                       \
-    struct __##__NAME {                                                         \
-        __PUBLIC                                                                \
+#       define __def_class(__name, __public ,...)                               \
+    typedef struct __name __name;                                               \
+    typedef struct __##__name __##__name;                                       \
+    struct __##__name {                                                         \
+        __public                                                                \
         PLOOC_VISIBLE(__VA_ARGS__)                                              \
     };                                                                          \
-    struct __NAME {                                                             \
-        __PUBLIC                                                                \
+    struct __name {                                                             \
+        __public                                                                \
         PLOOC_VISIBLE(__VA_ARGS__)                                              \
     };                                                                          
 #   else
-#       define __def_class(__NAME, __PUBLIC, ...)                               \
-    typedef struct __NAME __NAME;                                               \
-    typedef struct __##__NAME __##__NAME;                                       \
-    struct __##__NAME {                                                         \
-        __PUBLIC                                                                \
+#       define __def_class(__name, __public, ...)                               \
+    typedef struct __name __name;                                               \
+    typedef struct __##__name __##__name;                                       \
+    struct __##__name {                                                         \
+        __public                                                                \
         PLOOC_VISIBLE(__VA_ARGS__)                                              \
     };                                                                          \
-    struct __NAME {                                                             \
-        __PUBLIC                                                                \
+    struct __name {                                                             \
+        __public                                                                \
         PLOOC_INVISIBLE(__VA_ARGS__)                                            \
     };                                                                          
     
@@ -91,18 +91,18 @@ extern "C" {
 
 #ifndef __OOC_DEBUG__        
 
-#   define __def_class(__NAME, __PUBLIC, ...)                                   \
-    typedef struct __NAME __NAME;                                               \
-    typedef struct __##__NAME __##__NAME;                                       \
-    struct __##__NAME {                                                         \
-        __PUBLIC                                                                \
+#   define __def_class(__name, __public, ...)                                   \
+    typedef struct __name __name;                                               \
+    typedef struct __##__name __##__name;                                       \
+    struct __##__name {                                                         \
+        __public                                                                \
         PLOOC_VISIBLE(__VA_ARGS__)                                              \
     };                                                                          
   
-#define __extern_class(__NAME,__PUBLIC, ...)                                    \
-    typedef struct __NAME __NAME;                                               \
-    struct __NAME {                                                             \
-        __PUBLIC                                                                \
+#define __extern_class(__name,__public, ...)                                    \
+    typedef struct __name __name;                                               \
+    struct __name {                                                             \
+        __public                                                                \
         PLOOC_INVISIBLE(__VA_ARGS__)                                            \
     }; 
 
@@ -117,18 +117,18 @@ extern "C" {
     
 #else
                
-#   define __def_class(__NAME, __PUBLIC, ...)                                   \
-    typedef struct __NAME __NAME;                                               \
-    typedef struct __##__NAME __##__NAME;                                       \
-    struct __##__NAME {                                                         \
-        __PUBLIC                                                                \
+#   define __def_class(__name, __public, ...)                                   \
+    typedef struct __name __name;                                               \
+    typedef struct __##__name __##__name;                                       \
+    struct __##__name {                                                         \
+        __public                                                                \
         PLOOC_VISIBLE(__VA_ARGS__)                                              \
     };                                                                          
   
-#define __extern_class(__NAME,__PUBLIC, ...)                                    \
-    typedef struct __NAME __NAME;                                               \
-    struct __NAME {                                                             \
-        __PUBLIC                                                                \
+#define __extern_class(__name,__public, ...)                                    \
+    typedef struct __name __name;                                               \
+    struct __name {                                                             \
+        __public                                                                \
         PLOOC_VISIBLE(__VA_ARGS__)                                              \
     }; 
 
@@ -178,27 +178,27 @@ extern "C" {
 #define __PLOOC_CLASS_BLACK_BOX_H__
 
 /*! \brief macro for initializing class in compiler-time
- *! \param __TYPE class name
- *! \param __OBJ target object
+ *! \param __type class name
+ *! \param __obj target object
  *! \param ... initialization list
  */
-#define __INIT_CLASS_OBJ(__TYPE, __OBJ, ...)                                    \
+#define __INIT_CLASS_OBJ(__type, __obj, ...)                                    \
             union {                                                             \
-                class(__TYPE) __##__OBJ;                                        \
-                __TYPE;                                                         \
-            } __OBJ = {                                                         \
-                .__##__OBJ = __VA_ARGS__                                        \
+                class(__type) __##__obj;                                        \
+                __type;                                                         \
+            } __obj = {                                                         \
+                .__##__obj = __VA_ARGS__                                        \
             }
-#define init_class_obj(__TYPE, __OBJ, ...)                                      \
-            __INIT_CLASS_OBJ(__TYPE, __OBJ, __VA_ARGS__)
+#define init_class_obj(__type, __obj, ...)                                      \
+            __INIT_CLASS_OBJ(__type, __obj, __VA_ARGS__)
 
-#define __EXTERN_CLASS_OBJ( __TYPE, __OBJ )                                     \
+#define __EXTERN_CLASS_OBJ( __type, __obj )                                     \
             extern union {                                                      \
-                class(__TYPE) __##__OBJ;                                        \
-                __TYPE;                                                         \
-            }__OBJ;
-#define extern_class_obj(__TYPE, __OBJ)                                         \
-            __EXTERN_CLASS_OBJ( __TYPE, __OBJ )
+                class(__type) __##__obj;                                        \
+                __type;                                                         \
+            }__obj;
+#define extern_class_obj(__type, __obj)                                         \
+            __EXTERN_CLASS_OBJ( __type, __obj )
 #endif
 
 /*----------------------------------------------------------------------------*
@@ -206,27 +206,27 @@ extern "C" {
  *----------------------------------------------------------------------------*/
 
 #   undef __class_internal
-#   define __class_internal(__SRC, __DES, __TYPE, ...)                          \
-            class(__TYPE) *(__DES) = (class(__TYPE) *)(__SRC);                  \
-            PLOOC_UNUSED_PARAM(__DES);                                          \
-            __with_class(__TYPE, (__SRC), __VA_ARGS__)
+#   define __class_internal(__src, __des, __type, ...)                          \
+            class(__type) *(__des) = (class(__type) *)(__src);                  \
+            PLOOC_UNUSED_PARAM(__des);                                          \
+            __with_class(__type, (__src), __VA_ARGS__)
             
 #   undef class_internal
-#   define class_internal(__SRC, __DES, __TYPE,...)                             \
-            __class_internal(__SRC, __DES, __TYPE, __VA_ARGS__)
+#   define class_internal(__src, __des, __type,...)                             \
+            __class_internal(__src, __des, __type, __VA_ARGS__)
             
 #   undef __with_class
-#   define __with_class(__TYPE, __SRC, ...)                                     \
+#   define __with_class(__type, __src, ...)                                     \
         {                                                                       \
-            class(__TYPE)*_ =(class(__TYPE) *)(__SRC);                          \
+            class(__type)*_ =(class(__type) *)(__src);                          \
             PLOOC_UNUSED_PARAM(_);                                              \
             __VA_ARGS__;                                                        \
         }                                                                       \
-        for (class(__TYPE)*_ =(class(__TYPE) *)(__SRC); NULL != _; _ = NULL)
+        for (class(__type)*_ =(class(__type) *)(__src); NULL != _; _ = NULL)
 
 #   undef with_class
-#   define with_class(__TYPE, __SRC, ...)                                       \
-            __with_class(__TYPE, __SRC, __VA_ARGS__)                  
+#   define with_class(__type, __src, ...)                                       \
+            __with_class(__type, __src, __VA_ARGS__)                  
 
 #undef which
 #define which(...)                      PLOOC_VISIBLE(__VA_ARGS__)

@@ -67,8 +67,9 @@ you can even do this...if you are serious about the content
 	    })];
 	} byte_queue_t;
 
+> NOTE: Aforementioned code pieces are only used to show the underlying scheme but are not practical, as you can see, the alignment of the original structure is missing when creating the mask array. To solve the problem, you have to extract the alignment information via \_\_alignof\_\_() operator and set the mask array alignment attribute accordingly using \_\_attribute\_\_((aligned())).
 
-PLOOC provides the "private-protection" feature with a different scheme other than type-cheating, so it support almost all C compilers with C99 feature enabled. As the author, I have to confess that it took me a lot of time to figure it out how to deal with strict-type-checking and the initial scheme was ugly and counter-intuition. Thanks to some inspiring contribution of SimonQian, it took me another 3 months to make PLOOC elegant and simple. The supports from HenryLong are also vital. 
+ PLOOC provides the "private-protection" feature with a different scheme other than type-cheating, so it support almost all C compilers with C99 feature enabled. As the author, I have to confess that it took me a lot of time to figure it out how to deal with strict-type-checking and the initial scheme was ugly and counter-intuition. Thanks to some inspiring contribution of SimonQian, it took me another 3 months to make PLOOC elegant and simple. The supports from HenryLong are also vital. 
 
 I hope you can enjoy this unique trying for the object-oriented programming challenge. 
 
@@ -76,6 +77,10 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ## Update Log
 ---
+- \[28/11/2020\] Minor update, version 4.5.7
+    - Fix a typo in plooc.h 
+    - Apply unified capitalisation in macros, i.e. if the macro is uppercase, the parameters are in uppercase, if the macro is lowercase, the parameters are in lowercase.  
+    - Add warning to indicate that black box template is incompatible with other templates and should be used alone or under special rule when mixed with other templates.
 - \[05/08/2020\] Add \_\_PLOOC\_CLASS\_IMPLEMENT\_\_ and \_\_PLOOC\_CLASS\_INHERIT\_\_ version 4.5.6
     - use \_\_xxxxx\_\_ as emphasis because \_\_xxxxx usually means "internal"
     - The original \_\_PLOOC\_CLASS\_IMPLEMENT and \_\_PLOOC\_CLASS\_INHERIT are deprecated and will be kept for a while before completely removed. 

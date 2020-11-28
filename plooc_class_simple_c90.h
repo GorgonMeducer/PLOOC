@@ -61,9 +61,9 @@ extern "C" {
 #endif  /* __PLOOC_CLASS_SIMPLE_H__ */
 
 
-#   define private_member(__MEMBER)         __MEMBER
-#   define protected_member(__MEMBER)       __MEMBER
-#   define public_member(__MEMBER)          __MEMBER
+#   define private_member(__member)         __member
+#   define protected_member(__member)       __member
+#   define public_member(__member)          __member
 
 
 
@@ -82,67 +82,67 @@ extern "C" {
 #undef __end_extern_class
 
           
-#define __end_def_class(__NAME)
+#define __end_def_class(__name)
 
-#define __def_class(__NAME, __MEMBER)                                           \
-    /*typedef struct __NAME __NAME; */                                          \
-    struct __NAME {                                                             \
-        __MEMBER                                                                \
+#define __def_class(__name, __member)                                           \
+    /*typedef struct __name __name; */                                          \
+    struct __name {                                                             \
+        __member                                                                \
     };                      
     
 
 #if     defined(__PLOOC_CLASS_IMPLEMENT__) || defined(__PLOOC_CLASS_IMPLEMENT)
 
 #   undef  __class
-#   define __class(__NAME)                  __NAME
+#   define __class(__name)                  __name
 
 #   undef  class
-#   define class(__NAME)                    __class(__NAME)
+#   define class(__name)                    __class(__name)
 
             
 #   undef __class_internal
-#   define __class_internal(__SRC, __DES, __TYPE)                               \
-            class(__TYPE) *(__DES) = (class(__TYPE) *)(__SRC);                  
+#   define __class_internal(__src, __des, __type)                               \
+            class(__type) *(__des) = (class(__type) *)(__src);                  
             
 #   undef class_internal
-#   define class_internal(__SRC, __DES, __TYPE)                                 \
-            __class_internal(__SRC, __DES, __TYPE)
+#   define class_internal(__src, __des, __type)                                 \
+            __class_internal(__src, __des, __type)
 
-#define __extern_class(__NAME, __MEMBER)                                    
+#define __extern_class(__name, __member)                                    
 
-#define __end_extern_class(__NAME)
+#define __end_extern_class(__name)
         
 #elif   defined(__PLOOC_CLASS_INHERIT__) || defined(__PLOOC_CLASS_INHERIT)
 
 #   undef  __class_protected
-#   define __class_protected(__NAME)            __NAME
+#   define __class_protected(__name)            __name
 
 #   undef  class_protected
-#   define class_protected(__NAME)              __class_protected(__NAME)
+#   define class_protected(__name)              __class_protected(__name)
 
 
 #   undef __protected_internal
-#   define __protected_internal(__SRC, __DES, __TYPE)                           \
-            class_protected(__TYPE) *(__DES)=(class_protected(__TYPE) *)(__SRC);
+#   define __protected_internal(__src, __des, __type)                           \
+            class_protected(__type) *(__des)=(class_protected(__type) *)(__src);
 
 #   undef protected_internal            
-#   define protected_internal(__SRC, __DES, __TYPE)                             \
-            __protected_internal(__SRC, __DES, __TYPE)                
+#   define protected_internal(__src, __des, __type)                             \
+            __protected_internal(__src, __des, __type)                
 
-#define __extern_class(__NAME, __MEMBER)                                    
+#define __extern_class(__name, __member)                                    
 
-#define __end_extern_class(__NAME)
+#define __end_extern_class(__name)
 
 #else  /* __PLOOC_CLASS_EXTERN */
 
-#define __extern_class(__NAME, __MEMBER)    __def_class(__NAME, __MEMBER)
+#define __extern_class(__name, __member)    __def_class(__name, __member)
 
-#define __end_extern_class(__NAME)
+#define __end_extern_class(__name)
 
 #endif 
 
 #undef which
-#define which(__TYPE)                   __TYPE
+#define which(__type)                   __type
                                                     
 #define def_class(__name, __member)     __def_class(__name, __member)
 #define define_class(__name, __member)  def_class(__name, __member)
