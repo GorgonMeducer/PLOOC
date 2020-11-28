@@ -38,7 +38,7 @@ typedef struct mem_t {
    
 #if     defined(__BYTE_QUEUE_CLASS_IMPLEMENT)
 #   define __PLOOC_CLASS_IMPLEMENT__
-#elif   defined(__BYTE_QUEUE_CLASS_INHERIT)
+#elif   defined(__BYTE_QUEUE_CLASS_INHERIT__)
 #   define __PLOOC_CLASS_INHERIT__
 #endif   
 
@@ -109,13 +109,13 @@ void *byte_queue_target_get(byte_queue_t *ptObj);
 extern 
 void  byte_queue_target_set(byte_queue_t *ptObj, void *pTarget);
 
-#if defined(__BYTE_QUEUE_CLASS_IMPLEMENT) || defined(__BYTE_QUEUE_CLASS_INHERIT)
+#if defined(__BYTE_QUEUE_CLASS_IMPLEMENT) || defined(__BYTE_QUEUE_CLASS_INHERIT__)
 extern mem_t byte_queue_buffer_get(byte_queue_t *ptObj);
 #endif
 
 /*! \note it is very important to undef those macros */
 #undef __BYTE_QUEUE_CLASS_INHERIT
-#undef __BYTE_QUEUE_CLASS_IMPLEMENT
+#undef __BYTE_QUEUE_CLASS_IMPLEMENT__
 
 #endif
 /* EOF */

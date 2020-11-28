@@ -17,7 +17,7 @@
 
 /*============================ INCLUDES ======================================*/
 #define __ENHANCED_BYTE_QUEUE_CLASS_IMPLEMENT
-#define __BYTE_QUEUE_CLASS_INHERIT
+#define __BYTE_QUEUE_CLASS_INHERIT__
 #include "./enhanced_byte_queue.h"
 
 #include <string.h>

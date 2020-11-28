@@ -36,9 +36,9 @@
 #if     defined(__ENHANCED_BYTE_QUEUE_CLASS_IMPLEMENT)
 #   define __PLOOC_CLASS_IMPLEMENT__
 #   undef __ENHANCED_BYTE_QUEUE_CLASS_IMPLEMENT
-#elif   defined(__ENHANCED_BYTE_QUEUE_CLASS_INHERIT)
+#elif   defined(__ENHANCED_BYTE_QUEUE_CLASS_INHERIT__)
 #   define __PLOOC_CLASS_INHERIT__
-#   undef __ENHANCED_BYTE_QUEUE_CLASS_INHERIT
+#   undef __ENHANCED_BYTE_QUEUE_CLASS_INHERIT__
 #endif   
 
 #include "plooc_class.h"
