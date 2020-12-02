@@ -186,7 +186,7 @@ The full license text follows:
 ---
 - [VSF][https://github.com/vsfteam/vsf]
 - [GMSI][https://github.com/GorgonMeducer/Generic_MCU_Software_Infrastructure]
-
+- [mqttclient][https://github.com/jiejieTop/mqttclient]
 
 ## How to Use
 ---
