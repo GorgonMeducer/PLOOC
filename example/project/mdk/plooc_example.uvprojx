@@ -14,16 +14,16 @@
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
-          <Device>CMSDK_CM3</Device>
+          <Device>ARMCM3</Device>
           <Vendor>ARM</Vendor>
-          <PackID>Keil.V2M-MPS2_CMx_BSP.1.7.0</PackID>
+          <PackID>ARM.CMSIS.5.7.0</PackID>
           <PackURL>http://www.keil.com/pack/</PackURL>
-          <Cpu>IRAM(0x20000000,0x00400000) IROM(0x00000000,0x00400000) CPUTYPE("Cortex-M3") CLOCK(12000000) ELITTLE</Cpu>
+          <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M3") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
           <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC1000)</FlashDriverDll>
           <DeviceId>0</DeviceId>
-          <RegisterFile>$$Device:CMSDK_CM3$Device\CMSDK_CM3\Include\CMSDK_CM3.h</RegisterFile>
+          <RegisterFile>$$Device:ARMCM3$Device\ARM\ARMCM3\Include\ARMCM3.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
           <Asm></Asm>
@@ -33,7 +33,7 @@
           <SLE66CMisc></SLE66CMisc>
           <SLE66AMisc></SLE66AMisc>
           <SLE66LinkerMisc></SLE66LinkerMisc>
-          <SFDFile>$$Device:CMSDK_CM3$SVD\CMSDK_CM3.svd</SFDFile>
+          <SFDFile></SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
           <BinPath></BinPath>
@@ -190,7 +190,7 @@
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
             <useUlib>1</useUlib>
-            <EndSel>0</EndSel>
+            <EndSel>1</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
             <RoSelD>3</RoSelD>
@@ -246,12 +246,12 @@
               <IRAM>
                 <Type>0</Type>
                 <StartAddress>0x20000000</StartAddress>
-                <Size>0x400000</Size>
+                <Size>0x20000</Size>
               </IRAM>
               <IROM>
                 <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x400000</Size>
+                <Size>0x40000</Size>
               </IROM>
               <XRAM>
                 <Type>0</Type>
@@ -276,7 +276,7 @@
               <OCR_RVCT4>
                 <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x400000</Size>
+                <Size>0x40000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
@@ -301,7 +301,7 @@
               <OCR_RVCT9>
                 <Type>0</Type>
                 <StartAddress>0x20000000</StartAddress>
-                <Size>0x400000</Size>
+                <Size>0x20000</Size>
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
@@ -488,43 +488,53 @@
   <RTE>
     <apis/>
     <components>
-      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.3.0" condition="ARMv6_7_8-M Device">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.6.0"/>
+      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.4.0" condition="ARMv6_7_8-M Device">
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.7.0"/>
         <targetInfos>
           <targetInfo name="arm_compiler_6_example"/>
         </targetInfos>
       </component>
-      <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="1.0.0" condition="CMSDK_CM3 CMSIS">
-        <package name="V2M-MPS2_CMx_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="Keil" version="1.7.0"/>
+      <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.2.2" condition="ARMCM3 CMSIS">
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.7.0"/>
         <targetInfos>
           <targetInfo name="arm_compiler_6_example"/>
         </targetInfos>
       </component>
     </components>
     <files>
-      <file attr="config" category="header" name="CMSIS\Config\RTE_Device.h" version="1.0.0">
-        <instance index="0">RTE\Device\CMSDK_CM3\RTE_Device.h</instance>
-        <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="1.0.0" condition="CMSDK_CM3 CMSIS"/>
-        <package name="V2M-MPS2_CMx_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="Keil" version="1.7.0"/>
+      <file attr="config" category="sourceAsm" condition="ARMCC" name="Device\ARM\ARMCM3\Source\ARM\startup_ARMCM3.s" version="1.0.1">
+        <instance index="0">RTE\Device\ARMCM3\startup_ARMCM3.s</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.2.2" condition="ARMCM3 CMSIS"/>
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.7.0"/>
         <targetInfos>
           <targetInfo name="arm_compiler_6_example"/>
         </targetInfos>
+      </file>
+      <file attr="config" category="sourceC" name="Device\ARM\ARMCM3\Source\system_ARMCM3.c" version="1.0.1">
+        <instance index="0">RTE\Device\ARMCM3\system_ARMCM3.c</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="ARM" Cversion="1.2.2" condition="ARMCM3 CMSIS"/>
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.7.0"/>
+        <targetInfos>
+          <targetInfo name="arm_compiler_6_example"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="CMSIS\Config\RTE_Device.h" version="1.0.0">
+        <instance index="0" removed="1">RTE\Device\CMSDK_CM3\RTE_Device.h</instance>
+        <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="1.0.0" condition="CMSDK_CM3 CMSIS"/>
+        <package name="V2M-MPS2_CMx_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="Keil" version="1.7.0"/>
+        <targetInfos/>
       </file>
       <file attr="config" category="source" condition="ARMCC" name="Device\CMSDK_CM3\Source\ARM\startup_CMSDK_CM3.s" version="1.0.0">
-        <instance index="0">RTE\Device\CMSDK_CM3\startup_CMSDK_CM3.s</instance>
+        <instance index="0" removed="1">RTE\Device\CMSDK_CM3\startup_CMSDK_CM3.s</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="1.0.0" condition="CMSDK_CM3 CMSIS"/>
         <package name="V2M-MPS2_CMx_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="Keil" version="1.7.0"/>
-        <targetInfos>
-          <targetInfo name="arm_compiler_6_example"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
       <file attr="config" category="source" name="Device\CMSDK_CM3\Source\system_CMSDK_CM3.c" version="1.0.0">
-        <instance index="0">RTE\Device\CMSDK_CM3\system_CMSDK_CM3.c</instance>
+        <instance index="0" removed="1">RTE\Device\CMSDK_CM3\system_CMSDK_CM3.c</instance>
         <component Cclass="Device" Cgroup="Startup" Cvendor="Keil" Cversion="1.0.0" condition="CMSDK_CM3 CMSIS"/>
         <package name="V2M-MPS2_CMx_BSP" schemaVersion="1.2" url="http://www.keil.com/pack/" vendor="Keil" version="1.7.0"/>
-        <targetInfos>
-          <targetInfo name="arm_compiler_6_example"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
     </files>
   </RTE>
