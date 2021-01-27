@@ -198,7 +198,7 @@ extern "C" {
 #   if  !defined (__PLOOC_CLASS_USE_NO_STRUCT_MASK__)
         
 #       define PLOOC_INVISIBLE(...)                                             \
-        uint8_t PLOOC_CONNECT4(_,__LINE__,__COUNTER__,_chMask)                  \
+        uint8_t PLOOC_CONNECT3(chMask_,__LINE__,__COUNTER__)                    \
                 [PLOOC_SIZEOF_STRUCT(__VA_ARGS__)]                              \
                 PLOOC_ALIGN(PLOOC_ALIGNOF_STRUCT(__VA_ARGS__));
 
