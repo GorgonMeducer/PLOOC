@@ -71,7 +71,7 @@ int main(void)
     ENHANCED_BYTE_QUEUE.use_as__i_byte_queue_t.Enqueue(&s_tQueue.use_as__byte_queue_t, '.');
     ENHANCED_BYTE_QUEUE.use_as__i_byte_queue_t.Enqueue(&s_tQueue.use_as__byte_queue_t, '.');
     ENHANCED_BYTE_QUEUE.use_as__i_byte_queue_t.Enqueue(&s_tQueue.use_as__byte_queue_t, '.');
-    
+
     //! you can dequeue
     do {
         uint_fast16_t n = ENHANCED_BYTE_QUEUE.Count(&s_tQueue);
