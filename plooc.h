@@ -42,12 +42,12 @@ extern "C" {
 
 /*============================ MACROS ========================================*/
 #ifndef __cplusplus
-#   ifndef private
-#       define private    static
+#   ifndef plooc_private
+#       define plooc_private    static
 #   endif
 
-#   ifndef public
-#       define public      
+#   ifndef plooc_public
+#       define plooc_public      
 #   endif
 #endif
 
