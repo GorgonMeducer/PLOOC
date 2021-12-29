@@ -16,9 +16,14 @@
   <repository type="git">https://github.com/GorgonMeducer/PLOOC.git</repository>
   
   <releases>
+    <release date="2021-12-30" version="4.6.0" url="https://raw.githubusercontent.com/GorgonMeducer/PLOOC/master/cmsis-pack/GorgonMeducer.PLOOC.4.6.0.pack">
+      - Improving CMSIS-Pack
+         - Add example
+         - Add code template for base class and derived class
+      - Other minor update
+    </release>
     <release date="2021-12-29" version="4.5.9" url="https://raw.githubusercontent.com/GorgonMeducer/PLOOC/master/cmsis-pack/GorgonMeducer.PLOOC.4.5.9.pack">
       - Add CMSIS-Pack
-         - Add example
       - Other minor update
     </release>
     
@@ -73,7 +78,7 @@
   -->
 
     <components>
-        <component Cclass="Language Extension" Cgroup="PLOOC" Cversion="4.5.9">
+        <component Cclass="Language Extension" Cgroup="PLOOC" Cversion="4.6.0">
           <description>A low-overhead OOPC template.</description>
           <files>
             <file category="header"     name="plooc.h"/>
