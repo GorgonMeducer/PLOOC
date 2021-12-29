@@ -42,7 +42,10 @@ PACK_BUILD=build/
 # PACK_DIRS=${PACK_DIRS//$PACK_WAREHOUSE/}
 
 # alternative: specify directory names to be added to pack base directory
-PACK_DIRS=""
+PACK_DIRS="
+  example
+  template
+"
 
   
 # Specify file names to be added to pack base directory

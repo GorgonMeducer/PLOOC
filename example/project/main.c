@@ -22,6 +22,7 @@
 #include <stdio.h>
 #include "platform.h"
 
+
 #include "byte_queue/byte_queue.h"
 #include "enhanced_byte_queue/enhanced_byte_queue.h"
 #include "trace/trace.h"
@@ -49,7 +50,6 @@ PLOOC_ALIGN(4)
 int main(void)
 {
     platform_init();
-    
     
     printf("Hello PLOOC!\r\n\r\n");
     

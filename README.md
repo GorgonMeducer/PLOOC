@@ -1,4 +1,4 @@
-# PLOOC (Protected Low-overhead Object Oriented programming with ANSI-C)
+# PLOOC (Protected Low-overhead Object Oriented programming with ANSI-C) v4.6.0
 
 ## Introduction
 ---
@@ -77,66 +77,70 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ## Update Log
 ---
-- \[29/12/2021\] Minor update, version 4.5.9
-    - Suppress warnings when c99 is used for the LLVM and GCC. 
+- \[30/12/2021\] Improved CMSIS-Pac, version 4.6.0
+    - Added example project to CMSIS-Pack
+    - Added code templates for creating new base classes and derived classes.
+    - Other minor updates
+
+- \[29/12/2021\] Add CMSIS-Pack, version 4.5.9
+    - Suppressed warnings when c99 is used for the LLVM and GCC. 
     - Fixed an unaligned access issue in the example
     - Added CMSIS-Pack 
-    
 - \[28/11/2020\] Minor update, version 4.5.7
-    - Fix a typo in plooc.h 
-    - Apply unified capitalisation in macros, i.e. if the macro is uppercase, the parameters are in uppercase, if the macro is lowercase, the parameters are in lowercase.  
-    - Add warning to indicate that black box template is incompatible with other templates and should be used alone or under special rule when mixed with other templates.
+    - Fixed a typo in plooc.h 
+    - Applied unified capitalisation in macros, i.e. if the macro is uppercase, the parameters are in uppercase, if the macro is lowercase, the parameters are in lowercase.  
+    - Added warning to indicate that black box template is incompatible with other templates and should be used alone or under special rule when mixed with other templates.
 - \[05/08/2020\] Add \_\_PLOOC\_CLASS\_IMPLEMENT\_\_ and \_\_PLOOC\_CLASS\_INHERIT\_\_ version 4.5.6
-    - use \_\_xxxxx\_\_ as emphasis because \_\_xxxxx usually means "internal"
+    - used \_\_xxxxx\_\_ as emphasis because \_\_xxxxx usually means "internal"
     - The original \_\_PLOOC\_CLASS\_IMPLEMENT and \_\_PLOOC\_CLASS\_INHERIT are deprecated and will be kept for a while before completely removed. 
 - \[18/05/2020\] Introduce both short- and long- style of macro, version 4.5.5
     - dcl_xxxxx/declare_xxxxx
     - def_xxxx/define_xxxxx; end_def_xxxx/end_define_xxxx
 - \[16/05/2020\] Minor Update, version 4.5.4a
-    - Introduce \_\_OOC\_CPP\_\_ to replace \_\_OOC\_DEBUG\_\_ when you want to mix C source code with C++ source code. Please put it in the project global configuration. 
+    - Introduced \_\_OOC\_CPP\_\_ to replace \_\_OOC\_DEBUG\_\_ when you want to mix C source code with C++ source code. Please put it in the project global configuration. 
 - \[11/05/2020\] Minor Update, version 4.5.4
-    - Make it possible to use PLOOC based C source code in C++ project
+    - Made it possible to use PLOOC based C source code in C++ project
         - Please make sure \_\_OOC\_DEBUG\_\_ is defined in the project 
 - \[15/04/2020\] Update __PLOOC_EVAL, version 4.5.3
-    - Increase the range of number of arguments, from 1~8 to 0~16.
+    - Increased the range of number of arguments, from 1~8 to 0~16.
 - [19/02/2020] Minor update to enable RAM footprint optimisation, version 4.52
-    - Introducing macro PLOOC_CFG_REMOVE_MEMORY_LAYOUT_BOUNDARY___USE_WITH_CAUTION which removes structure layout boundaries for PLOOC_VISIBLE. It can save RAM when certain condition is met and \_\_OOC\_DEBUG\_\_ is defined. Please use it with caution as it will cause different memory layouts when \_\_OOC\_DEBUG\_\_ is not defined. 
+    - Introduced macro PLOOC_CFG_REMOVE_MEMORY_LAYOUT_BOUNDARY___USE_WITH_CAUTION which removes structure layout boundaries for PLOOC_VISIBLE. It can save RAM when certain condition is met and \_\_OOC\_DEBUG\_\_ is defined. Please use it with caution as it will cause different memory layouts when \_\_OOC\_DEBUG\_\_ is not defined. 
 - \[21/01/2020\] Misc update for C90, version 4.51
-- \[09/06/2019\] Add support for C89/90, version 4.50
-    - Add full support for overload \(require C11\)
-- \[09/05/2019\] Add support for C89/90, version 4.40
+- \[09/06/2019\] Added support for C89/90, version 4.50
+    - Added full support for overload \(require C11\)
+- \[09/05/2019\] Added support for C89/90, version 4.40
     - When C89/90 is enforced, \_\_OOC_DEBUG\_\_ should always be defined. 
     - The protection for private and protected members is turned off.
-- \[08/15/2019\] Update plooc_class_strict.h to use more soften syntax, version 4.31
+- \[08/15/2019\] Updated plooc_class_strict.h to use more soften syntax, version 4.31
     - Users now can use arbitrary order for public_member, private_member and protected_member.
     - The separator "," can be ignored. 
     - Simplified the plooc_class_strict.h template. Some common macros are moved to plooc_class.h, which will be shared by other template later. 
-- \[08/14/2019\] Introduce support for limited support for overload, version 4.30
-    - Use can use macro \_\_PLOOC_EVAL() to select the right API which has the corresponding number of parameters. 
+- \[08/14/2019\] Introduced support for limited support for overload, version 4.30
+    - Used can use macro \_\_PLOOC_EVAL() to select the right API which has the corresponding number of parameters. 
 - \[07/26/2019\] Syntax update, version 4.21
-    - Modify plooc_class_black_box.h to use unified syntax as other templates.
-    - Add extern_class and end_extern_class to all templates
-- \[07/24/2019\] Add new ooc class template, version 4.20
-    - Add plooc_class_black_box.h. This template is used for creating true-black-box module. It only support "private" and "public" but no "protected".  
+    - Modified plooc_class_black_box.h to use unified syntax as other templates.
+    - Added extern_class and end_extern_class to all templates
+- \[07/24/2019\] Added new ooc class template, version 4.20
+    - Added plooc_class_black_box.h. This template is used for creating true-black-box module. It only support "private" and "public" but no "protected".  
 - \[07/12/2019\] Minor Update, version 4.13
-    - Add "\_\_OOC_RELEASE\_\_". The struct requires protection only at development stage. For private properties, setters and getters are provided for controlling the access. It is possible to remove masks and allow private members observable in release stage, during this stage, the setters and getters can be changed from API functions to macros. By doing so, the code size can be smaller.
+    - Added "\_\_OOC_RELEASE\_\_". The struct requires protection only at development stage. For private properties, setters and getters are provided for controlling the access. It is possible to remove masks and allow private members observable in release stage, during this stage, the setters and getters can be changed from API functions to macros. By doing so, the code size can be smaller.
 - \[05/30/2019\] Minor Update, version 4.12
-    - remove "this", "target" and "base" to prevent naming pollution.
-    - remove PLOOC_ALIGN from top-level class definition to prevent inconsistent compiler interpretation towards this alignment decoration. 
+    - removed "this", "target" and "base" to prevent naming pollution.
+    - removed PLOOC_ALIGN from top-level class definition to prevent inconsistent compiler interpretation towards this alignment decoration. 
 - \[05/02/2019\] Efficiency improve, version 4.11
-    - Use \_\_alignof\_\_ to improve the code efficiency when dealing with masked structure
-    - Use PLOOC_INVISIABLE and PLOOC_VISIBLE in both simple and strict version
-    - Simplify the structure
-    - Improve capability between IAR and armclang (LLVM)
+    - Used \_\_alignof\_\_ to improve the code efficiency when dealing with masked structure
+    - Used PLOOC_INVISIABLE and PLOOC_VISIBLE in both simple and strict version
+    - Simplified the structure
+    - Improved capability between IAR and armclang (LLVM)
 - \[05/01/2019\] Compatibility Improving, version 4.04
-    - Add PLOOC_PACKED and PLOOC_ALIGN to add alignment support
-    - Using uint_fast8_t to replace uint8_t to use target machine implied alignment.
+    - Added PLOOC_PACKED and PLOOC_ALIGN to add alignment support
+    - Used uint_fast8_t to replace uint8_t to use target machine implied alignment.
 - \[04/20/2019\] Upload PLOOC to github, version 4.03
-    - Add default class alignment control
-    - update examples and readme
-- \[04/17/2019\] Upload PLOOC to github, version 4.01
-    - Add method definition which support private method, protected method and public method
-    - Add readme and example byte_queue
+    - Added default class alignment control
+    - updated examples and readme
+- \[04/17/2019\] Uploaded PLOOC to github, version 4.01
+    - Added method definition which support private method, protected method and public method
+    - Added readme and example byte_queue
 
 
 ## License

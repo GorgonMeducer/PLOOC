@@ -18,6 +18,7 @@
   <releases>
     <release date="2021-12-29" version="4.5.9" url="https://raw.githubusercontent.com/GorgonMeducer/PLOOC/master/cmsis-pack/GorgonMeducer.PLOOC.4.5.9.pack">
       - Add CMSIS-Pack
+         - Add example
       - Other minor update
     </release>
     
@@ -50,7 +51,21 @@
   <examples>
   </examples>
   -->
-  
+    <examples>
+      <example name="plooc_example" folder="example" doc="README.md" version="1.1">
+        <description>This is a basic example demonstrating the development using PLOOC.</description>
+        <board name="uVision Simulator" vendor="Keil"/>
+        <project>
+          <environment name="uv"  folder="." load="project/mdk/plooc_example.uvprojx"/>
+        </project>
+        <attributes>
+          <component Cclass="CMSIS" Cgroup="Core"/>
+          <component Cclass="Device" Cgroup="Startup"/>
+          <keyword>PLOOC</keyword>
+          <keyword>Getting Started</keyword>
+        </attributes>
+      </example>
+    </examples> 
   <!-- conditions section (optional for all Software Packs)-->
   <!--
   <conditions>
@@ -63,6 +78,10 @@
           <files>
             <file category="header"     name="plooc.h"/>
             <file category="header"     name="plooc_class.h"/>
+            <file category="header" name="template/class/class_name.h" attr="template" select="Base Class Template"/>
+            <file category="source" name="template/class/class_name.c" attr="template" select="Base Class Template"/>
+            <file category="header" name="template/derived_class/class_name.h" attr="template" select="Derived Class Template"/>
+            <file category="source" name="template/derived_class/class_name.c" attr="template" select="Derived Class Template"/>
           </files>
         </component>
     </components>

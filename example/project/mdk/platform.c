@@ -18,6 +18,8 @@
 /*============================ INCLUDES ======================================*/
 #include "platform.h"
 #include <stdio.h>
+#include "RTE_Components.h"
+#include <EventRecorder.h>
 
 /*============================ MACROS ========================================*/
 
@@ -170,10 +172,14 @@ char stdin_getchar(void)
 
 void platform_init(void)
 {
+#if defined(RTE_Compiler_EventRecorder)
+    EventRecorderInitialize(0, 1);
+#else
     stdout_init();
+#endif
 }
 
-
+#if !defined(RTE_Compiler_EventRecorder)
 /**
    Writes the character specified by c (converted to an unsigned char) to
    the output stream pointed to by stream, at the position indicated by the
@@ -222,5 +228,7 @@ void _ttywrch(int ch) {
   /* Write one char "ch" to the default console
    * Need implementing with UART here. */
 }
+
+#endif
 
 #endif
