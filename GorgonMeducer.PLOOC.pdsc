@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<package schemaVersion="1.4" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="PACK.xsd">
+  <vendor>GorgonMeducer</vendor>
+  <name>PLOOC</name>
+  <description>The Protected Low-overhead Object Oriented Programming with ANSI-C, a.k.a PLOOC ['plu:k] is a set of well-polished C macro templates for praticing the Object-Oriented programming.</description>
+  <url>https://raw.githubusercontent.com/GorgonMeducer/PLOOC/master/cmsis-pack/</url>
+  <supportContact>https://github.com/GorgonMeducer/PLOOC/issues</supportContact>
+  <license>LICENSE</license>
+  <!-- optional license file -->
+  <!-- 
+  <license>
+  </license>
+  -->
+  
+  <repository type="git">https://github.com/GorgonMeducer/PLOOC.git</repository>
+  
+  <releases>
+    <release date="2021-12-29" version="4.5.9" url="https://raw.githubusercontent.com/GorgonMeducer/PLOOC/master/cmsis-pack/GorgonMeducer.PLOOC.4.5.9">
+      - Add CMSIS-Pack
+      - Other minor update
+    </release>
+    
+  </releases>
+
+  <keywords>
+    <!-- keywords for indexing -->
+    <keyword>OOPC</keyword>
+  </keywords>
+  
+  <!-- apis section (optional - for Application Programming Interface descriptions) -->
+  <!-- 
+  <apis>
+  </apis>
+  -->
+  <!-- boards section (mandatory for Board Support Packs) -->
+  <!-- 
+  <boards>
+  </boards>
+  -->
+
+  <!-- devices section (mandatory for Device Family Packs) -->
+  <!--
+  <devices>
+  </devices>
+  -->
+
+  <!-- examples section (optional for all Software Packs)-->
+  <!--
+  <examples>
+  </examples>
+  -->
+  
+  <!-- conditions section (optional for all Software Packs)-->
+  <!--
+  <conditions>
+  </conditions>
+  -->
+
+    <components>
+        <component Cclass="Language Extension" Cgroup="PLOOC" Cversion="4.5.9">
+          <description>A low-overhead OOPC template.</description>
+          <files>
+            <file category="header"     name="plooc.h"/>
+            <file category="header"     name="plooc_class.h"/>
+          </files>
+        </component>
+    </components>
+
+  <!-- optional taxonomy section for defining new component Class and Group names -->
+  <!--
+  <taxonomy>
+  </taxonomy>
+  -->
+  
+</package>

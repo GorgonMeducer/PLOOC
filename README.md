@@ -77,10 +77,11 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ## Update Log
 ---
-- \[29/12/2021\] Minor update, version 4.5.8
+- \[29/12/2021\] Minor update, version 4.5.9
     - Suppress warnings when c99 is used for the LLVM and GCC. 
     - Fixed an unaligned access issue in the example
-
+    - Added CMSIS-Pack 
+    
 - \[28/11/2020\] Minor update, version 4.5.7
     - Fix a typo in plooc.h 
     - Apply unified capitalisation in macros, i.e. if the macro is uppercase, the parameters are in uppercase, if the macro is lowercase, the parameters are in lowercase.  
