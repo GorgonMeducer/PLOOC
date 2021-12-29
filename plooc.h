@@ -35,7 +35,23 @@
           d. if the target processor is 64 bits, define it as either uint32_t or 
              uint64_t
  */
- 
+
+#if defined(__clang__)
+#   pragma clang diagnostic push
+#   pragma clang diagnostic ignored "-Wunknown-warning-option"
+#   pragma clang diagnostic ignored "-Wreserved-identifier"
+#   pragma clang diagnostic ignored "-Wtypedef-redefinition"
+#   pragma clang diagnostic ignored "-Wmissing-declarations"
+#   pragma clang diagnostic ignored "-Wempty-body"
+#   pragma clang diagnostic ignored "-Wmicrosoft-anon-tag"
+#elif defined(__GNUC__)
+#   pragma GCC diagnostic push
+#   pragma GCC diagnostic ignored "-Wmissing-declarations"
+#   pragma GCC diagnostic ignored "-Wempty-body"
+#   pragma GCC diagnostic ignored "-Wmicrosoft-anon-tag"
+#endif
+
+
  #ifdef __cplusplus
 extern "C" {
 #endif
@@ -336,6 +352,10 @@ end_def_interface(en_property_t)
 #ifdef __cplusplus
 }
 #endif
+
+//#if defined(__clang__)
+//#   pragma clang diagnostic pop
+//#endif
 
 #endif
 /* EOF */
