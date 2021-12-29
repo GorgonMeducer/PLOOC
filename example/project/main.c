@@ -45,6 +45,7 @@
 
 static enhanced_byte_queue_t s_tQueue;
 
+PLOOC_ALIGN(4)
 int main(void)
 {
     platform_init();
@@ -103,10 +104,10 @@ int main(void)
     LOG_OUT((uint8_t *)main, 100);
 
     LOG_OUT("\r\nShow Half-WORD Array:\r\n");
-    LOG_OUT((uint16_t *)main, 100/sizeof(uint16_t));
+    LOG_OUT((uint16_t *)(((intptr_t)&main) & ~0x1), 100/sizeof(uint16_t));
 
     LOG_OUT("\r\nShow WORD Array:\r\n");
-    LOG_OUT((uint32_t *)main, 100/sizeof(uint32_t));
+    LOG_OUT((uint32_t *)(((intptr_t)&main) & ~0x3), 100/sizeof(uint32_t));
     
     while(1);
 }
