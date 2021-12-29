@@ -16,7 +16,7 @@
   <repository type="git">https://github.com/GorgonMeducer/PLOOC.git</repository>
   
   <releases>
-    <release date="2021-12-29" version="4.5.9" url="https://raw.githubusercontent.com/GorgonMeducer/PLOOC/master/cmsis-pack/GorgonMeducer.PLOOC.4.5.9">
+    <release date="2021-12-29" version="4.5.9" url="https://raw.githubusercontent.com/GorgonMeducer/PLOOC/master/cmsis-pack/GorgonMeducer.PLOOC.4.5.9.pack">
       - Add CMSIS-Pack
       - Other minor update
     </release>
@@ -28,32 +28,11 @@
     <keyword>OOPC</keyword>
   </keywords>
   
-    <conditions> 
-        <condition id="Arm Compiler">
-            <description>Arm Compiler 5 (armcc) or Arm Compiler 6 (armclang).</description>
-            <accept Tcompiler="ARMCC" Toptions="AC6"/>
-            <accept Tcompiler="ARMCC" Toptions="AC6LTO"/>
-            <accept Tcompiler="ARMCC" Toptions="AC5"/>
-        </condition>
-        <condition id="Arm GCC">
-            <description>GNU Tools for Arm Embedded Processors.</description>
-            <accept Tcompiler="GCC"/>
-        </condition>
-    </conditions>
   <!-- apis section (optional - for Application Programming Interface descriptions) -->
   <!-- 
   <apis>
   </apis>
-
-    <apis>
-        <api Cclass="Extension" Cgroup="PLOOC" Capiversion="4.5.9" exclusive="0">
-          <description>A low-overhead OOPC template.</description>
-          <files>
-            <file category="header"     name="plooc.h"/>
-            <file category="header"     name="plooc_class.h"/>
-          </files>
-        </api>
-    </apis>  -->
+  -->
   <!-- boards section (mandatory for Board Support Packs) -->
   <!-- 
   <boards>
