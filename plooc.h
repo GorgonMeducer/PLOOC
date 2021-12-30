@@ -48,6 +48,8 @@
 /*! arm compiler 5 */
 #   pragma push
 #   pragma diag_suppress 1,64,174,177,188,68,513,144,2525
+#elif defined(__IAR_SYSTEMS_ICC__)
+/*! IAR */
 #elif defined(__GNUC__)
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wmissing-declarations"
