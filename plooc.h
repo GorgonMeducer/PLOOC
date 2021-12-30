@@ -47,7 +47,7 @@
 #elif ((__ARMCC_VERSION >= 5000000) && (__ARMCC_VERSION < 6000000))
 /*! arm compiler 5 */
 #   pragma push
-#   pragma diag_suppress 174,177,188,68,513,144
+#   pragma diag_suppress 1,64,174,177,188,68,513,144,2525
 #elif defined(__GNUC__)
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wmissing-declarations"

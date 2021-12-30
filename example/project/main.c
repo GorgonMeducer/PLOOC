@@ -90,7 +90,8 @@ int main(void)
         printf("Now there are %d byte(s) in the queue!\r\n", 
                 ENHANCED_BYTE_QUEUE.Count(&s_tQueue));
     } while(0);
-   
+
+#if defined(__STDC_VERSION__) && __STDC_VERSION__ > 199901L
     LOG_OUT("\r\n-[Demo of overload]------------------------------\r\n");
     LOG_OUT((uint32_t) 0x12345678);
     LOG_OUT("\r\n");
@@ -108,6 +109,7 @@ int main(void)
 
     LOG_OUT("\r\nShow WORD Array:\r\n");
     LOG_OUT((uint32_t *)(((intptr_t)&main) & ~0x3), 100/sizeof(uint32_t));
-    
+#endif
+
     while(1);
 }
