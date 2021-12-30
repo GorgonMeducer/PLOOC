@@ -46,6 +46,7 @@
 #   pragma clang diagnostic ignored "-Wmicrosoft-anon-tag"
 #elif ((__ARMCC_VERSION >= 5000000) && (__ARMCC_VERSION < 6000000))
 /*! arm compiler 5 */
+#   pragma push
 #   pragma diag_suppress 174,177,188,68,513,144
 #elif defined(__GNUC__)
 #   pragma GCC diagnostic push
