@@ -34,6 +34,7 @@
                         int16_t : TRACE.ToString.Int16,                         \
                         uint16_t: TRACE.ToString.UInt16,                        \
                         int32_t : TRACE.ToString.Int32,                         \
+                        int     : TRACE.ToString.Int32, /* for stupid gcc */    \
                         uint32_t: TRACE.ToString.UInt32,                        \
                         float   : TRACE.ToString.Float,                         \
                         double  : TRACE.ToString.Double                         \
@@ -45,6 +46,7 @@
                      uint16_t * : TRACE.ToString.HWords,                        \
                      uint8_t *  : TRACE.ToString.Bytes,                         \
                       int32_t * : TRACE.ToString.Words,                         \
+                      int *     : TRACE.ToString.Words, /* for stupid gcc */    \
                       int16_t * : TRACE.ToString.HWords,                        \
                       int8_t *  : TRACE.ToString.Bytes                          \
                     )((__OP1), (__OP2))
