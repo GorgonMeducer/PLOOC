@@ -118,10 +118,10 @@ C_INCLUDES =  \
 -IDrivers/CMSIS/Device/ST/STM32F1xx/Include \
 -IDrivers/CMSIS/Include \
 -I../.. \
-../../example/project/mdk \
-../../example/trance \
-../../example/byte_queue \
-../../example/enhanced_byte_queue 
+-I../../example/project/mdk \
+-I../../example/trance \
+-I../../example/byte_queue \
+-I../../example/enhanced_byte_queue 
 
 
 # compile gcc flags
