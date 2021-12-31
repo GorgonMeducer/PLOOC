@@ -52,7 +52,10 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c \
-Core/Src/system_stm32f1xx.c  
+Core/Src/system_stm32f1xx.c  \
+../../example/trace/trace.c \
+../../example/byte_queue/byte_queue.c \
+../../example/enhanced_byte_queue/enhanced_byte_queue.c 
 
 # ASM sources
 ASM_SOURCES =  \

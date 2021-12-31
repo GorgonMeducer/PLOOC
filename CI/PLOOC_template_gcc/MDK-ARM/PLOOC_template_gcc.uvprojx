@@ -10,8 +10,9 @@
       <TargetName>PLOOC_template_gcc</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
-      <uAC6>0</uAC6>
+      <pArmCC>6160000::V6.16::ARMCLANG</pArmCC>
+      <pCCUsed>6160000::V6.16::ARMCLANG</pCCUsed>
+      <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
           <Device>STM32F103RC</Device>
@@ -313,7 +314,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>4</Optim>
+            <Optim>2</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -328,7 +329,7 @@
             <uC99>1</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>5</v6Lang>
+            <v6Lang>3</v6Lang>
             <v6LangP>3</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
@@ -526,6 +527,41 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>example</GroupName>
+          <Files>
+            <File>
+              <FileName>trace.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\example\trace\trace.c</FilePath>
+            </File>
+            <File>
+              <FileName>trace.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\example\trace\trace.h</FilePath>
+            </File>
+            <File>
+              <FileName>byte_queue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\example\byte_queue\byte_queue.c</FilePath>
+            </File>
+            <File>
+              <FileName>byte_queue.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\example\byte_queue\byte_queue.h</FilePath>
+            </File>
+            <File>
+              <FileName>enhanced_byte_queue.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\example\enhanced_byte_queue\enhanced_byte_queue.c</FilePath>
+            </File>
+            <File>
+              <FileName>enhanced_byte_queue.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\example\enhanced_byte_queue\enhanced_byte_queue.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
@@ -535,8 +571,8 @@
   <RTE>
     <apis/>
     <components>
-      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="4.3.0" condition="CMSIS Core">
-        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="4.5.0"/>
+      <component Cclass="CMSIS" Cgroup="CORE" Cvendor="ARM" Cversion="5.5.0" condition="ARMv6_7_8-M Device">
+        <package name="CMSIS" schemaVersion="1.3" url="http://www.keil.com/pack/" vendor="ARM" version="5.8.0"/>
         <targetInfos>
           <targetInfo name="PLOOC_template_gcc"/>
         </targetInfos>
