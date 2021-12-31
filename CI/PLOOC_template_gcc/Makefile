@@ -55,7 +55,8 @@ Core/Src/system_stm32f1xx.c  \
 ../../example/trace/trace.c \
 ../../example/byte_queue/byte_queue.c \
 ../../example/enhanced_byte_queue/enhanced_byte_queue.c \
-../../example/project/main.c
+../../example/project/main.c \
+MDK-ARM/platform.c
 
 # ASM sources
 ASM_SOURCES =  \
