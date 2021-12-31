@@ -54,7 +54,8 @@
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wmissing-declarations"
 #   pragma GCC diagnostic ignored "-Wempty-body"
-#   pragma GCC diagnostic ignored "-Wmicrosoft-anon-tag"
+#   pragma GCC diagnostic ignored "-Wpragmas"
+#   pragma GCC diagnostic ignored "-Wformat="
 #endif
 
 
