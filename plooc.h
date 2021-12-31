@@ -56,6 +56,7 @@
 #   pragma GCC diagnostic ignored "-Wempty-body"
 #   pragma GCC diagnostic ignored "-Wpragmas"
 #   pragma GCC diagnostic ignored "-Wformat="
+#   pragma GCC diagnostic ignored "-Wmissing-braces"
 #endif
 
 
