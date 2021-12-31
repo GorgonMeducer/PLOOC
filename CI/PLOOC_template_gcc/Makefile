@@ -119,7 +119,7 @@ C_INCLUDES =  \
 -IDrivers/CMSIS/Include \
 -I../.. \
 -I../../example/project/mdk \
--I../../example/trance \
+-I../../example/trace \
 -I../../example/byte_queue \
 -I../../example/enhanced_byte_queue 
 
