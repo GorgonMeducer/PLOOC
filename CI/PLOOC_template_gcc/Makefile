@@ -36,7 +36,6 @@ BUILD_DIR = build
 ######################################
 # C sources
 C_SOURCES =  \
-Core/Src/main.c \
 Core/Src/stm32f1xx_it.c \
 Core/Src/stm32f1xx_hal_msp.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c \
@@ -55,7 +54,8 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c \
 Core/Src/system_stm32f1xx.c  \
 ../../example/trace/trace.c \
 ../../example/byte_queue/byte_queue.c \
-../../example/enhanced_byte_queue/enhanced_byte_queue.c 
+../../example/enhanced_byte_queue/enhanced_byte_queue.c \
+../../example/project/main.c
 
 # ASM sources
 ASM_SOURCES =  \
@@ -117,7 +117,11 @@ C_INCLUDES =  \
 -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32F1xx/Include \
 -IDrivers/CMSIS/Include \
--I../..
+-I../.. \
+../../example/project/mdk \
+../../example/trance \
+../../example/byte_queue \
+../../example/enhanced_byte_queue 
 
 
 # compile gcc flags

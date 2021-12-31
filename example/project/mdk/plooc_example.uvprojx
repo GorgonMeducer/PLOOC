@@ -340,7 +340,7 @@
               <MiscControls>-fms-extensions</MiscControls>
               <Define>_MSC_VER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\mdk;..\..\..\example</IncludePath>
+              <IncludePath>..\mdk;..\..\..\example;..\..\trace;..\..\byte_queue;..\..\enhanced_byte_queue</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

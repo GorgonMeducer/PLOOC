@@ -23,9 +23,9 @@
 #include "platform.h"
 
 
-#include "byte_queue/byte_queue.h"
-#include "enhanced_byte_queue/enhanced_byte_queue.h"
-#include "trace/trace.h"
+#include "byte_queue.h"
+#include "enhanced_byte_queue.h"
+#include "trace.h"
 /*============================ MACROS ========================================*/
 
 #ifndef QUEUE_BUFFER_SIZE
