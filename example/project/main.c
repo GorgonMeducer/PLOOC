@@ -23,16 +23,20 @@
 #include "platform.h"
 
 
-#include "byte_queue/byte_queue.h"
-#include "enhanced_byte_queue/enhanced_byte_queue.h"
-#include "trace/trace.h"
+#include "byte_queue.h"
+#include "enhanced_byte_queue.h"
+#include "trace.h"
 /*============================ MACROS ========================================*/
 
 #ifndef QUEUE_BUFFER_SIZE
 #   define QUEUE_BUFFER_SIZE       256
 #endif
 
-#define LOG_OUT(...)         TRACE_TOSTR(__VA_ARGS__)
+#ifdef __NO_USE_LOG__
+    #define LOG_OUT(...) 
+#else
+    #define LOG_OUT(...)         TRACE_TOSTR(__VA_ARGS__)
+#endif
 
 /*============================ MACROFIED FUNCTIONS ===========================*/
 /*============================ TYPES =========================================*/
