@@ -25,6 +25,36 @@
 #include "plooc.h"
 
 /*============================ MACROS ========================================*/
+
+#if     defined(__clang__)                                                      \
+    ||  defined(__IAR_SYSTEMS_ICC__)                                            \
+    ||  defined(__ARMCC_VERSION)
+
+#define __TRACE_TOSTRING_1(__OP1)                                               \
+            _Generic((__OP1),                                                   \
+                    const char *: TRACE.ToString.String,                        \
+                          char *: TRACE.ToString.String,                        \
+                        int8_t  : TRACE.ToString.Int8,                          \
+                        uint8_t : TRACE.ToString.UInt8,                         \
+                        int16_t : TRACE.ToString.Int16,                         \
+                        uint16_t: TRACE.ToString.UInt16,                        \
+                        int32_t : TRACE.ToString.Int32,                         \
+                        uint32_t: TRACE.ToString.UInt32,                        \
+                        float   : TRACE.ToString.Float,                         \
+                        double  : TRACE.ToString.Double                         \
+                    )(__OP1)
+                    
+#define __TRACE_TOSTRING_2(__OP1, __OP2)                                        \
+            _Generic((__OP1),                                                   \
+                     uint32_t * : TRACE.ToString.Words,                         \
+                     uint16_t * : TRACE.ToString.HWords,                        \
+                     uint8_t *  : TRACE.ToString.Bytes,                         \
+                      int32_t * : TRACE.ToString.Words,                         \
+                      int16_t * : TRACE.ToString.HWords,                        \
+                      int8_t *  : TRACE.ToString.Bytes                          \
+                    )((__OP1), (__OP2))
+
+#else /* for GCC */
 #define __TRACE_TOSTRING_1(__OP1)                                               \
             _Generic((__OP1),                                                   \
                     const char *: TRACE.ToString.String,                        \
@@ -50,6 +80,7 @@
                       int16_t * : TRACE.ToString.HWords,                        \
                       int8_t *  : TRACE.ToString.Bytes                          \
                     )((__OP1), (__OP2))
+#endif
 
 /*============================ MACROFIED FUNCTIONS ===========================*/
 
