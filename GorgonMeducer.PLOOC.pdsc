@@ -16,6 +16,12 @@
   <repository type="git">https://github.com/GorgonMeducer/PLOOC.git</repository>
   
   <releases>
+    <release date="2022-01-02" version="4.6.1" url="https://raw.githubusercontent.com/GorgonMeducer/PLOOC/master/cmsis-pack/GorgonMeducer.PLOOC.4.6.1.pack">
+      -  Add helper macros for heap
+          - Add __new_class and __free_class for using malloc and free together with constructors and destructors, i.e. xxxx_init() and xxxx_depose().
+      - Update example project
+      - Other minor update
+    </release>
     <release date="2021-12-30" version="4.6.0" url="https://raw.githubusercontent.com/GorgonMeducer/PLOOC/master/cmsis-pack/GorgonMeducer.PLOOC.4.6.0.pack">
       - Improving CMSIS-Pack
          - Add example
@@ -57,7 +63,7 @@
   </examples>
   -->
     <examples>
-      <example name="plooc_example" folder="example" doc="README.md" version="1.1">
+      <example name="plooc_example" folder="example" doc="README.md" version="1.2">
         <description>This is a basic example demonstrating the development using PLOOC.</description>
         <board name="uVision Simulator" vendor="Keil"/>
         <project>
@@ -78,7 +84,7 @@
   -->
 
     <components>
-        <component Cclass="Language Extension" Cgroup="PLOOC" Cversion="4.6.0">
+        <component Cclass="Language Extension" Cgroup="PLOOC" Cversion="4.6.1">
           <description>A low-overhead OOPC template.</description>
           <files>
             <file category="header"     name="plooc.h"/>
