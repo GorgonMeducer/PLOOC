@@ -1,4 +1,4 @@
-# PLOOC (Protected Low-overhead Object Oriented programming with ANSI-C) v4.6.0
+# PLOOC (Protected Low-overhead Object Oriented programming with ANSI-C) v4.6.1
 
 ## Introduction
 ---
@@ -77,11 +77,15 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ## Update Log
 ---
+- \[02/01/2022\] Add helper macros for heap, version 4.6.1
+    - Add ***\_\_new_class()*** and ***\_\_free_class()*** for using malloc and free together with constructors and destructors, i.e. ***xxxx_init()*** and ***xxxx_depose()***.
+    - Update example project
+    - Add CI to github. 
+
 - \[30/12/2021\] Improved CMSIS-Pac, version 4.6.0
     - Added example project to CMSIS-Pack
     - Added code templates for creating new base classes and derived classes.
     - Other minor updates
-
 - \[29/12/2021\] Add CMSIS-Pack, version 4.5.9
     - Suppressed warnings when c99 is used for the LLVM and GCC. 
     - Fixed an unaligned access issue in the example
