@@ -92,6 +92,8 @@ __PLOOC_CLASS_USE_SIMPLE_TEMPLATE__ in ANSI-C89/90.
  */
 
 #include "./plooc.h"  
+#include <stdlib.h>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -291,6 +293,30 @@ extern "C" {
 #undef public_member
 #define public_member                           ,_public_member
 
+
+
+
+/*! \brief helper macros for heap managed objects. They use malloc() and free() 
+ *!        internally. 
+ *! 
+ *! \note  Make sure your constractor is named as <class_name>_init and it takes 
+ *!        an configuration structure with a type named as <class_name>_cfg_t.
+ *!
+ *! \note  Make sure your destructor is named as <class_name>_depose.
+ */
+#define __new_class(__name, ...)                                                \
+    ({__name##_cfg_t tCFG = {                                                   \
+        __VA_ARGS__                                                             \
+    };                                                                          \
+    __name##_init(                                                              \
+         (__name##_t *)malloc(sizeof(__name##_t)),                              \
+         &tCFG);})
+
+#define __free_class(__name, __obj)                                             \
+    do {                                                                        \
+        __name##_depose((__name##_t *)(__obj));                                 \
+        free(__obj);                                                            \
+    } while(0)
 
 /*============================ TYPES =========================================*/
 /*============================ GLOBAL VARIABLES ==============================*/
