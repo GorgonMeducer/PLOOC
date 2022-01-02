@@ -67,6 +67,7 @@ def_interface(i_enhanced_byte_queue_t)
     inherit(i_byte_queue_t)
     enhanced_byte_queue_t * (*Init)     (   enhanced_byte_queue_t *ptObj, 
                                             enhanced_byte_queue_cfg_t *ptCFG);
+    void                    (*Depose)   (   enhanced_byte_queue_t *ptObj);
     bool                    (*Enqueue)  (   enhanced_byte_queue_t *ptObj, 
                                             uint8_t chByte);
     bool                    (*Dequeue)  (   enhanced_byte_queue_t *ptObj, 
@@ -94,6 +95,9 @@ extern const i_enhanced_byte_queue_t ENHANCED_BYTE_QUEUE;
 extern
 enhanced_byte_queue_t * enhanced_byte_queue_init(enhanced_byte_queue_t *ptObj, 
                                                  enhanced_byte_queue_cfg_t *ptCFG);
+
+extern
+void enhanced_byte_queue_depose(enhanced_byte_queue_t *ptObj);
 
 extern 
 bool enhanced_byte_queue_enqueue(enhanced_byte_queue_t *ptObj, uint8_t chByte);

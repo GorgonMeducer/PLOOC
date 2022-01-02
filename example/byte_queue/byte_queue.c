@@ -21,6 +21,7 @@
 #include "./byte_queue.h"
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /*============================ MACROS ========================================*/
 /*============================ MACROFIED FUNCTIONS ===========================*/
@@ -37,6 +38,7 @@
 /*============================ GLOBAL VARIABLES ==============================*/
 const i_byte_queue_t BYTE_QUEUE = {
     .Init =             &byte_queue_init,
+    .Depose =           &byte_queue_depose,
     .Enqueue =          &byte_queue_enqueue,
     .Dequeue =          &byte_queue_dequeue,
     .Count =            &byte_queue_count,
@@ -56,6 +58,8 @@ byte_queue_t * byte_queue_init(byte_queue_t *ptObj, byte_queue_cfg_t *ptCFG)
     
     ASSERT(NULL != ptObj && NULL != ptCFG);
 
+    printf("construct byte_queue. \r\n");
+    
     /* access inherited member of mem_t directly */
     if (    (NULL == ptCFG->use_as__mem_t.pchBuffer) 
         ||  (0 == ptCFG->use_as__mem_t.hwSize)) {
@@ -75,6 +79,14 @@ byte_queue_t * byte_queue_init(byte_queue_t *ptObj, byte_queue_cfg_t *ptCFG)
     this.pTarget = ptCFG->pTarget;              //!< user target
     
     return ptObj;
+}
+
+void byte_queue_depose(byte_queue_t *ptObj)
+{
+    /*! nothing to do */
+    printf("destruct byte_queue. \r\n");
+    
+    return ;
 }
 
 bool byte_queue_enqueue(byte_queue_t *ptObj, uint8_t chByte)

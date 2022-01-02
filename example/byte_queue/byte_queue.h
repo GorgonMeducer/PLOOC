@@ -76,6 +76,7 @@ typedef struct byte_queue_cfg_t {
 //! @{
 def_interface(i_byte_queue_t)
     byte_queue_t *  (*Init)     (byte_queue_t *ptObj, byte_queue_cfg_t *ptCFG);
+    void            (*Depose)   (byte_queue_t *ptObj);
     bool            (*Enqueue)  (byte_queue_t *ptObj, uint8_t chByte);
     bool            (*Dequeue)  (byte_queue_t *ptObj, uint8_t *pchByte);
     uint_fast16_t   (*Count)    (byte_queue_t *ptObj);
@@ -93,6 +94,9 @@ extern const i_byte_queue_t BYTE_QUEUE;
 
 extern
 byte_queue_t * byte_queue_init(byte_queue_t *ptObj, byte_queue_cfg_t *ptCFG);
+
+extern
+void byte_queue_depose(byte_queue_t *ptObj);
 
 extern 
 bool byte_queue_enqueue(byte_queue_t *ptObj, uint8_t chByte);

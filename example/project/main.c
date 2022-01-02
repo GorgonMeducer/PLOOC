@@ -26,6 +26,7 @@
 #include "byte_queue.h"
 #include "enhanced_byte_queue.h"
 #include "trace.h"
+#include <stdlib.h>
 /*============================ MACROS ========================================*/
 
 #ifndef QUEUE_BUFFER_SIZE
@@ -48,7 +49,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-static enhanced_byte_queue_t s_tQueue;
+//static enhanced_byte_queue_t s_tQueue;
 
 PLOOC_ALIGN(4)
 int main(void)
@@ -57,43 +58,43 @@ int main(void)
     
     printf("Hello PLOOC!\r\n\r\n");
     
-    do {
-        static uint8_t s_chQueueBuffer[QUEUE_BUFFER_SIZE];
-        const enhanced_byte_queue_cfg_t tCFG = {
-            s_chQueueBuffer,
-            sizeof(s_chQueueBuffer),
-        };
-        ENHANCED_BYTE_QUEUE.Init(&s_tQueue, (enhanced_byte_queue_cfg_t *)&tCFG);
-    } while(0);
+    static uint8_t s_chQueueBuffer[QUEUE_BUFFER_SIZE];
+    
+    enhanced_byte_queue_t *ptQueue = __new_class( enhanced_byte_queue, 
+                                                  s_chQueueBuffer,
+                                                  sizeof(s_chQueueBuffer));
+
 
     //! you can enqueue
-    ENHANCED_BYTE_QUEUE.Enqueue(&s_tQueue, 'p');
-    ENHANCED_BYTE_QUEUE.Enqueue(&s_tQueue, 'L');
-    ENHANCED_BYTE_QUEUE.Enqueue(&s_tQueue, 'O');
-    ENHANCED_BYTE_QUEUE.Enqueue(&s_tQueue, 'O');
-    ENHANCED_BYTE_QUEUE.Enqueue(&s_tQueue, 'C');
+    ENHANCED_BYTE_QUEUE.Enqueue(ptQueue, 'p');
+    ENHANCED_BYTE_QUEUE.Enqueue(ptQueue, 'L');
+    ENHANCED_BYTE_QUEUE.Enqueue(ptQueue, 'O');
+    ENHANCED_BYTE_QUEUE.Enqueue(ptQueue, 'O');
+    ENHANCED_BYTE_QUEUE.Enqueue(ptQueue, 'C');
     
-    ENHANCED_BYTE_QUEUE.use_as__i_byte_queue_t.Enqueue(&s_tQueue.use_as__byte_queue_t, '.');
-    ENHANCED_BYTE_QUEUE.use_as__i_byte_queue_t.Enqueue(&s_tQueue.use_as__byte_queue_t, '.');
-    ENHANCED_BYTE_QUEUE.use_as__i_byte_queue_t.Enqueue(&s_tQueue.use_as__byte_queue_t, '.');
+    ENHANCED_BYTE_QUEUE.use_as__i_byte_queue_t.Enqueue(&ptQueue->use_as__byte_queue_t, '.');
+    ENHANCED_BYTE_QUEUE.use_as__i_byte_queue_t.Enqueue(&ptQueue->use_as__byte_queue_t, '.');
+    ENHANCED_BYTE_QUEUE.use_as__i_byte_queue_t.Enqueue(&ptQueue->use_as__byte_queue_t, '.');
 
     //! you can dequeue
     do {
-        uint_fast16_t n = ENHANCED_BYTE_QUEUE.Count(&s_tQueue);
+        uint_fast16_t n = ENHANCED_BYTE_QUEUE.Count(ptQueue);
         uint8_t chByte;
         printf("There are %d byte in the queue!\r\n", n);
         printf("let's peek!\r\n");
         
-        while(ENHANCED_BYTE_QUEUE.Peek.PeekByte(&s_tQueue, &chByte)) {
+        while(ENHANCED_BYTE_QUEUE.Peek.PeekByte(ptQueue, &chByte)) {
             printf("%c\r\n", chByte);
         }
         printf("There are %d byte(s) in the queue!\r\n", 
-                ENHANCED_BYTE_QUEUE.Count(&s_tQueue));
+                ENHANCED_BYTE_QUEUE.Count(ptQueue));
         printf("Let's remove all peeked byte(s) from queue... \r\n");
-        ENHANCED_BYTE_QUEUE.Peek.GetAllPeeked(&s_tQueue);
+        ENHANCED_BYTE_QUEUE.Peek.GetAllPeeked(ptQueue);
         printf("Now there are %d byte(s) in the queue!\r\n", 
-                ENHANCED_BYTE_QUEUE.Count(&s_tQueue));
+                ENHANCED_BYTE_QUEUE.Count(ptQueue));
     } while(0);
+    
+    __free_class(enhanced_byte_queue, ptQueue);
 
 #if defined(__STDC_VERSION__) && __STDC_VERSION__ > 199901L
     LOG_OUT("\r\n-[Demo of overload]------------------------------\r\n");

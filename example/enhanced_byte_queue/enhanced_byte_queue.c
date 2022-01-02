@@ -22,6 +22,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /*============================ MACROS ========================================*/
 /*============================ MACROFIED FUNCTIONS ===========================*/
@@ -39,9 +40,13 @@
 /*============================ PROTOTYPES ====================================*/
 /*============================ GLOBAL VARIABLES ==============================*/
 const i_enhanced_byte_queue_t ENHANCED_BYTE_QUEUE = {
+    
+    /*! override base interface */
     .use_as__i_byte_queue_t  = {
         .Init =     (byte_queue_t * (*)(byte_queue_t *, byte_queue_cfg_t *))
                             &enhanced_byte_queue_init,
+        .Depose =   (void (*)   (byte_queue_t *ptObj)) 
+                            &enhanced_byte_queue_depose,
         .Enqueue =  (bool (*)(byte_queue_t *, uint8_t ))
                             &enhanced_byte_queue_enqueue,
         .Dequeue =  (bool (*)(byte_queue_t *, uint8_t *))
@@ -53,6 +58,7 @@ const i_enhanced_byte_queue_t ENHANCED_BYTE_QUEUE = {
         },
     },
     .Init =                 &enhanced_byte_queue_init,
+    .Depose =               &enhanced_byte_queue_depose,
     .Enqueue =              &enhanced_byte_queue_enqueue,
     .Dequeue =              &enhanced_byte_queue_dequeue,
     .Count =          (uint_fast16_t(*)(enhanced_byte_queue_t *))
@@ -80,10 +86,21 @@ enhanced_byte_queue_t * enhanced_byte_queue_init(enhanced_byte_queue_t *ptObj,
     if (NULL == byte_queue_init(&this.use_as__byte_queue_t, ptCFG)) {
         return NULL;
     }
+    
+    printf("construct enhanced_byte_queue. \r\n");
+    
     this.hwPeek = 0;
     this.hwPeekCount = 0;
     
     return ptObj;
+}
+void enhanced_byte_queue_depose(enhanced_byte_queue_t *ptObj)
+{
+    printf("destruct enhanced_byte_queue. \r\n");
+    
+    //! call base destructor
+    byte_queue_depose(&(ptObj->use_as__byte_queue_t));
+
 }
 
 bool enhanced_byte_queue_enqueue(enhanced_byte_queue_t *ptObj, uint8_t chByte)
