@@ -148,7 +148,7 @@ extern "C" {
 
 //! \brief macro for inheritance
 
-#if (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) && !defined(__cplusplus)
+#if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L
 #define __IMPLEMENT_EX(__TYPE, __NAME)                                          \
             __TYPE  __NAME;                                                 
 #else
