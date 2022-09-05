@@ -49,8 +49,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-//static enhanced_byte_queue_t s_tQueue;
-
 PLOOC_ALIGN(4)
 int main(void)
 {

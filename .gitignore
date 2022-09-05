@@ -59,7 +59,8 @@ dkms.conf
 *.lnp
 *.scvd
 *.htm
-*.htm
-example/project/mdk/Objects/plooc_example.build_log.htm
-example/project/mdk/Objects/plooc_example.htm
-example/project/mdk/Objects/plooc_example.sct
+
+example/project/mdk/Objects
+example/project/mdk/RTE/Compiler/.*
+example/project/mdk/RTE/Device/ARMCM3/.*
+example/project/mdk/plooc_example.uvguix.*
