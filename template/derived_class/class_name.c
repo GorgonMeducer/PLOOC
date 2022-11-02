@@ -18,8 +18,8 @@
 
 /*============================ INCLUDES ======================================*/
 
-#define __<BASE_CLASS_NAME>__CLASS_INHERIT
-#define __<CLASS_NAME>_CLASS_IMPLEMENT
+#define __<BASE_CLASS_NAME>_CLASS_INHERIT__
+#define __<CLASS_NAME>_CLASS_IMPLEMENT__
 
 #include "./<class_name>.h"
 

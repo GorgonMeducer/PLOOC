@@ -17,7 +17,7 @@
 
 
 /*============================ INCLUDES ======================================*/
-#define __<CLASS_NAME>_CLASS_IMPLEMENT
+#define __<CLASS_NAME>_CLASS_IMPLEMENT__
 
 #include "./<class_name>.h"
 

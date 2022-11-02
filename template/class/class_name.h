@@ -32,7 +32,7 @@
  */
 //#define __PLOOC_CLASS_USE_STRICT_TEMPLATE__
    
-#if     defined(__<CLASS_NAME>_CLASS_IMPLEMENT)
+#if     defined(__<CLASS_NAME>_CLASS_IMPLEMENT__)
 #   define __PLOOC_CLASS_IMPLEMENT__
 #elif   defined(__<CLASS_NAME>_CLASS_INHERIT__)
 #   define __PLOOC_CLASS_INHERIT__
@@ -93,13 +93,13 @@ extern
 extern
 void <class_name>_depose(<class_name>_t *ptObj);
 
-#if defined(__<CLASS_NAME>_CLASS_IMPLEMENT) || defined(__<CLASS_NAME>_CLASS_INHERIT__)
+#if defined(__<CLASS_NAME>_CLASS_IMPLEMENT__) || defined(__<CLASS_NAME>_CLASS_INHERIT__)
 /*! \brief a method only visible for current class and derived class */
 extern void <class_name>_protected_method_example(<class_name>_t *ptObj);
 #endif
 
 /*! \note it is very important to undef those macros */
-#undef __<CLASS_NAME>_CLASS_INHERIT
+#undef __<CLASS_NAME>_CLASS_INHERIT__
 #undef __<CLASS_NAME>_CLASS_IMPLEMENT__
 
 #endif
