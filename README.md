@@ -77,6 +77,8 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ## Update Log
 ---
+- \[11/02/2022\] Fix class template, version 4.6.3
+  
 - \[12/05/2022\] Improve compatibility with the latest C++ language, version 4.6.2
   
 - \[02/01/2022\] Add helper macros for heap, version 4.6.1
