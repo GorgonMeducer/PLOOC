@@ -57,7 +57,7 @@ def_class(<class_name>_t,  which(implement(<base_class_name>_t))
     )
     
     protected_member(
-        //!< place your private members here
+        //!< place your protected members here
     )
 )
 
