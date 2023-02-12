@@ -60,6 +60,8 @@ dkms.conf
 *.scvd
 *.htm
 
+*@*
+
 example/project/mdk/Objects
 example/project/mdk/RTE/Compiler/.*
 example/project/mdk/RTE/Device/ARMCM3/.*
