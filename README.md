@@ -1,39 +1,48 @@
-# PLOOC (Protected Low-overhead Object Oriented programming with ANSI-C) v4.6.3
+Here's a refined version of your content with improved grammar and clarity:
+
+---
+
+# PLOOC (Protected Low-overhead Object-Oriented Programming with ANSI-C) v4.6.3
 
 ## Introduction
+
 ---
-The Protected Low-overhead Object Oriented Programming with ANSI-C, a.k.a PLOOC ['plu:k] is a set of well-polished C macro templates which:
 
-- Provide __protection for private__ class members
+Protected Low-overhead Object-Oriented Programming with ANSI-C, known as PLOOC ['plu:k], is a set of well-polished C macro templates that:
 
-> NOTE: The protection can be disabled by defining macro __\_\_OOC_DEBUG\_\___ to facilitate debug.
+- Provide __protection for private__ class members.
 
-- Support __protected__ members
-- Support __multiple inheritance__ 
-- Support interface implementation
+> NOTE: This protection can be disabled by defining the macro `__OOC_DEBUG__` to facilitate debugging.
+
+- Support __protected__ members.
+- Support __multiple inheritance__.
+- Support interface implementation.
 - Support strict type checking/validation in certain compilers, such as IAR with multi-file compilation enabled.
-- Compliant with __ANSI-C99__ 
-  - ANSI-C90 is also supported but the protection for private feature is disabled.
-- Support **Overload**
-  - Require C11 or _Generic
-- Low-overhead
-> NOTE: Almost ZERO OVERHEAD. The template fully utilises the ANSI-C enforced compilation rules to deliver desired OO features with the the least necessary cost.
+- Comply with __ANSI-C99__.
+  - ANSI-C90 is also supported, but private member protection is disabled.
+- Support **Overload**.
+  - Requires C11 or `_Generic`.
+- Offer low overhead.
+> NOTE: The overhead is nearly ZERO. The template fully utilizes ANSI-C's enforced compilation rules to deliver object-oriented features with minimal necessary cost.
 
-        - Suitable for both bare-metal and RTOS.
-        - Suitable for both 8bit and 32bit MCU
+        - Suitable for both bare-metal and RTOS environments.
+        - Suitable for both 8-bit and 32-bit MCUs.
 
-### What makes PLOOC different from other OOCs?
-The concept of OOC is not new. There are plenty of libraries, SDKs, templates providing objected-oriented programming extensions to ANSI-C language. Although PLOOC emphasises its low-overhead feature in both code size and performance, but a lot of macro template based ooc solutions are also low-overhead. PLOOC doesn't force you to use heap or pool for memory management, it doesn't provide GC feature. It simply leaves those options to users, so it is suitable for even 8bit system. Well, you can take this as draw-backs of PLOOC. I don't want to argue about this.
+### What Makes PLOOC Different from Other OOCs?
 
-**So what really sets PLOOC different from the others? Is it simply another re-invented wheel?**
+The concept of Object-Oriented C (OOC) is not new. There are numerous libraries, SDKs, and templates that extend ANSI-C with object-oriented programming features. Although PLOOC emphasizes its low overhead in both code size and performance, many macro-based OOC solutions also offer low overhead. PLOOC does not force you to use heap or pool memory management, nor does it provide garbage collection (GC) features, leaving these options to the user. This makes it suitable even for 8-bit systems. While some might see this as a drawback, it is a deliberate design choice. I won't argue about this.
 
-The answer is NO. Of course. 
-PLOOC brings an unique feature most of others don't have. It lets private members of a class truly become private, i.e. protected. So users outside of the class source code are prevented from accessing the private members. What they see will be a solid memory, a mask created with byte array. Since class is mimicked by structure in C, the class in PLOOC is implemented with the masked-structure. As people expected, only class source code can access the private members, only class source code of a derived class can access the protected members of the base class and everyone can access the public members.
+**So, what really sets PLOOC apart from the others? Is it simply another reinvented wheel?**
 
-How could this be? You might already figure it out simply through the word "masked-structure". As you noticed, it could be nothing more than a fancy type-cheating trick in header files. 
-The type-cheating trick works well until some strict-type-checking compiler is encountered. The most famous (notorious) one is IAR with multi-file compilation mode enabled. No type-cheating can survive from the bloody axe of IAR multi-file compilation mode. 
+The answer is NO.
 
-    //! the original structure in class source code
+PLOOC introduces a unique feature that most other solutions lack: it ensures that a class's private members are truly private and protected. This means that users outside of the class source code are prevented from accessing these private members. Instead, they see only a solid block of memory, masked as a byte array. Since classes in C are mimicked by structures, PLOOC implements classes using a masked structure. As expected, only the class source code can access the private members, and only the class source code of a derived class can access the protected members of the base class. Public members, however, are accessible to everyone.
+
+How does this work? You might have guessed it from the term "masked structure." Essentially, it's a type-cheating trick in the header files. 
+
+This trick works well until it encounters a strict type-checking compiler. The most famous (or notorious) example is IAR, especially when multi-file compilation mode is enabled. No type-cheating trick can survive the rigorous checks of IAR's multi-file compilation mode.
+
+    //! The original structure in the class source code
     struct byte_queue_t {
         uint8_t   *pchBuffer;
         uint16_t  hwBufferSize;
@@ -42,7 +51,7 @@ The type-cheating trick works well until some strict-type-checking compiler is e
         uint16_t  hwCount;
     };
     
-    //! the masked structure: the class byte_queue_t in header file
+    //! The masked structure: the class byte_queue_t in the header file
     typedef struct byte_queue_t {
         uint8_t chMask [sizeof(struct {
             uint8_t   *pchBuffer;
@@ -53,28 +62,30 @@ The type-cheating trick works well until some strict-type-checking compiler is e
         })];
     } byte_queue_t;
 
-In order to make it work, we have to make sure the class source codes don't include their own interface header file.
-you can even do this...if you are serious about the content
+To make this work, you must ensure that the class source code does not include its own interface header file. You can even go further if you're serious about the content:
 
-	//! the masked structure: the class byte_queue_t in header file
-	typedef struct byte_queue_t {
-	    uint8_t chMask [sizeof(struct {
-	        uint32_t        : 32;
-	        uint16_t        : 16;
-	        uint16_t        : 16;
-	        uint16_t        : 16;
-	        uint16_t        : 16;
-	    })];
-	} byte_queue_t;
+    //! The masked structure: the class byte_queue_t in the header file
+    typedef struct byte_queue_t {
+        uint8_t chMask [sizeof(struct {
+            uint32_t        : 32;
+            uint16_t        : 16;
+            uint16_t        : 16;
+            uint16_t        : 16;
+            uint16_t        : 16;
+        })];
+    } byte_queue_t;
 
-> NOTE: Aforementioned code pieces are only used to show the underlying scheme but are not practical, as you can see, the alignment of the original structure is missing when creating the mask array. To solve the problem, you have to extract the alignment information via \_\_alignof\_\_() operator and set the mask array alignment attribute accordingly using \_\_attribute\_\_((aligned())).
+> NOTE: The above code snippets are provided to illustrate the underlying scheme but are not practical, as the original structure's alignment is missing when creating the mask array. To solve this, you need to extract the alignment information using the `__alignof__()` operator and set the mask array's alignment attribute accordingly using `__attribute__((aligned()))`.
 
- PLOOC provides the "private-protection" feature with a different scheme other than type-cheating, so it support almost all C compilers with C99 feature enabled. As the author, I have to confess that it took me a lot of time to figure it out how to deal with strict-type-checking and the initial scheme was ugly and counter-intuition. Thanks to some inspiring contribution of SimonQian, it took me another 3 months to make PLOOC elegant and simple. The supports from HenryLong are also vital. 
+PLOOC provides the "private-protection" feature with a different scheme, rather than relying on type-cheating. This allows it to support almost all C compilers with C99 features enabled. As the author, I must confess that it took considerable time to figure out how to deal with strict type-checking, and the initial scheme was both ugly and counterintuitive. Thanks to the inspiring contributions of Simon Qian, it took another three months to refine PLOOC into something elegant and simple. Henry Long's support was also crucial.
 
-I hope you can enjoy this unique trying for the object-oriented programming challenge. 
+I hope you enjoy this unique approach to the challenges of object-oriented programming in C.
 
 If you have any questions or suggestions, please feel free to let us know.
 
+--- 
+
+This version improves the grammar and flow while retaining the technical details.
 ## Update Log
 ---
 - \[11/02/2022\] Fix class template, version 4.6.3
