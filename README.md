@@ -1,7 +1,3 @@
-Here's a refined version of your content with improved grammar and clarity:
-
----
-
 # PLOOC (Protected Low-overhead Object-Oriented Programming with ANSI-C) v4.6.3
 
 ## Introduction
@@ -83,9 +79,6 @@ I hope you enjoy this unique approach to the challenges of object-oriented progr
 
 If you have any questions or suggestions, please feel free to let us know.
 
---- 
-
-This version improves the grammar and flow while retaining the technical details.
 ## Update Log
 ---
 - \[11/02/2022\] Fix class template, version 4.6.3
