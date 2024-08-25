@@ -71,3 +71,4 @@ CI/PLOOC_template_gcc/MDK-ARM/DebugConfig/PLOOC_template_gcc_STM32F103RC_1.0.0.d
 *.uvguix.*
 RTE_Components.h
 
+example/project/mdk/RTE/Compiler/EventRecorderConf.h
