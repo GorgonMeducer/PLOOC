@@ -1,4 +1,4 @@
-# PLOOC (Protected Low-overhead Object-Oriented Programming with ANSI-C) v4.6.3
+# PLOOC (Protected Low-overhead Object-Oriented Programming with ANSI-C) v4.6.4
 
 ## Introduction
 
@@ -81,12 +81,23 @@ If you have any questions or suggestions, please feel free to let us know.
 
 ## Update Log
 ---
+- \[08/25/2024\] Fix class template, version 4.6.4
+  - Updated Readme
+  
+  - Add `__plooc_malloc_align()` and `__plooc_free`
+  
+  - Add `private_method()`, `protected_method()` and `public_method()`
+  
+  - Remove the dependency on the GNU extensions
+  
+  - Other minor changes.
+  
 - \[11/02/2022\] Fix class template, version 4.6.3
-  
+
 - \[12/05/2022\] Improve compatibility with the latest C++ language, version 4.6.2
-  
+
 - \[02/01/2022\] Add helper macros for heap, version 4.6.1
-    - Add ***\_\_new_class()*** and ***\_\_free_class()*** for using malloc and free together with constructors and destructors, i.e. ***xxxx_init()*** and ***xxxx_depose()***.
+    - Add `__new_class()` and `__free_class()` for using malloc and free together with constructors and destructors, i.e. ***xxxx_init()*** and ***xxxx_depose()***.
     - Update example project
     - Add CI to github. 
 

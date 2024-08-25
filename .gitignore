@@ -66,3 +66,8 @@ example/project/mdk/Objects
 example/project/mdk/RTE/Compiler/.*
 example/project/mdk/RTE/Device/ARMCM3/.*
 example/project/mdk/plooc_example.uvguix.*
+CI/PLOOC_template_gcc/MDK-ARM/DebugConfig/PLOOC_template_gcc_STM32F103RC_1.0.0.dbgconf
+*@*
+*.uvguix.*
+RTE_Components.h
+

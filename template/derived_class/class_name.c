@@ -82,7 +82,20 @@ void <class_name>_depose(<class_name>_t *ptObj)
 
 
 /*! \brief a method only visible for current class and derived class */
-void <class_name>_protected_method_example(<class_name>_t *ptObj)
+void <class_name>_protected_method_example1(<class_name>_t *ptObj)
+{
+    /* initialise "this" (i.e. ptThis) to access class members */
+    class_internal(ptObj, ptThis, <class_name>_t);
+    
+    /* initialise "base" (i.e. ptBase) to access protected members */
+    protected_internal(&this.use_as__<base_class_name>_t, ptBase, <base_class_name>_t);
+    
+    
+    
+}
+
+/*! \brief a method only visible for current class and derived class */
+void <class_name>_protected_method_example2(<class_name>_t *ptObj)
 {
     /* initialise "this" (i.e. ptThis) to access class members */
     class_internal(ptObj, ptThis, <class_name>_t);

@@ -113,9 +113,10 @@ void *byte_queue_target_get(byte_queue_t *ptObj);
 extern 
 void  byte_queue_target_set(byte_queue_t *ptObj, void *pTarget);
 
-#if defined(__BYTE_QUEUE_CLASS_IMPLEMENT) || defined(__BYTE_QUEUE_CLASS_INHERIT__)
-extern mem_t byte_queue_buffer_get(byte_queue_t *ptObj);
-#endif
+/* protected methods that only derived class can see */
+protected_method(
+    extern mem_t byte_queue_buffer_get(byte_queue_t *ptObj);
+)
 
 /*! \note it is very important to undef those macros */
 #undef __BYTE_QUEUE_CLASS_INHERIT

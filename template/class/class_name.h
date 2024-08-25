@@ -93,10 +93,13 @@ extern
 extern
 void <class_name>_depose(<class_name>_t *ptObj);
 
-#if defined(__<CLASS_NAME>_CLASS_IMPLEMENT__) || defined(__<CLASS_NAME>_CLASS_INHERIT__)
-/*! \brief a method only visible for current class and derived class */
-extern void <class_name>_protected_method_example(<class_name>_t *ptObj);
-#endif
+protected_method(
+    /*! \brief a method only visible for current class and derived class */
+    extern void <class_name>_protected_method_example1(<class_name>_t *ptObj);
+
+    /*! \brief a method only visible for current class and derived class */
+    extern void <class_name>_protected_method_example2(<class_name>_t *ptObj);
+)
 
 /*! \note it is very important to undef those macros */
 #undef __<CLASS_NAME>_CLASS_INHERIT__

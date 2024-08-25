@@ -135,6 +135,8 @@ if [ ! -d $PACK_BUILD ]; then
   mkdir -p $PACK_BUILD
 fi
 
+
+
 # Copy files into build base directory: $PACK_BUILD
 # pdsc file is mandatory in base directory:
 cp -f  ./$PACK_VENDOR.$PACK_NAME.pdsc ${PACK_BUILD}
@@ -158,6 +160,10 @@ do
   cp -f  "$f" $PACK_BUILD/ 
 done
 
+echo clean project...
+rm -rf $PACK_BUILD/example/project/mdk/Objects
+rm -rf $PACK_BUILD/example/project/mdk/Listings
+rm -rf $PACK_BUILD/example/project/mdk/*.uvguix.*
 
 
 # Run Schema Check (for Linux only):

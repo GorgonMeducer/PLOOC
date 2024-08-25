@@ -153,10 +153,27 @@
           <Name>(105=-1,-1,-1,-1,0)(106=-1,-1,-1,-1,0)(107=-1,-1,-1,-1,0)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint/>
+      <Breakpoint>
+        <Bp>
+          <Number>0</Number>
+          <Type>0</Type>
+          <LineNumber>84</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>13596</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\..\enhanced_byte_queue\enhanced_byte_queue.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\plooc_example\../../enhanced_byte_queue/enhanced_byte_queue.c\84</Expression>
+        </Bp>
+      </Breakpoint>
       <ScvdPack>
         <Filename>C:\Users\gabriel\AppData\Local\Arm\Packs\Keil\ARM_Compiler\1.7.2\EventRecorder.scvd</Filename>
-        <Type>Keil.ARM_Compiler.1.7.2</Type>
+        <Type>Keil::ARM_Compiler@1.7.2</Type>
         <SubType>1</SubType>
       </ScvdPack>
       <Tracepoint>
@@ -165,7 +182,7 @@
       <DebugFlag>
         <trace>0</trace>
         <periodic>1</periodic>
-        <aLwin>1</aLwin>
+        <aLwin>0</aLwin>
         <aCover>0</aCover>
         <aSer1>0</aSer1>
         <aSer2>0</aSer2>
@@ -182,7 +199,7 @@
         <aLa>0</aLa>
         <aPa1>0</aPa1>
         <AscS4>0</AscS4>
-        <aSer4>1</aSer4>
+        <aSer4>0</aSer4>
         <StkLoc>0</StkLoc>
         <TrcWin>0</TrcWin>
         <newCpu>0</newCpu>

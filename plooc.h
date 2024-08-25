@@ -75,6 +75,15 @@ extern "C" {
 #   endif
 #endif
 
+#ifndef plooc_malloc_align
+#   define plooc_malloc_align(__size, __align)  malloc(__size)
+#endif
+
+#ifndef plooc_free
+#   define plooc_free   free
+#endif
+
+
 /*============================ MACROFIED FUNCTIONS ===========================*/
 
 

@@ -267,7 +267,6 @@ extern "C" {
 #       define __PLOOC_PRO__which(...)              PLOOC_VISIBLE(__VA_ARGS__)
 #   endif
 
-
 #endif
 
 #if defined(__cplusplus)
@@ -276,7 +275,8 @@ extern "C" {
 
 #endif
 
-#   if (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) && !defined(__cplusplus)
+#if (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) 
+    && !defined(__cplusplus)
 #   undef which
 #   define which(__declare)                     ,_which(__declare)
 #else
@@ -294,7 +294,8 @@ extern "C" {
 #define public_member                           ,_public_member
 
 
-
+#if (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L)                  \
+ || defined(__cplusplus)
 
 /*! \brief helper macros for heap managed objects. They use malloc() and free() 
  *!        internally. 
@@ -304,19 +305,47 @@ extern "C" {
  *!
  *! \note  Make sure your destructor is named as <class_name>_depose.
  */
-#define __new_class(__name, ...)                                                \
-    ({__name##_cfg_t tCFG = {                                                   \
-        __VA_ARGS__                                                             \
-    };                                                                          \
+#   undef __new_class
+#   define __new_class(__name, ...)                                             \
     __name##_init(                                                              \
-         (__name##_t *)malloc(sizeof(__name##_t)),                              \
-         &tCFG);})
+         (__name##_t *)plooc_malloc_align(  sizeof(__name##_t),                 \
+                                            PLOOC_ALIGNOF(__name##_t)),         \
+         (__name##_cfg_t []) {{__VA_ARGS__}}                                    \
+         )
 
-#define __free_class(__name, __obj)                                             \
+#   undef __free_class
+#   define __free_class(__name, __obj)                                          \
     do {                                                                        \
         __name##_depose((__name##_t *)(__obj));                                 \
-        free(__obj);                                                            \
+        plooc_free(__obj);                                                      \
     } while(0)
+
+
+#   undef private_method
+#   undef protected_method
+#   undef public_method
+
+#   if defined(__PLOOC_CLASS_IMPLEMENT) || defined(__PLOOC_CLASS_IMPLEMENT__)
+
+#   define private_method(...)          __VA_ARGS__
+#   define protected_method(...)        __VA_ARGS__
+#   define public_method(...)           __VA_ARGS__
+
+#   elif defined(__PLOOC_CLASS_INHERIT) || defined(__PLOOC_CLASS_INHERIT__)
+
+#   define private_method(...)
+#   define protected_method(...)        __VA_ARGS__
+#   define public_method(...)           __VA_ARGS__
+
+#   else
+
+#   define private_method(...)
+#   define protected_method(...)
+#   define public_method(...)           __VA_ARGS__
+
+#   endif
+
+#endif
 
 /*============================ TYPES =========================================*/
 /*============================ GLOBAL VARIABLES ==============================*/

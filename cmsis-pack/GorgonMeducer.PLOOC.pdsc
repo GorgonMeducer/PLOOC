@@ -16,7 +16,12 @@
   <repository type="git">https://github.com/GorgonMeducer/PLOOC.git</repository>
   
   <releases>
-    <release date="2022-11-02" version="4.6.3" url="https://raw.githubusercontent.com/GorgonMeducer/PLOOC/master/cmsis-pack/GorgonMeducer.PLOOC.4.6.3.pack">
+    <release date="2024-08-25" version="4.6.4" url="https://github.com/GorgonMeducer/PLOOC/releases/download/v4.6.3/GorgonMeducer.PLOOC.4.6.4.pack">
+      - Add private_method, protected_method and public_method
+      - Add plooc_malloc_align and plooc_free
+      - Other minor changes.
+    </release>
+    <release date="2022-11-02" version="4.6.3" url="https://github.com/GorgonMeducer/PLOOC/releases/download/v4.6.3/GorgonMeducer.PLOOC.4.6.3.pack">
       - Improve compatibility with the latest C++
       - Fix template
     </release>
@@ -88,15 +93,15 @@
   -->
 
     <components>
-        <component Cclass="Language Extension" Cgroup="PLOOC" Cversion="4.6.2">
+        <component Cclass="Language Extension" Cgroup="PLOOC" Cversion="4.6.4">
           <description>A low-overhead OOPC template.</description>
           <files>
             <file category="header"     name="plooc.h"/>
             <file category="header"     name="plooc_class.h"/>
-            <file category="header"     name="template/class/class_name.h"          attr="template" select="Base Class Template"/>
-            <file category="source"     name="template/class/class_name.c"          attr="template" select="Base Class Template"/>
-            <file category="header"     name="template/derived_class/class_name.h"  attr="template" select="Derived Class Template"/>
-            <file category="source"     name="template/derived_class/class_name.c"  attr="template" select="Derived Class Template"/>
+            <file category="header"     name="template/class/class_name.h"          attr="template" select="Base Class Template"    version="1.1.0"/>
+            <file category="source"     name="template/class/class_name.c"          attr="template" select="Base Class Template"    version="1.1.0"/>
+            <file category="header"     name="template/derived_class/class_name.h"  attr="template" select="Derived Class Template" version="1.1.0"/>
+            <file category="source"     name="template/derived_class/class_name.c"  attr="template" select="Derived Class Template" version="1.1.0"/>
           </files>
         </component>
     </components>
