@@ -14,8 +14,6 @@
  *  limitations under the License.                                           *
  *                                                                           *
  ****************************************************************************/
- 
-
 
 //#ifndef __PLOOC_CLASS_STRICT_H__          /* deliberately comment this out! */
 //#define __PLOOC_CLASS_STRICT_H__          /* deliberately comment this out! */

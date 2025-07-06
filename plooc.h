@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright(C)2009-2019 by GorgonMeducer<embedded_zhuoran@hotmail.com>    *
+ *   Copyright(C)2009-2025 by GorgonMeducer<embedded_zhuoran@hotmail.com>    *
  *                                                                           *
  *  Licensed under the Apache License, Version 2.0 (the "License");          *
  *  you may not use this file except in compliance with the License.         *
@@ -44,6 +44,9 @@
 #   pragma clang diagnostic ignored "-Wmissing-declarations"
 #   pragma clang diagnostic ignored "-Wempty-body"
 #   pragma clang diagnostic ignored "-Wmicrosoft-anon-tag"
+#   pragma clang diagnostic ignored "-Wmissing-field-initializers"
+#   pragma clang diagnostic ignored "-Wmissing-declarations"
+#   pragma clang diagnostic ignored "-Wmissing-braces"
 #elif ((__ARMCC_VERSION >= 5000000) && (__ARMCC_VERSION < 6000000))
 /*! arm compiler 5 */
 #   pragma push
@@ -57,6 +60,7 @@
 #   pragma GCC diagnostic ignored "-Wpragmas"
 #   pragma GCC diagnostic ignored "-Wformat="
 #   pragma GCC diagnostic ignored "-Wmissing-braces"
+#   pragma GCC diagnostic ignored "-Wmissing-declarations"
 #endif
 
 
@@ -86,6 +90,50 @@ extern "C" {
 
 /*============================ MACROFIED FUNCTIONS ===========================*/
 
+/* helper macros */
+#ifndef PLOOC_UNUSED_PARAM
+#   define PLOOC_UNUSED_PARAM(__N)      (void)(__N)
+#endif
+
+#ifndef __PLOOC_ALIGN
+#   define __PLOOC_ALIGN(__N)           __attribute__((aligned(__N)))
+#endif
+#ifndef PLOOC_ALIGN
+#   define PLOOC_ALIGN(__N)             __PLOOC_ALIGN(__N)
+#endif
+/*
+#ifndef PLOOC_DEFAULT_OBJ_ALIGN
+#   define PLOOC_DEFAULT_OBJ_ALIGN      sizeof(uint_fast8_t)
+#endif
+*/
+#ifndef PLOOC_PACKED
+#   define PLOOC_PACKED                 __attribute__((packed))
+#endif
+
+
+#undef PLOOC_ALIGNOF_STRUCT
+#undef PLOOC_SIZEOF_STRUCT
+
+#if (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) && !defined(__cplusplus) 
+
+#   ifndef PLOOC_ALIGNOF
+#       define PLOOC_ALIGNOF(__TYPE)           __alignof__(__TYPE)
+#   endif
+
+#   define PLOOC_ALIGNOF_STRUCT(__TYPE)       PLOOC_ALIGNOF(struct {__TYPE})
+#   define PLOOC_SIZEOF_STRUCT(__TYPE)        sizeof(struct {__TYPE})
+
+#else
+
+#   ifndef PLOOC_ALIGNOF
+#       define PLOOC_ALIGNOF(...)           __alignof__(__VA_ARGS__)
+#   endif
+
+#   define PLOOC_ALIGNOF_STRUCT(...)       PLOOC_ALIGNOF(struct {__VA_ARGS__})
+#   define PLOOC_SIZEOF_STRUCT(...)        sizeof(struct {__VA_ARGS__})
+
+#endif
+
 
 /*! \note add which macro to support multiple inheriting and implementations
  *!
@@ -105,6 +153,13 @@ extern "C" {
  *!           ...
  *!       end_def_interface( i_lv1_t )
   */
+
+#undef __declare_interface
+#undef __declare_structure
+#undef __def_interface
+#undef __end_def_interface
+#undef __def_structure
+#undef __end_def_structure
 
 #define __declare_interface(__name)   typedef struct __name __name;
 #define __declare_structure(__name)   typedef struct __name __name;
@@ -157,6 +212,19 @@ extern "C" {
 
 //! \brief macro for inheritance
 
+#undef __IMPLEMENT_EX
+#undef __INHERIT_EX
+#undef __IMPLEMENT
+#undef __INHERIT
+#undef INHERIT
+#undef INHERIT_EX
+#undef IMPLEMENT
+#undef IMPLEMENT_EX
+#undef OBJ_CONVERT_AS
+#undef __OBJ_CONVERT_AS
+#undef __REF_OBJ_AS
+#undef REF_OBJ_AS
+
 #if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L
 #define __IMPLEMENT_EX(__TYPE, __NAME)                                          \
             __TYPE  __NAME;                                                 
@@ -194,13 +262,34 @@ extern "C" {
 
 #define __REF_OBJ_AS(__OBJ, __TYPE)             (&(__OBJ.use_as__##__TYPE))
 #define REF_OBJ_AS(__OBJ, __TYPE)               __REF_OBJ_AS((__OBJ), __TYPE)
-           
-           
+
+
 #if (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || defined(__cplusplus)
 /*! \brief You can use __PLOOC_EVAL() to dynamically select the right API which
  *!        has the right number of parameters (no more than 8).
  */
 //! @{
+#undef __PLOOC_VA_NUM_ARGS_IMPL
+#undef __PLOOC_VA_NUM_ARGS
+#undef __16_PLOOC_EVAL
+#undef __15_PLOOC_EVAL
+#undef __14_PLOOC_EVAL
+#undef __13_PLOOC_EVAL
+#undef __12_PLOOC_EVAL
+#undef __11_PLOOC_EVAL
+#undef __10_PLOOC_EVAL
+#undef __9_PLOOC_EVAL
+#undef __8_PLOOC_EVAL
+#undef __7_PLOOC_EVAL
+#undef __6_PLOOC_EVAL
+#undef __5_PLOOC_EVAL
+#undef __4_PLOOC_EVAL
+#undef __3_PLOOC_EVAL
+#undef __2_PLOOC_EVAL
+#undef __1_PLOOC_EVAL
+#undef __0_PLOOC_EVAL
+#undef __PLOOC_EVAL
+
 #define __PLOOC_VA_NUM_ARGS_IMPL(   _0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,  \
                                     _13,_14,_15,_16,__N,...)      __N
 #define __PLOOC_VA_NUM_ARGS(...)                                                \
@@ -236,6 +325,19 @@ extern "C" {
 /*----------------------------------------------------------------------------* 
  * new standard (lower case)                                                  *
  *----------------------------------------------------------------------------*/
+#undef def_interface
+#undef define_interface
+#undef def_structure
+#undef define_structure
+#undef def_params
+#undef define_params
+#undef end_def_params
+#undef end_define_params
+#undef def_members
+#undef define_members
+#undef end_def_members
+#undef end_define_members
+
 #if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L
 #   define def_interface(__name)            __def_interface(__name)
 #   define define_interface(__name)         __def_interface(__name)
@@ -264,6 +366,27 @@ extern "C" {
 #   define end_define_members(...)
 #endif
 
+#undef implement
+#undef implement_ex
+#undef inherit_ex
+#undef inherit
+#undef ref_interface
+#undef convert_obj_as
+#undef obj_convert_as
+#undef ref_obj_as
+
+#undef end_def_interface
+#undef end_define_interface
+#undef dcl_interface
+#undef declare_interface
+#undef end_def_structure
+#undef end_define_structure
+#undef dcl_structure
+#undef declare_structure
+
+#undef this_interface
+#undef base_obj
+
 #define implement(__type)                   IMPLEMENT(__type)
 #define implement_ex(__type, __name)        __IMPLEMENT_EX(__type, __name)
 #define inherit_ex(__type, __name)          INHERIT_EX(__type, __name)
@@ -284,9 +407,7 @@ extern "C" {
 
 #define this_interface(__INTERFACE)         convert_obj_as(this, __INTERFACE)
 #define base_obj(__type)                    convert_obj_as(this, __type)
-           
 
-        
 /*============================ TYPES =========================================*/
 
 //! \name interface: u32_property_t

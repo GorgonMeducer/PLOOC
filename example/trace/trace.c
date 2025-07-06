@@ -20,6 +20,13 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+
+#if defined(__clang__)
+#   pragma clang diagnostic push
+#   pragma clang diagnostic ignored "-Wunknown-warning-option"
+#   pragma clang diagnostic ignored "-Wreserved-identifier"
+#   pragma clang diagnostic ignored "-Wsign-compare"
+#endif
 /*============================ MACROS ========================================*/
 #ifndef TRACE_DISPLAY_WIDTH
 #   define TRACE_DISPLAY_WIDTH          16
@@ -74,7 +81,7 @@ const i_trace_t TRACE = {
 
 static void __trace_init(trace_cfg_t *ptCFG)
 {
-    
+    PLOOC_UNUSED_PARAM(ptCFG);
 }
 
 static void __trace_string(const char * pchString)

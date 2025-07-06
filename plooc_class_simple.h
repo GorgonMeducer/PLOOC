@@ -1,7 +1,6 @@
 /*****************************************************************************
  *   Copyright(C)2009-2019 by GorgonMeducer<embedded_zhuoran@hotmail.com>    *
  *                       and  SimonQian<simonqian@simonqian.com>             *
- *         with support from  HenryLong<henry_long@163.com>                  *
  *                                                                           *
  *  Licensed under the Apache License, Version 2.0 (the "License");          *
  *  you may not use this file except in compliance with the License.         *

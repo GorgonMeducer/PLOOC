@@ -83,6 +83,8 @@ byte_queue_t * byte_queue_init(byte_queue_t *ptObj, byte_queue_cfg_t *ptCFG)
 
 void byte_queue_depose(byte_queue_t *ptObj)
 {
+    PLOOC_UNUSED_PARAM(ptObj);
+
     /*! nothing to do */
     printf("destruct byte_queue. \r\n");
     

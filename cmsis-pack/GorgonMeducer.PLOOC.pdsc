@@ -16,7 +16,10 @@
   <repository type="git">https://github.com/GorgonMeducer/PLOOC.git</repository>
   
   <releases>
-    <release date="2024-08-25" version="4.6.4" url="https://github.com/GorgonMeducer/PLOOC/releases/download/v4.6.3/GorgonMeducer.PLOOC.4.6.4.pack">
+    <release date="2025-07-06" version="4.6.5" url="https://github.com/GorgonMeducer/PLOOC/releases/download/v4.6.5/GorgonMeducer.PLOOC.4.6.5.pack">
+      - Undefine some macros to avoid warnings.
+    </release>
+    <release date="2024-08-25" version="4.6.4" url="https://github.com/GorgonMeducer/PLOOC/releases/download/v4.6.4/GorgonMeducer.PLOOC.4.6.4.pack">
       - Add private_method, protected_method and public_method
       - Add plooc_malloc_align and plooc_free
       - Other minor changes.
@@ -93,8 +96,8 @@
   -->
 
     <components>
-        <component Cclass="Language Extension" Cgroup="PLOOC" Cversion="4.6.4">
-          <description>A low-overhead OOPC template.</description>
+        <component Cclass="Language Extension" Cgroup="PLOOC" Cversion="4.6.5">
+          <description>A low-overhead OOPC header-file-only template.</description>
           <files>
             <file category="header"     name="plooc.h"/>
             <file category="header"     name="plooc_class.h"/>

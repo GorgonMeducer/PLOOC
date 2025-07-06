@@ -72,3 +72,5 @@ CI/PLOOC_template_gcc/MDK-ARM/DebugConfig/PLOOC_template_gcc_STM32F103RC_1.0.0.d
 RTE_Components.h
 
 example/project/mdk/RTE/Compiler/EventRecorderConf.h
+example/project/mdk/RTE/_arm_compiler_6_example/Pre_Include_Global.h
+example/project/mdk/RTE/CMSIS-View/EventRecorderConf.h

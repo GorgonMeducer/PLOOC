@@ -1,7 +1,6 @@
 /*****************************************************************************
- *   Copyright(C)2009-2019 by GorgonMeducer<embedded_zhuoran@hotmail.com>    *
+ *   Copyright(C)2009-2025 by GorgonMeducer<embedded_zhuoran@hotmail.com>    *
  *                       and  SimonQian<simonqian@simonqian.com>             *
- *         with support from  HenryLong<henry_long@163.com>                  *
  *                                                                           *
  *  Licensed under the Apache License, Version 2.0 (the "License");          *
  *  you may not use this file except in compliance with the License.         *
@@ -16,7 +15,6 @@
  *  limitations under the License.                                           *
  *                                                                           *
  ****************************************************************************/
-
 
 #if defined(__cplusplus) || defined(__OOC_CPP__)
 #   undef __PLOOC_CLASS_USE_STRICT_TEMPLATE__ 
@@ -124,21 +122,6 @@ extern "C" {
 #endif
 //! @}
 
-#ifndef __PLOOC_ALIGN
-#   define __PLOOC_ALIGN(__N)           __attribute__((aligned(__N)))
-#endif
-#ifndef PLOOC_ALIGN
-#   define PLOOC_ALIGN(__N)             __PLOOC_ALIGN(__N)
-#endif
-/*
-#ifndef PLOOC_DEFAULT_OBJ_ALIGN
-#   define PLOOC_DEFAULT_OBJ_ALIGN      sizeof(uint_fast8_t)
-#endif
-*/
-#ifndef PLOOC_PACKED
-#   define PLOOC_PACKED                 __attribute__((packed))
-#endif
-
 //! @{
 #ifndef PLOOC_CONNECT2
 #   define PLOOC_CONNECT2( __A, __B)        __PLOOC_CONNECT2( __A, __B)
@@ -150,29 +133,13 @@ extern "C" {
 #   define PLOOC_CONNECT4( __A, __B, __C, __D)  __PLOOC_CONNECT4( __A, __B, __C, __D)
 #endif
 //! @}
-                             
-#ifndef PLOOC_UNUSED_PARAM
-#   define PLOOC_UNUSED_PARAM(__N)      do {(__N) = (__N);}while(0)
-#endif
 
 
-#if (!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) && !defined(__cplusplus) 
+//#if !((!defined(__STDC_VERSION__) || __STDC_VERSION__ < 199901L) && !defined(__cplusplus))
+#if ((defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L)) || defined(__cplusplus)
 
-#   ifndef PLOOC_ALIGNOF
-#       define PLOOC_ALIGNOF(__TYPE)           __alignof__(__TYPE)
-#   endif
-
-#   define PLOOC_ALIGNOF_STRUCT(__TYPE)       PLOOC_ALIGNOF(struct {__TYPE})
-#   define PLOOC_SIZEOF_STRUCT(__TYPE)        sizeof(struct {__TYPE})
-
-#else
-
-#   ifndef PLOOC_ALIGNOF
-#       define PLOOC_ALIGNOF(...)           __alignof__(__VA_ARGS__)
-#   endif
-
-#   define PLOOC_ALIGNOF_STRUCT(...)       PLOOC_ALIGNOF(struct {__VA_ARGS__})
-#   define PLOOC_SIZEOF_STRUCT(...)        sizeof(struct {__VA_ARGS__})
+#undef PLOOC_VISIBLE
+#undef PLOOC_INVISIBLE
 
 /*! \note When both __OOC_DEBUG__ and 
  *!       PLOOC_CFG_REMOVE_MEMORY_LAYOUT_BOUNDARY___USE_WITH_CAUTION___ are 
@@ -224,8 +191,6 @@ extern "C" {
 #   define __PLOOC_EXT_
 #   define __PLOOC_PRI_
 #   define __PLOOC_PRO_
-
-
 
 #   ifdef __OOC_DEBUG__
 

@@ -1,5 +1,5 @@
 /*****************************************************************************
- *   Copyright(C)2009-2019 by GorgonMeducer<embedded_zhuoran@hotmail.com>    *
+ *   Copyright(C)2009-2025 by GorgonMeducer<embedded_zhuoran@hotmail.com>    *
  *                                                                           *
  *  Licensed under the Apache License, Version 2.0 (the "License");          *
  *  you may not use this file except in compliance with the License.         *
@@ -137,7 +137,12 @@ typedef struct
 #define CMSDK_UART1             ((CMSDK_UART_TypeDef              *) CMSDK_UART1_BASE       )
 #define CMSDK_UART2             ((CMSDK_UART_TypeDef              *) CMSDK_UART2_BASE       )
 
-
+#undef __DOES_STDOUT_USE_EVENT_RECORDER__
+#if defined(RTE_Compiler_EventRecorder) || defined(RTE_CMSIS_Compiler_STDOUT_Event_Recorder)
+#   define __DOES_STDOUT_USE_EVENT_RECORDER__           1
+#   else
+#   define __DOES_STDOUT_USE_EVENT_RECORDER__           0
+#endif
 
 /*============================ MACROFIED FUNCTIONS ===========================*/
 /*============================ TYPES =========================================*/
@@ -146,6 +151,11 @@ typedef struct
 /*============================ PROTOTYPES ====================================*/
 /*============================ IMPLEMENTATION ================================*/
 
+void SysTick_Handler(void)
+{
+}
+
+#if !__DOES_STDOUT_USE_EVENT_RECORDER__
 static void stdout_init(void)
 {
     CMSDK_UART0->CTRL = 0;         /* Disable UART when changing configuration */
@@ -168,40 +178,19 @@ char stdin_getchar(void)
     while(!(CMSDK_UART0->STATE & CMSDK_UART_STATE_RXBF_Msk));
     return (char)(CMSDK_UART0->DATA);
 }
+#endif
 
 
 void platform_init(void)
 {
-#if defined(RTE_Compiler_EventRecorder)
+#if __DOES_STDOUT_USE_EVENT_RECORDER__
     EventRecorderInitialize(0, 1);
 #else
     stdout_init();
 #endif
 }
 
-#if !defined(RTE_Compiler_EventRecorder)
-/**
-   Writes the character specified by c (converted to an unsigned char) to
-   the output stream pointed to by stream, at the position indicated by the
-   associated file position indicator (if defined), and advances the
-   indicator appropriately. If the file position indicator is not defined,
-   the character is appended to the output stream.
- 
-  \param[in] c       Character
-  \param[in] stream  Stream handle
- 
-  \return    The character written. If a write error occurs, the error
-             indicator is set and fputc returns EOF.
-*/
-int fputc (int c, FILE * stream) {
-#if (!defined(RTE_Compiler_IO_STDOUT) && !defined(RTE_Compiler_IO_STDERR))
-  (void)c;
-  (void)stream;
-#endif
-
-    return (stdout_putchar(c));
-
-}
+#if !__DOES_STDOUT_USE_EVENT_RECORDER__
 
 #if __IS_COMPILER_GCC__
 int _write (int fd, char *ptr, int len)
